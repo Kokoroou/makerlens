@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, '_site');
-const ALLOWED_HOSTS = new Set(['kokoroou.goatcounter.com']);
+const ALLOWED_HOSTS = new Set(['makerlens.goatcounter.com']);
 const errors = [];
 const fail = (f, m) => errors.push(`${f}: ${m}`);
 
