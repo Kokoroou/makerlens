@@ -35,6 +35,6 @@ npm run dev   # wrangler dev on http://localhost:8787/
 
 - **Static and client-side only.** Same legal position as the tools (see rpgmaker-assets-viewer `LEGAL.md`): the Worker never receives game files; do not add upload or storage endpoints. `src/worker.js` only maps paths to static files.
 - **No third-party hosts.** Landing CSP is `'self'` plus the GoatCounter pixel; no inline `<script>` or `style=""` (checked by `scripts/check-site.mjs`). The landing page reuses `/assets/css/tokens.css`, `/assets/js/site.js` and `/assets/js/analytics.js`, so analytics stays exactly what `/assets/privacy.html` describes.
-- **Shared origin.** All tools share one origin and so one `localStorage`: keep keys distinct per tool (Assets: `theme`, `feedback`, `sidebar*`; Events: `mle-theme`). The landing page reads Assets' `theme`.
+- **Shared origin.** All tools share one origin and so one `localStorage`: keep keys distinct per tool (Assets: `theme`, `feedback`, `sidebar*`; Events: `mle-theme`, `mle-feedback`). The landing page reads Assets' `theme`.
 - **Brand: MakerLens.** Magnifier mark, green `--a` action colour, "Maker**Lens** + suffix" wordmark.
 - **One design system.** Assets' `css/tokens.css` is the source; Events keeps a verbatim copy (each tool must also run on its own, so it cannot link `/assets/`), and `scripts/check-site.mjs` fails the build if `/events/css/tokens.css` differs from `/assets/css/tokens.css`.
