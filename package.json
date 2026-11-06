@@ -1,0 +1,17 @@
+{
+  "name": "makerlens",
+  "private": true,
+  "description": "MakerLens: landing page + build/deploy of the MakerLens tools on one Cloudflare Worker",
+  "scripts": {
+    "build": "scripts/build.sh",
+    "check": "node scripts/check-site.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

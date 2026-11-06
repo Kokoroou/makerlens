@@ -1,0 +1,8 @@
+# Response headers for every static file (Workers static assets `_headers`).
+# Each page also sets its own Content-Security-Policy <meta>; the header below
+# only adds what a <meta> CSP cannot (frame-ancestors), so the policies combine.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: frame-ancestors 'none'
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()

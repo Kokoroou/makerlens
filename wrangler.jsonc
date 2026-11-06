@@ -1,0 +1,22 @@
+// One Worker serves the whole MakerLens family as static files:
+//   /         landing page (site/)
+//   /assets/  MakerLens Assets  (Kokoroou/rpgmaker-assets-viewer)
+//   /events/  MakerLens Events  (Kokoroou/rpgmaker-events-viewer)
+// `npm run build` assembles them into _site/. Files are served as static assets
+// (free, not counted against Worker limits); src/worker.js runs only on a miss,
+// to serve directory index pages and the 404 page.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "makerlens",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./_site",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "observability": { "enabled": false }
+}

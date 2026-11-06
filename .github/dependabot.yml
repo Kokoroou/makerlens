@@ -1,0 +1,25 @@
+# From agent-toolkit's templates/.github/dependabot.yml: pinned GitHub Actions
+# and the pinned wrangler version.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    cooldown: # wait before adopting a new release (compromised / broken publishes)
+      default-days: 7
+    directory: /
+    target-branch: main
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns: ["*"]
+  - package-ecosystem: npm
+    cooldown:
+      default-days: 14
+    directory: /
+    target-branch: main
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: deps

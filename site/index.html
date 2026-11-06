@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Same-origin only, plus the GoatCounter pixel (js: /assets/js/analytics.js). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://kokoroou.goatcounter.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>MakerLens — free browser tools for RPG Maker games</title>
+<meta name="description" content="MakerLens is a family of free tools that look inside RPG Maker games right in your browser: extract images and audio, or see event flow as a graph. Your files are never uploaded.">
+<link rel="canonical" href="https://makerlens.kokoroou.workers.dev/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://makerlens.kokoroou.workers.dev/">
+<meta property="og:title" content="MakerLens — free browser tools for RPG Maker games">
+<meta property="og:description" content="Extract images and audio, or see event flow as a graph. Runs in your browser — your files are never uploaded.">
+<meta property="og:image" content="https://makerlens.kokoroou.workers.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MakerLens",
+  "url": "https://makerlens.kokoroou.workers.dev/",
+  "description": "Free browser tools for RPG Maker games. Files are processed locally and never uploaded.",
+  "hasPart": [
+    { "@type": "WebApplication", "name": "MakerLens Assets", "url": "https://makerlens.kokoroou.workers.dev/assets/", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (web browser)", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "WebApplication", "name": "MakerLens Events", "url": "https://makerlens.kokoroou.workers.dev/events/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (web browser)", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/css/landing.css">
+<script src="/js/theme-init.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/" aria-label="MakerLens home">
+    <span class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M7.5 12.5l2-2.5 1.5 1.8 1-1.3 1.5 2" stroke-width="1.6"/></svg></span>
+    <span class="word">Maker<span>Lens</span></span>
+  </a>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Look inside RPG Maker games</h1>
+    <p class="lead">Free tools that open a game folder right in your browser. <strong>Your files never leave your device</strong> — nothing to install, no account.</p>
+  </section>
+
+  <section class="tools" aria-label="Tools">
+    <a class="tool" href="/assets/">
+      <span class="tool-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="9.5" r="1.8"/><path d="M21 16l-5.5-5.5L5 20"/></svg></span>
+      <h2>Maker<span>Lens</span> <em>Assets</em></h2>
+      <p>Preview and download the encrypted images and audio of a game: <code>.rpgmvp</code>, <code>.png_</code>, <code>.ogg_</code>, <code>.rgss3a</code> and more.</p>
+      <ul class="chips" aria-label="Supported versions"><li>MV</li><li>MZ</li><li>XP</li><li>VX</li><li>VX Ace</li></ul>
+      <span class="go">Open Assets <span aria-hidden="true">→</span></span>
+    </a>
+
+    <a class="tool" href="/events/">
+      <span class="tool-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="10" width="7" height="5" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/><path d="M6.5 8v8M10 5.5h3a1.5 1.5 0 011.5 1.5v3"/></svg></span>
+      <h2>Maker<span>Lens</span> <em>Events</em></h2>
+      <p>See the dialogue, choices, conditions and switches of any map or common event as a flow graph. Read-only: the game is never changed.</p>
+      <ul class="chips" aria-label="Supported versions"><li>MV</li><li>MZ</li></ul>
+      <span class="go">Open Events <span aria-hidden="true">→</span></span>
+    </a>
+  </section>
+
+  <section class="promise" aria-label="How it works">
+    <div><h3>Local only</h3><p>Files are read by your browser with the File API. No upload, no server copy.</p></div>
+    <div><h3>Works offline</h3><p>Once a page has loaded, it keeps working without a connection.</p></div>
+    <div><h3>Free and open</h3><p>Source code on GitHub. No ads, no sign-up.</p></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <a href="/assets/privacy.html">Privacy</a>
+  <a href="/assets/faq.html">FAQ</a>
+  <a href="https://github.com/Kokoroou/makerlens" rel="noopener">GitHub</a>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+<script src="/assets/js/analytics.js"></script>
+</body>
+</html>
