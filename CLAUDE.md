@@ -15,7 +15,8 @@ scripts/build.sh      assembles _site/ (ASSETS_SRC / EVENTS_SRC override the too
 scripts/check-site.mjs checks _site/: tools in place, landing CSP/hosts, local links, JSON-LD,
                       root favicon, and every og:image/twitter:image/JSON-LD image on this host exists
 scripts/og-images.mjs  redraws og-image.png (landing + each tool) and the icons with Playwright; output is committed
-src/worker.js         runs only when no static file matches: dir/ → dir/index.html, dir → 301 dir/, else 404.html
+src/worker.js         runs only when no static file matches: a//b → 301 a/b, dir/ → dir/index.html, dir → 301 dir/, else 404.html
+tests/worker.test.mjs src/worker.js against a fake ASSETS binding (npm test), incl. no open redirect
 wrangler.jsonc        Worker config; html_handling "none" keeps .html URLs (faq.html) as on the old GitHub Pages site
 ```
 
@@ -25,18 +26,19 @@ wrangler.jsonc        Worker config; html_handling "none" keeps .html URLs (faq.
 npm ci
 ASSETS_SRC=../rpgmaker-assets-viewer EVENTS_SRC=../rpgmaker-events-viewer npm run build
 npm run check
+npm test      # src/worker.js
 npm run dev   # wrangler dev on http://localhost:8787/
 ```
 
 ## CI/CD
 
-- `.github/workflows/ci.yml` — agent-toolkit quality gate; builds from the tools' `main` and runs `npm run check` (+ Gitleaks, Semgrep).
-- `.github/workflows/deploy.yml` — on push to `main`, `repository_dispatch: tool-updated` (sent by each tool repo's `notify-makerlens.yml`) or by hand with optional tool refs: runs the Assets repo's own checks, builds, checks, `wrangler deploy`. Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+- `.github/workflows/ci.yml` — agent-toolkit quality gate; builds from the tools' `main` and runs `npm run check` and `npm test` (+ Gitleaks, Semgrep).
+- `.github/workflows/deploy.yml` — on push to `main`, `repository_dispatch: tool-updated` (sent by each tool repo's `notify-makerlens.yml`) or by hand with optional tool refs: runs both tool repos' own checks, `npm test`, builds, checks, `wrangler deploy`. Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 - `wrangler` is pinned exactly in `package.json` (4.153.0+: earlier versions pull a vulnerable undici) (Dependabot updates it with a cooldown).
 
 ## Rules
 
-- **Static and client-side only.** Same legal position as the tools (see rpgmaker-assets-viewer `LEGAL.md`): the Worker never receives game files; do not add upload or storage endpoints. `src/worker.js` only maps paths to static files.
+- **Static and client-side only.** Same legal position as the tools (see rpgmaker-assets-viewer `LEGAL.md`): the Worker never receives game files; do not add upload or storage endpoints. `src/worker.js` only maps paths to static files; build every URL and `Location` as origin + a path with one leading `/` (never `new URL(requestPath, base)`: `//host/…` there is an open redirect).
 - **No third-party hosts.** Landing CSP is `'self'` plus the GoatCounter pixel; no inline `<script>` or `style=""` (checked by `scripts/check-site.mjs`). The landing page reuses `/assets/css/tokens.css`, `/assets/js/site.js` and `/assets/js/analytics.js`, so analytics stays exactly what `/assets/privacy.html` describes.
 - **Shared origin.** All tools share one origin and so one `localStorage`: keep keys distinct per tool (Assets: `theme`, `feedback`, `sidebar*`; Events: `mle-theme`, `mle-feedback`). The landing page reads Assets' `theme`.
 - **Brand: MakerLens.** Magnifier mark, green `--a` action colour, "Maker**Lens** + suffix" wordmark.

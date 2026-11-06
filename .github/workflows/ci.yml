@@ -32,7 +32,8 @@ jobs:
       # Tools in place, CSP/hosts, local links, JSON-LD (scripts/check-site.mjs).
       lint-command: npm run check
       format-check-command: ""
-      test-command: ""
+      # src/worker.js against a fake ASSETS binding (tests/worker.test.mjs).
+      test-command: npm test
       coverage-command: ""
       baseline-branch: main
       enable-pr-title-check: false
