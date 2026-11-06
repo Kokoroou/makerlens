@@ -24,11 +24,13 @@ for (const p of ['index.html', 'assets/index.html', 'assets/js/site.js', 'assets
 }
 
 // Pages owned by this repo
+// Search-console verification files (e.g. naver<hash>.html) are plain tokens, not pages.
+const VERIFY_FILE = /^(?:naver[0-9a-f]+|google[0-9a-f]+)\.html$/;
 const own = [];
 (function walk(dir) {
   for (const n of readdirSync(dir)) {
     const f = join(dir, n);
-    if (statSync(f).isDirectory()) walk(f); else if (n.endsWith('.html')) own.push(relative(join(root, 'site'), f));
+    if (statSync(f).isDirectory()) walk(f); else if (n.endsWith('.html') && !VERIFY_FILE.test(n)) own.push(relative(join(root, 'site'), f));
   }
 }(join(root, 'site')));
 
