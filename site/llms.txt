@@ -5,7 +5,7 @@
 ## Tools
 
 - [MakerLens Assets](https://makerlens.kokoroou.workers.dev/assets/): preview and download the encrypted images and audio of RPG Maker MV, MZ, XP, VX and VX Ace games (.rpgmvp, .rpgmvo, .png_, .ogg_, .m4a_, .rgssad, .rgss2a, .rgss3a). Details: https://makerlens.kokoroou.workers.dev/assets/llms.txt
-- [MakerLens Events](https://makerlens.kokoroou.workers.dev/events/): see the event commands of RPG Maker MV / MZ maps and common events (dialogue, choices, conditions, switches, variables, labels and jumps) as an interactive flow graph. Read-only.
+- [MakerLens Events](https://makerlens.kokoroou.workers.dev/events/): see the event commands of RPG Maker MV / MZ maps and common events (dialogue, choices, conditions, switches, variables, labels and jumps) as an interactive flow graph. Read-only. FAQ: https://makerlens.kokoroou.workers.dev/events/faq.html
 
 ## Who it's for
 
