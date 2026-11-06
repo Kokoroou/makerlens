@@ -1,0 +1,78 @@
+# Build the whole MakerLens site and deploy it to the Cloudflare Worker
+# https://makerlens.kokoroou.workers.dev/
+#
+# Triggers:
+#   - push to main (landing page / Worker config changed)
+#   - repository_dispatch "tool-updated", sent by the tool repos' notify-makerlens
+#     workflow after a push to their main
+#   - by hand (Actions → Deploy → Run workflow), optionally with other refs of the
+#     tool repos (e.g. a branch, to try it before merging)
+#
+# Repository secrets (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN   — API token with "Workers Scripts: Edit" on the account
+#   CLOUDFLARE_ACCOUNT_ID  — the account that owns kokoroou.workers.dev
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [tool-updated]
+  workflow_dispatch:
+    inputs:
+      assets_ref:
+        description: Ref of Kokoroou/rpgmaker-assets-viewer to deploy at /assets/
+        default: main
+      events_ref:
+        description: Ref of Kokoroou/rpgmaker-events-viewer to deploy at /events/
+        default: main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+      url: https://makerlens.kokoroou.workers.dev/
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Kokoroou/rpgmaker-assets-viewer
+          ref: ${{ inputs.assets_ref || 'main' }}
+          path: tools/assets
+          persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Kokoroou/rpgmaker-events-viewer
+          ref: ${{ inputs.events_ref || 'main' }}
+          path: tools/events
+          persist-credentials: false
+
+      # The Assets repo's own checks, so a ref that breaks them is never deployed.
+      - name: MakerLens Assets checks
+        working-directory: tools/assets
+        run: |
+          node scripts/check-site.mjs
+          node --test "tests/*.test.mjs"
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check
+
+      - name: Deploy to Cloudflare
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

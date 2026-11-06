@@ -1,0 +1,18 @@
+# MakerLens
+
+> Free browser tools that look inside RPG Maker games. Everything runs 100% client-side: game files are read by the browser and never uploaded. No install, no account.
+
+## Tools
+
+- [MakerLens Assets](https://makerlens.kokoroou.workers.dev/assets/): preview and download the encrypted images and audio of RPG Maker MV, MZ, XP, VX and VX Ace games (.rpgmvp, .rpgmvo, .png_, .ogg_, .m4a_, .rgssad, .rgss2a, .rgss3a). Details: https://makerlens.kokoroou.workers.dev/assets/llms.txt
+- [MakerLens Events](https://makerlens.kokoroou.workers.dev/events/): see the event commands of RPG Maker MV / MZ maps and common events (dialogue, choices, conditions, switches, variables, labels and jumps) as an interactive flow graph. Read-only.
+
+## Privacy
+
+https://makerlens.kokoroou.workers.dev/assets/privacy.html
+
+## Source
+
+- https://github.com/Kokoroou/makerlens (this site and its deployment)
+- https://github.com/Kokoroou/rpgmaker-assets-viewer
+- https://github.com/Kokoroou/rpgmaker-events-viewer
