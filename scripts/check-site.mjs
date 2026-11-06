@@ -4,7 +4,9 @@
 //   2. pages in site/ (landing, 404) have a CSP <meta> with no inline <script>
 //      (script-src is 'self' only) and no external host but GoatCounter;
 //   3. every local src/href in those pages resolves to a file in _site/;
-//   4. JSON-LD parses.
+//   4. JSON-LD parses;
+//   5. the shared design tokens are the same in every tool (Events keeps a verbatim
+//      copy of Assets' css/tokens.css so both tools share one look).
 // The tools' own pages are checked in their repos.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, posix, relative, resolve } from 'node:path';
@@ -19,8 +21,17 @@ const fail = (f, m) => errors.push(`${f}: ${m}`);
 if (!existsSync(out)) { console.error('No _site/ — run `npm run build` first.'); process.exit(1); }
 
 // 1. Tools in place
-for (const p of ['index.html', 'assets/index.html', 'assets/js/site.js', 'assets/js/analytics.js', 'assets/css/tokens.css', 'events/index.html']) {
+for (const p of ['index.html', 'assets/index.html', 'assets/js/site.js', 'assets/js/analytics.js', 'assets/css/tokens.css', 'events/index.html', 'events/css/tokens.css']) {
   if (!existsSync(join(out, p))) fail('_site', `missing ${p}`);
+}
+
+// 5. Shared design system: one tokens.css for the whole family
+const SHARED = ['css/tokens.css'];
+for (const f of SHARED) {
+  const a = join(out, 'assets', f), e = join(out, 'events', f);
+  if (existsSync(a) && existsSync(e) && readFileSync(a, 'utf8') !== readFileSync(e, 'utf8')) {
+    fail('events/' + f, `differs from assets/${f}; copy it from rpgmaker-assets-viewer`);
+  }
 }
 
 // Pages owned by this repo
