@@ -27,6 +27,7 @@ This repo holds the landing page and builds/deploys the whole site to one Cloudf
 npm ci
 ASSETS_SRC=../rpgmaker-assets-viewer EVENTS_SRC=../rpgmaker-events-viewer npm run build
 npm run check
+npm test
 npm run dev      # http://localhost:8787/
 ```
 

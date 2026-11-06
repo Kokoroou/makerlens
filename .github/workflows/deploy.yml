@@ -60,14 +60,23 @@ jobs:
           path: tools/events
           persist-credentials: false
 
-      # The Assets repo's own checks, so a ref that breaks them is never deployed.
+      # Each tool repo's own checks (CSP, local links, unit tests), so a ref that breaks
+      # them is never deployed: a push to a tool's main triggers this deploy without
+      # waiting for that repo's CI.
       - name: MakerLens Assets checks
         working-directory: tools/assets
         run: |
           node scripts/check-site.mjs
           node --test "tests/*.test.mjs"
 
+      - name: MakerLens Events checks
+        working-directory: tools/events
+        run: |
+          node scripts/check-site.mjs
+          node --test "tests/*.test.mjs"
+
       - run: npm ci
+      - run: npm test
       - run: npm run build
       - run: npm run check
 
