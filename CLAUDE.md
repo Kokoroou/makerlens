@@ -29,7 +29,7 @@ npm run dev   # wrangler dev on http://localhost:8787/
 
 - `.github/workflows/ci.yml` — agent-toolkit quality gate; builds from the tools' `main` and runs `npm run check` (+ Gitleaks, Semgrep).
 - `.github/workflows/deploy.yml` — on push to `main`, `repository_dispatch: tool-updated` (sent by each tool repo's `notify-makerlens.yml`) or by hand with optional tool refs: runs the Assets repo's own checks, builds, checks, `wrangler deploy`. Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
-- `wrangler` is pinned exactly in `package.json` (Dependabot updates it with a cooldown).
+- `wrangler` is pinned exactly in `package.json` (4.153.0+: earlier versions pull a vulnerable undici) (Dependabot updates it with a cooldown).
 
 ## Rules
 
