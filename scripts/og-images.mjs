@@ -114,6 +114,7 @@ function cardHTML(c) {
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 async function shot(html, file, clip) {
+  // nosemgrep: javascript.playwright.security.audit.playwright-setcontent-injection.playwright-setcontent-injection -- HTML built from constants in this file and site/favicon.svg, no user data
   await page.setContent(html);
   await page.evaluate(() => document.fonts.ready);
   writeFileSync(file, await page.screenshot({ type: 'png', clip, omitBackground: !!clip }));
@@ -128,7 +129,9 @@ for (const [name, env] of [['assets', 'ASSETS_SRC'], ['events', 'EVENTS_SRC']]) 
 // Icons from site/favicon.svg: apple-touch-icon (180, opaque) and favicon.ico (16/32/48 PNGs).
 const fav = readFileSync(join(root, 'site/favicon.svg'), 'utf8');
 const iconPage = s => `<!doctype html><body style="margin:0;background:transparent"><div style="width:${s}px;height:${s}px">${fav.replace('<svg ', `<svg width="${s}" height="${s}" `)}</div></body>`;
+// nosemgrep: javascript.playwright.security.audit.playwright-setcontent-injection.playwright-setcontent-injection -- HTML built from constants in this file and site/favicon.svg, no user data
 const png = async s => { await page.setContent(iconPage(s)); return page.screenshot({ type: 'png', clip: { x: 0, y: 0, width: s, height: s }, omitBackground: true }); };
+// nosemgrep: javascript.playwright.security.audit.playwright-setcontent-injection.playwright-setcontent-injection -- HTML built from constants in this file and site/favicon.svg, no user data
 const touch = (await page.setContent(`<!doctype html><body style="margin:0;background:#15803d"><div style="width:180px;height:180px;display:grid;place-items:center">${fav.replace('<svg ', '<svg width="150" height="150" ').replace(/<rect[^>]*\/>/, '')}</div></body>`),
   await page.screenshot({ type: 'png', clip: { x: 0, y: 0, width: 180, height: 180 } }));
 writeFileSync(join(root, 'site/apple-touch-icon.png'), touch);
