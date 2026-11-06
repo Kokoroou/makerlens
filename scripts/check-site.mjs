@@ -6,7 +6,10 @@
 //   3. every local src/href in those pages resolves to a file in _site/;
 //   4. JSON-LD parses;
 //   5. the shared design tokens are the same in every tool (Events keeps a verbatim
-//      copy of Assets' css/tokens.css so both tools share one look).
+//      copy of Assets' css/tokens.css so both tools share one look);
+//   6. SEO basics on every page of the assembled site, tools included: the root
+//      favicon exists (Google shows one per hostname, from the home page), and each
+//      og:image / twitter:image / JSON-LD image on this host resolves to a file.
 // The tools' own pages are checked in their repos.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, posix, relative, resolve } from 'node:path';
@@ -69,6 +72,27 @@ for (const page of own) {
     if (!existsSync(target)) fail(page, `missing local file '${m[1]}'`);
   }
 }
+
+// 6. Favicon and share images, over every page in _site/ (tools included)
+for (const f of ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png']) {
+  if (!existsSync(join(out, f))) fail('_site', `missing ${f}`);
+}
+const ORIGIN = 'https://makerlens.kokoroou.workers.dev/';
+(function walk(dir) {
+  for (const n of readdirSync(dir)) {
+    const f = join(dir, n);
+    if (statSync(f).isDirectory()) { if (n !== 'vendor') walk(f); continue; }
+    if (!n.endsWith('.html') || VERIFY_FILE.test(n)) continue;
+    const html = readFileSync(f, 'utf8'), page = relative(out, f);
+    const urls = new Set([
+      ...[...html.matchAll(/<meta\s+(?:property|name)="(?:og:image|twitter:image)"\s+content="([^"]+)"/g)].map(m => m[1]),
+      ...[...html.matchAll(/"(?:image|screenshot)":\s*"([^"]+)"/g)].map(m => m[1]),
+    ]);
+    for (const u of urls) {
+      if (u.startsWith(ORIGIN) && !existsSync(join(out, u.slice(ORIGIN.length)))) fail(page, `share image ${u} is not in _site/`);
+    }
+  }
+}(out));
 
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`OK: ${own.length} pages checked, tools at /assets/ and /events/.`);

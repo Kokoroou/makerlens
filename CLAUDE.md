@@ -7,11 +7,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 The home of the MakerLens family at `https://makerlens.kokoroou.workers.dev/`: a landing page plus the build and deploy of the tools onto **one Cloudflare Worker** (a `workers.dev` hostname can only route to one Worker, so the tools cannot deploy themselves to subpaths).
 
 ```
-site/                 → /         landing page, 404.html, robots.txt, sitemap.xml, llms.txt, _headers
+site/                 → /         landing page, 404.html, robots.txt, sitemap.xml, llms.txt, _headers,
+                                  favicon.ico/.svg + apple-touch-icon.png (the only favicon for the whole hostname), og-image.png
 tools/assets (CI)     → /assets/  Kokoroou/rpgmaker-assets-viewer, via its scripts/assemble-site.sh
 tools/events (CI)     → /events/  Kokoroou/rpgmaker-events-viewer (formerly lore-insight), same
 scripts/build.sh      assembles _site/ (ASSETS_SRC / EVENTS_SRC override the tool paths)
-scripts/check-site.mjs checks _site/: tools in place, landing CSP/hosts, local links, JSON-LD
+scripts/check-site.mjs checks _site/: tools in place, landing CSP/hosts, local links, JSON-LD,
+                      root favicon, and every og:image/twitter:image/JSON-LD image on this host exists
+scripts/og-images.mjs  redraws og-image.png (landing + each tool) and the icons with Playwright; output is committed
 src/worker.js         runs only when no static file matches: dir/ → dir/index.html, dir → 301 dir/, else 404.html
 wrangler.jsonc        Worker config; html_handling "none" keeps .html URLs (faq.html) as on the old GitHub Pages site
 ```
@@ -38,3 +41,4 @@ npm run dev   # wrangler dev on http://localhost:8787/
 - **Shared origin.** All tools share one origin and so one `localStorage`: keep keys distinct per tool (Assets: `theme`, `feedback`, `sidebar*`; Events: `mle-theme`, `mle-feedback`). The landing page reads Assets' `theme`.
 - **Brand: MakerLens.** Magnifier mark, green `--a` action colour, "Maker**Lens** + suffix" wordmark.
 - **One design system.** Assets' `css/tokens.css` is the source; Events keeps a verbatim copy (each tool must also run on its own, so it cannot link `/assets/`), and `scripts/check-site.mjs` fails the build if `/events/css/tokens.css` differs from `/assets/css/tokens.css`.
+- **One entity graph (SEO).** JSON-LD uses shared `@id`s: `/#website`, `/#author`, `/assets/#app` (MakerLens Assets), `/events/#app` (MakerLens Events). The landing page declares all four; each tool page repeats its own `@id` and links back with `isPartOf`. Keep names and `applicationCategory` the same on both sides.
