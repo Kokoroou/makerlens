@@ -8,28 +8,78 @@
 <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
 <!-- Same-origin only, plus the GoatCounter pixel (js: /assets/js/analytics.js). -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://kokoroou.goatcounter.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>MakerLens — free browser tools for RPG Maker games</title>
-<meta name="description" content="MakerLens is a family of free tools that look inside RPG Maker games right in your browser: extract images and audio, or see event flow as a graph. Your files are never uploaded.">
+<title>RPG Maker Tools Online: Extractor &amp; Event Viewer | MakerLens</title>
+<meta name="description" content="Free online RPG Maker tools: extract images and audio from MV, MZ, XP and VX Ace games, or see events as a flow graph. Runs in your browser; files stay on your device.">
 <!-- Search-console ownership verification (Google, Yandex; Naver uses /naver*.html). -->
 <meta name="google-site-verification" content="FnVffUw9mNNnalR3VY0JSJLWk53ZJZPw0Ekeueja_5g">
 <meta name="yandex-verification" content="485ca927a68fec8b">
 <link rel="canonical" href="https://makerlens.kokoroou.workers.dev/"> <!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -- a canonical URL, not a fetched resource -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="MakerLens">
 <meta property="og:url" content="https://makerlens.kokoroou.workers.dev/">
 <meta property="og:title" content="MakerLens — free browser tools for RPG Maker games">
 <meta property="og:description" content="Extract images and audio, or see event flow as a graph. Runs in your browser — your files are never uploaded.">
-<meta property="og:image" content="https://makerlens.kokoroou.workers.dev/assets/og-image.png">
+<meta property="og:image" content="https://makerlens.kokoroou.workers.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MakerLens — look inside RPG Maker games in your browser">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MakerLens — free browser tools for RPG Maker games">
+<meta name="twitter:description" content="Extract images and audio, or see event flow as a graph. Runs in your browser — your files are never uploaded.">
+<meta name="twitter:image" content="https://makerlens.kokoroou.workers.dev/og-image.png">
+<meta name="twitter:image:alt" content="MakerLens — look inside RPG Maker games in your browser">
+<!-- One entity graph for the family: the tools' own pages use the same @id values
+     (…/assets/#app, …/events/#app, …/#website, …/#author), so search engines and
+     AI answers connect them. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "MakerLens",
-  "url": "https://makerlens.kokoroou.workers.dev/",
-  "description": "Free browser tools for RPG Maker games. Files are processed locally and never uploaded.",
-  "hasPart": [
-    { "@type": "WebApplication", "name": "MakerLens Assets", "url": "https://makerlens.kokoroou.workers.dev/assets/", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (web browser)", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
-    { "@type": "WebApplication", "name": "MakerLens Events", "url": "https://makerlens.kokoroou.workers.dev/events/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (web browser)", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://makerlens.kokoroou.workers.dev/#website",
+      "name": "MakerLens",
+      "url": "https://makerlens.kokoroou.workers.dev/",
+      "description": "Free browser tools for RPG Maker games. Files are processed locally and never uploaded.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://makerlens.kokoroou.workers.dev/#author" },
+      "hasPart": [
+        { "@id": "https://makerlens.kokoroou.workers.dev/assets/#app" },
+        { "@id": "https://makerlens.kokoroou.workers.dev/events/#app" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://makerlens.kokoroou.workers.dev/#author",
+      "name": "Trương Tuấn Anh",
+      "url": "https://github.com/Kokoroou",
+      "sameAs": ["https://github.com/Kokoroou"]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://makerlens.kokoroou.workers.dev/assets/#app",
+      "name": "MakerLens Assets",
+      "url": "https://makerlens.kokoroou.workers.dev/assets/",
+      "description": "View and extract encrypted images and audio from RPG Maker MV, MZ, XP, VX and VX Ace games in the browser.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any (web browser)",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://makerlens.kokoroou.workers.dev/events/#app",
+      "name": "MakerLens Events",
+      "url": "https://makerlens.kokoroou.workers.dev/events/",
+      "description": "See the event commands of RPG Maker MV and MZ games (dialogue, choices, conditions, switches) as an interactive flow graph. Read-only.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any (web browser)",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
   ]
 }
 </script>
