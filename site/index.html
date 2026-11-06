@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- browser UI colour = --bg of tokens.css (light / dark) -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
 <!-- Same-origin only, plus the GoatCounter pixel (js: /assets/js/analytics.js). -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://kokoroou.goatcounter.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>MakerLens — free browser tools for RPG Maker games</title>
@@ -49,21 +52,21 @@
   </section>
 
   <section class="tools" aria-label="Tools">
-    <a class="tool" href="/assets/">
+    <article class="tool">
       <span class="tool-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="9.5" r="1.8"/><path d="M21 16l-5.5-5.5L5 20"/></svg></span>
-      <h2>Maker<span>Lens</span> <em>Assets</em></h2>
+      <h2><a href="/assets/">Maker<span>Lens</span> <em>Assets</em></a></h2>
       <p>Preview and download the encrypted images and audio of a game: <code>.rpgmvp</code>, <code>.png_</code>, <code>.ogg_</code>, <code>.rgss3a</code> and more. For modders and translators, and creators recovering their own work.</p>
       <ul class="chips" aria-label="Supported versions"><li>MV</li><li>MZ</li><li>XP</li><li>VX</li><li>VX Ace</li></ul>
-      <span class="go">Open Assets <span aria-hidden="true">→</span></span>
-    </a>
+      <span class="go" aria-hidden="true">Open Assets →</span>
+    </article>
 
-    <a class="tool" href="/events/">
+    <article class="tool">
       <span class="tool-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="10" width="7" height="5" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/><path d="M6.5 8v8M10 5.5h3a1.5 1.5 0 011.5 1.5v3"/></svg></span>
-      <h2>Maker<span>Lens</span> <em>Events</em></h2>
+      <h2><a href="/events/">Maker<span>Lens</span> <em>Events</em></a></h2>
       <p>See the dialogue, choices, conditions and switches of any map or common event as a flow graph. Find what unlocks an ending or a hidden route. Read-only: the game is never changed.</p>
       <ul class="chips" aria-label="Supported versions"><li>MV</li><li>MZ</li></ul>
-      <span class="go">Open Events <span aria-hidden="true">→</span></span>
-    </a>
+      <span class="go" aria-hidden="true">Open Events →</span>
+    </article>
   </section>
 
   <section class="promise" aria-label="How it works">
