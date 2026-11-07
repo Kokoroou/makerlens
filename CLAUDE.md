@@ -44,3 +44,30 @@ npm run dev   # wrangler dev on http://localhost:8787/
 - **Brand: MakerLens.** Magnifier mark, green `--a` action colour, "Maker**Lens** + suffix" wordmark.
 - **One design system.** Assets' `css/tokens.css` is the source; Events keeps a verbatim copy (each tool must also run on its own, so it cannot link `/assets/`), and `scripts/check-site.mjs` fails the build if `/events/css/tokens.css` differs from `/assets/css/tokens.css`.
 - **One entity graph (SEO).** JSON-LD uses shared `@id`s: `/#website`, `/#author`, `/assets/#app` (MakerLens Assets), `/events/#app` (MakerLens Events). The landing page declares all four; each tool page repeats its own `@id` and links back with `isPartOf`. Keep names and `applicationCategory` the same on both sides.
+
+## Page titles (all MakerLens pages, this repo and both tools)
+
+One format, so search results look like one family:
+
+```
+<title>{Topic} — {Qualifier} | MakerLens</title>
+```
+
+- **Brand last, always `| MakerLens`** (never "MakerLens Events/Assets" as the suffix: the tool name is already in the topic or the entity graph). Inside the title use an em dash ` — ` between topic and qualifier, never `:`; no other separators.
+- **Topic first** and keyword-first: what people search ("RPG Maker Asset Extractor", "RPG Maker Event Viewer", "… FAQ"). The qualifier lists what is supported or what it does (engines, `.rpgmvp, .png_`, "MV & MZ Event Graph").
+- **About 60 characters** (hard max 65) so Google does not truncate; Title Case; `&` is written `&amp;` in HTML.
+- **`og:title` and `twitter:title` equal `<title>`** (set them together).
+- Secondary pages keep the tool's topic: `{Topic} FAQ — {Qualifier} | MakerLens`. Utility pages are short: `Privacy — … | MakerLens`, `Page Not Found | MakerLens`.
+- JSON-LD `name` is the entity name (`MakerLens`, `MakerLens Assets`, `MakerLens Events`), not the page title.
+
+Current titles:
+
+| Page | Title |
+|---|---|
+| `/` | RPG Maker Tools Online — Extractor & Event Viewer \| MakerLens |
+| `/assets/` | RPG Maker Asset Extractor — MV, MZ, XP, VX Ace \| MakerLens |
+| `/assets/faq.html` | RPG Maker Extractor FAQ — .rpgmvp, .png_, .rgss3a \| MakerLens |
+| `/assets/privacy.html` | Privacy — Anonymous Stats, No Uploads \| MakerLens |
+| `/events/` | RPG Maker Event Viewer — MV & MZ Event Graph \| MakerLens |
+| `/events/faq.html` | RPG Maker Event Viewer FAQ — MV & MZ Events \| MakerLens |
+| 404 | Page Not Found \| MakerLens |
