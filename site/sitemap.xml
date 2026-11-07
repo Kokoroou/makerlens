@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Landing page and MakerLens Events. MakerLens Assets ships its own
-     /assets/sitemap.xml; robots.txt lists both. -->
+<!-- The one sitemap for the whole hostname: landing page, MakerLens Assets
+     and MakerLens Events. Search engines only read the sitemap of the root
+     domain, so the tools do not ship their own. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://makerlens.kokoroou.workers.dev/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://makerlens.kokoroou.workers.dev/assets/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://makerlens.kokoroou.workers.dev/assets/faq.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://makerlens.kokoroou.workers.dev/assets/privacy.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://makerlens.kokoroou.workers.dev/events/</loc>

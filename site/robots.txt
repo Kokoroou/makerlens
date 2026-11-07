@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://makerlens.kokoroou.workers.dev/sitemap.xml
-Sitemap: https://makerlens.kokoroou.workers.dev/assets/sitemap.xml

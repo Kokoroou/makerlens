@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 The home of the MakerLens family at `https://makerlens.kokoroou.workers.dev/`: a landing page plus the build and deploy of the tools onto **one Cloudflare Worker** (a `workers.dev` hostname can only route to one Worker, so the tools cannot deploy themselves to subpaths).
 
 ```
-site/                 → /         landing page, 404.html, robots.txt, sitemap.xml, llms.txt, _headers,
+site/                 → /         landing page, 404.html, robots.txt, sitemap.xml (the only one: lists /assets/ and /events/ too), llms.txt, _headers,
                                   favicon.ico/.svg + apple-touch-icon.png (the only favicon for the whole hostname), og-image.png
 tools/assets (CI)     → /assets/  Kokoroou/rpgmaker-assets-viewer, via its scripts/assemble-site.sh
 tools/events (CI)     → /events/  Kokoroou/rpgmaker-events-viewer (formerly lore-insight), same
