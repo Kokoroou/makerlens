@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Assemble the whole MakerLens site into _site/:
-#   site/                      → /          (landing page, 404, robots, sitemap)
+#   site/                      → /          (landing page, 404, robots, sitemap for the whole hostname)
 #   $ASSETS_SRC (default tools/assets) → /assets/  via its scripts/assemble-site.sh
 #   $EVENTS_SRC (default tools/events) → /events/  via its scripts/assemble-site.sh
 # CI checks the tool repos out into tools/ (.github/workflows/deploy.yml); locally,
