@@ -4,8 +4,8 @@
 
 ## Tools
 
-- [MakerLens Assets](https://makerlens.kokoroou.workers.dev/assets/): preview and download the encrypted images and audio of RPG Maker MV, MZ, XP, VX and VX Ace games (.rpgmvp, .rpgmvo, .png_, .ogg_, .m4a_, .rgssad, .rgss2a, .rgss3a). Details: https://makerlens.kokoroou.workers.dev/assets/llms.txt
-- [MakerLens Events](https://makerlens.kokoroou.workers.dev/events/): see the event commands of RPG Maker MV / MZ maps and common events (dialogue, choices, conditions, switches, variables, labels and jumps) as an interactive flow graph. Read-only. FAQ: https://makerlens.kokoroou.workers.dev/events/faq.html
+- [MakerLens Assets](https://makerlens.kokoroou.workers.dev/assets/): preview and download the encrypted images and audio of RPG Maker MV, MZ, XP, VX and VX Ace games (.rpgmvp, .rpgmvo, .png_, .ogg_, .m4a_, .rgssad, .rgss2a, .rgss3a). Details: https://makerlens.kokoroou.workers.dev/assets/llms.txt · FAQ: https://makerlens.kokoroou.workers.dev/assets/faq.html
+- [MakerLens Events](https://makerlens.kokoroou.workers.dev/events/): see the event commands of RPG Maker MV / MZ maps and common events (dialogue, choices, conditions, switches, variables, labels and jumps) as an interactive flow graph. Read-only. Details: https://makerlens.kokoroou.workers.dev/events/llms.txt · FAQ: https://makerlens.kokoroou.workers.dev/events/faq.html
 
 ## Who it's for
 
@@ -13,6 +13,12 @@
 - Events: guide and wiki writers, dataminers and speedrunners (ending and hidden-route conditions), translators who need a line's branch, developers reviewing tangled events.
 
 Not for editing, repackaging or redistributing games.
+
+## Quick answers
+
+- To open `.rpgmvp`, `.png_`, `.ogg_` or `.rgss3a` files: use MakerLens Assets, select the game folder or the archive; the key is read from the game.
+- To see dialogue, choices, switches and variables of an MV/MZ game without the editor: use MakerLens Events and open the game folder (or its `data/` folder).
+- Files are never uploaded; there is no account and nothing to install. Both tools are free and open source (MIT).
 
 ## Privacy
 

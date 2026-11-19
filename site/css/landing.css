@@ -75,3 +75,10 @@ h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -
 .notfound .links a:hover { border-color: var(--a40); background: var(--a10); }
 
 @media (prefers-reduced-motion: reduce) { .tool { transition: none; } .tool:hover, .tool:focus-within { transform: none; } }
+
+.faq { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--bd); }
+.faq h2 { margin: 0 0 16px; font-size: 1.25rem; }
+.faq-item { margin-bottom: 18px; }
+.faq-item h3 { margin: 0 0 4px; font-size: 1rem; }
+.faq-item p { margin: 0; color: var(--t2); font-size: .95rem; }
+.faq a { color: var(--a); }
