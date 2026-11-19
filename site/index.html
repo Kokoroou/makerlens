@@ -67,7 +67,8 @@
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Any (web browser)",
       "isAccessibleForFree": true,
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "sameAs": ["https://github.com/Kokoroou/rpgmaker-assets-viewer"]
     },
     {
       "@type": "WebApplication",
@@ -78,7 +79,8 @@
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Any (web browser)",
       "isAccessibleForFree": true,
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "sameAs": ["https://github.com/Kokoroou/rpgmaker-events-viewer"]
     }
   ]
 }
@@ -124,7 +126,27 @@
     <div><h3>Works offline</h3><p>Once a page has loaded, it keeps working without a connection.</p></div>
     <div><h3>Free and open</h3><p>Source code on GitHub. No ads, no sign-up.</p></div>
   </section>
+  <section class="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">Common questions</h2>
+    <div class="faq-item">
+      <h3>How do I open .rpgmvp, .png_ or .rgss3a files?</h3>
+      <p>Use <a href="/assets/">MakerLens Assets</a>. Select the game folder (RPG Maker MV or MZ) or a <code>.rgssad</code>, <code>.rgss2a</code> or <code>.rgss3a</code> archive (XP, VX, VX Ace). The key is read from the game itself, so you can preview the images and audio and download them one by one or as a ZIP.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I see a game's dialogue, choices and switches without the editor?</h3>
+      <p>Yes. <a href="/events/">MakerLens Events</a> opens the data of a released RPG Maker MV or MZ game and draws each map or common event as a flow graph, with switch, variable and actor names filled in. It is read-only.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are my game files uploaded anywhere?</h3>
+      <p>No. The browser reads the files on your device and everything is decoded there. The only anonymous data is a page-view counter; see the <a href="/assets/privacy.html">privacy page</a>.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which RPG Maker versions are supported?</h3>
+      <p>Assets: MV, MZ, XP, VX and VX Ace. Events: MV and MZ. Both tools are meant for games you own or have the rights holder's permission to inspect, not for repackaging or redistributing a game.</p>
+    </div>
+  </section>
 </main>
+
 
 <footer class="foot">
   <a href="/assets/privacy.html">Privacy</a>
