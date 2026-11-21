@@ -65,7 +65,7 @@ Current titles:
 | Page | Title |
 |---|---|
 | `/` | RPG Maker Tools Online — Extractor & Event Viewer \| MakerLens |
-| `/assets/` | RPG Maker Asset Extractor — MV, MZ, XP, VX Ace \| MakerLens |
+| `/assets/` | RPG Maker Asset Extractor — 2000 to MZ, All Versions \| MakerLens |
 | `/assets/faq.html` | RPG Maker Extractor FAQ — .rpgmvp, .png_, .rgss3a \| MakerLens |
 | `/assets/privacy.html` | Privacy — Anonymous Stats, No Uploads \| MakerLens |
 | `/events/` | RPG Maker Event Viewer — Flow Graph & Scenes \| MakerLens |
