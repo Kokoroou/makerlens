@@ -43,7 +43,7 @@ const CARDS = {
     suffix: '', path: '/',
     title: 'Look inside<br>RPG Maker games',
     sub: 'Free tools that open a game folder right in your browser. Nothing to install.',
-    chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace'],
+    chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace', '2000', '2003'],
     items: [
       ['image', 'MakerLens Assets', 'Extract encrypted images and audio'],
       ['flow', 'MakerLens Events', 'Event dialogue and choices as a graph'],
@@ -55,7 +55,7 @@ const CARDS = {
     suffix: 'Assets', path: '/assets/',
     title: 'View &amp; extract<br>RPG Maker assets',
     sub: 'Preview encrypted images and audio, then download them — right in your browser.',
-    chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace'],
+    chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace', '2000', '2003'],
     items: [
       ['folder', 'Open a game folder', '.rpgmvp · .png_ · .rpgmvo · .ogg_', true],
       ['archive', 'Open RGSSAD archives', '.rgssad · .rgss2a · .rgss3a', true],
@@ -67,7 +67,7 @@ const CARDS = {
     suffix: 'Events', path: '/events/',
     title: 'RPG Maker events<br>as a flow graph',
     sub: 'Dialogue, choices, conditions and jumps of every event — right in your browser.',
-    chips: ['MV', 'MZ'],
+    chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace', '2000', '2003'],
     items: [
       ['folder', 'Open a game folder', 'or just its data/ folder', false],
       ['flow', 'Maps &amp; common events', 'Every page as an interactive flow graph'],
@@ -93,8 +93,8 @@ function cardHTML(c) {
   .word{font-size:40px;font-weight:700;letter-spacing:-.02em}.g{color:#4ade80}.sfx{color:#94a3b8;font-weight:600}
   h1{font-size:58px;line-height:1.08;letter-spacing:-.035em;font-weight:800;margin-top:56px}
   p{font-size:25px;line-height:1.35;color:#94a3b8;margin-top:22px;max-width:500px}
-  .chips{display:flex;gap:10px;margin-top:auto;padding:0}
-  .chips li{list-style:none;padding:7px 16px;border-radius:999px;background:#1e293b;border:1px solid #334155;color:#cbd5e1;font-weight:600;font-size:19px}
+  .chips{display:flex;gap:8px;margin-top:auto;padding:0}
+  .chips li{list-style:none;white-space:nowrap;padding:7px 14px;border-radius:999px;background:#1e293b;border:1px solid #334155;color:#cbd5e1;font-weight:600;font-size:19px}
   .url{font-family:'DejaVu Sans Mono',monospace;color:#64748b;font-size:16px;margin-top:22px}
   .right{width:440px;display:flex;flex-direction:column;gap:14px;padding-top:32px}
   .item{display:flex;gap:16px;align-items:center;padding:17px 20px;border-radius:12px;background:rgba(15,23,42,.85);border:1px solid #1e293b}
