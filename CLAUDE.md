@@ -54,7 +54,7 @@ One format, so search results look like one family:
 ```
 
 - **Brand last, always `| MakerLens`** (never "MakerLens Events/Assets" as the suffix: the tool name is already in the topic or the entity graph). Inside the title use an em dash ` — ` between topic and qualifier, never `:`; no other separators.
-- **Topic first** and keyword-first: what people search ("RPG Maker Asset Extractor", "RPG Maker Event Viewer", "… FAQ"). The qualifier lists what is supported or what it does (engines, `.rpgmvp, .png_`, "Flow Graph & Scenes").
+- **Topic first** and keyword-first: what people search ("RPG Maker Asset Extractor", "RPG Maker Event Viewer", "… FAQ"). The qualifier lists what is supported or what it does (engines, `.rpgmvp, .png_`, "2000 to MZ, All Versions").
 - **About 60 characters** (hard max 65) so Google does not truncate; Title Case; `&` is written `&amp;` in HTML.
 - **`og:title` and `twitter:title` equal `<title>`** (set them together).
 - Secondary pages keep the tool's topic: `{Topic} FAQ — {Qualifier} | MakerLens`. Utility pages are short: `Privacy — … | MakerLens`, `Page Not Found | MakerLens`.
@@ -68,6 +68,6 @@ Current titles:
 | `/assets/` | RPG Maker Asset Extractor — 2000 to MZ, All Versions \| MakerLens |
 | `/assets/faq.html` | RPG Maker Extractor FAQ — .rpgmvp, .png_, .rgss3a \| MakerLens |
 | `/assets/privacy.html` | Privacy — Anonymous Stats, No Uploads \| MakerLens |
-| `/events/` | RPG Maker Event Viewer — Flow Graph & Scenes \| MakerLens |
+| `/events/` | RPG Maker Event Viewer — 2000 to MZ, Graph & Scenes \| MakerLens |
 | `/events/faq.html` | RPG Maker Event Viewer FAQ — Folders, Scenes, Saves \| MakerLens |
 | 404 | Page Not Found \| MakerLens |
