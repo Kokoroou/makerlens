@@ -90,76 +90,234 @@
 <script src="/js/theme-init.js"></script>
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="/" aria-label="MakerLens home">
-    <span class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M7.5 12.5l2-2.5 1.5 1.8 1-1.3 1.5 2" stroke-width="1.6"/></svg></span>
-    <span class="word">Maker<span>Lens</span></span>
-  </a>
-</header>
+<a class="skip" href="#main">Skip to main content</a>
+<svg class="sprites" width="0" height="0" aria-hidden="true" focusable="false">
+<symbol id="s-hero" viewBox="0 0 12 14"><rect class="pk" x="4" y="0" width="4" height="1"/><rect class="pk" x="3" y="1" width="1" height="1"/><rect class="ph" x="4" y="1" width="4" height="1"/><rect class="pk" x="8" y="1" width="1" height="1"/><rect class="pk" x="2" y="2" width="1" height="1"/><rect class="ph" x="3" y="2" width="6" height="1"/><rect class="pk" x="9" y="2" width="1" height="1"/><rect class="pk" x="2" y="3" width="1" height="1"/><rect class="ph" x="3" y="3" width="1" height="1"/><rect class="ps" x="4" y="3" width="4" height="1"/><rect class="ph" x="8" y="3" width="1" height="1"/><rect class="pk" x="9" y="3" width="1" height="1"/><rect class="pk" x="2" y="4" width="1" height="1"/><rect class="ps" x="3" y="4" width="1" height="1"/><rect class="pk" x="4" y="4" width="1" height="1"/><rect class="ps" x="5" y="4" width="2" height="1"/><rect class="pk" x="7" y="4" width="1" height="1"/><rect class="ps" x="8" y="4" width="1" height="1"/><rect class="pk" x="9" y="4" width="1" height="1"/><rect class="pk" x="2" y="5" width="1" height="1"/><rect class="ps" x="3" y="5" width="6" height="1"/><rect class="pk" x="9" y="5" width="1" height="1"/><rect class="pk" x="3" y="6" width="1" height="1"/><rect class="ps" x="4" y="6" width="4" height="1"/><rect class="pk" x="8" y="6" width="1" height="1"/><rect class="pk" x="2" y="7" width="1" height="1"/><rect class="pc" x="3" y="7" width="6" height="1"/><rect class="pk" x="9" y="7" width="1" height="1"/><rect class="pk" x="1" y="8" width="1" height="1"/><rect class="pc" x="2" y="8" width="8" height="1"/><rect class="pk" x="10" y="8" width="1" height="1"/><rect class="pk" x="1" y="9" width="1" height="1"/><rect class="ps" x="2" y="9" width="1" height="1"/><rect class="pc" x="3" y="9" width="2" height="1"/><rect class="pw" x="5" y="9" width="2" height="1"/><rect class="pc" x="7" y="9" width="2" height="1"/><rect class="ps" x="9" y="9" width="1" height="1"/><rect class="pk" x="10" y="9" width="1" height="1"/><rect class="pk" x="2" y="10" width="1" height="1"/><rect class="pc" x="3" y="10" width="6" height="1"/><rect class="pk" x="9" y="10" width="1" height="1"/><rect class="pk" x="2" y="11" width="1" height="1"/><rect class="pb" x="3" y="11" width="2" height="1"/><rect class="pk" x="5" y="11" width="2" height="1"/><rect class="pb" x="7" y="11" width="2" height="1"/><rect class="pk" x="9" y="11" width="1" height="1"/><rect class="pk" x="2" y="12" width="1" height="1"/><rect class="pb" x="3" y="12" width="2" height="1"/><rect class="pb" x="7" y="12" width="2" height="1"/><rect class="pk" x="9" y="12" width="1" height="1"/><rect class="pk" x="2" y="13" width="3" height="1"/><rect class="pk" x="7" y="13" width="3" height="1"/></symbol>
+<symbol id="s-slime" viewBox="0 0 12 8"><rect class="pk" x="4" y="0" width="4" height="1"/><rect class="pk" x="2" y="1" width="2" height="1"/><rect class="pl" x="4" y="1" width="4" height="1"/><rect class="pk" x="8" y="1" width="2" height="1"/><rect class="pk" x="1" y="2" width="1" height="1"/><rect class="pg" x="2" y="2" width="1" height="1"/><rect class="pl" x="3" y="2" width="2" height="1"/><rect class="pg" x="5" y="2" width="5" height="1"/><rect class="pk" x="10" y="2" width="1" height="1"/><rect class="pk" x="0" y="3" width="1" height="1"/><rect class="pg" x="1" y="3" width="2" height="1"/><rect class="pk" x="3" y="3" width="1" height="1"/><rect class="pg" x="4" y="3" width="4" height="1"/><rect class="pk" x="8" y="3" width="1" height="1"/><rect class="pg" x="9" y="3" width="2" height="1"/><rect class="pk" x="11" y="3" width="1" height="1"/><rect class="pk" x="0" y="4" width="1" height="1"/><rect class="pg" x="1" y="4" width="2" height="1"/><rect class="pk" x="3" y="4" width="1" height="1"/><rect class="pg" x="4" y="4" width="4" height="1"/><rect class="pk" x="8" y="4" width="1" height="1"/><rect class="pg" x="9" y="4" width="2" height="1"/><rect class="pk" x="11" y="4" width="1" height="1"/><rect class="pk" x="0" y="5" width="1" height="1"/><rect class="pg" x="1" y="5" width="10" height="1"/><rect class="pk" x="11" y="5" width="1" height="1"/><rect class="pk" x="1" y="6" width="1" height="1"/><rect class="pg" x="2" y="6" width="8" height="1"/><rect class="pk" x="10" y="6" width="1" height="1"/><rect class="pk" x="2" y="7" width="8" height="1"/></symbol>
+<symbol id="s-potion" viewBox="0 0 8 11"><rect class="pk" x="3" y="0" width="2" height="1"/><rect class="pk" x="3" y="1" width="2" height="1"/><rect class="pk" x="2" y="2" width="1" height="1"/><rect class="pw" x="3" y="2" width="2" height="1"/><rect class="pk" x="5" y="2" width="1" height="1"/><rect class="pk" x="3" y="3" width="2" height="1"/><rect class="pk" x="2" y="4" width="4" height="1"/><rect class="pk" x="1" y="5" width="1" height="1"/><rect class="pr" x="2" y="5" width="4" height="1"/><rect class="pk" x="6" y="5" width="1" height="1"/><rect class="pk" x="0" y="6" width="1" height="1"/><rect class="pr" x="1" y="6" width="2" height="1"/><rect class="pp" x="3" y="6" width="1" height="1"/><rect class="pr" x="4" y="6" width="3" height="1"/><rect class="pk" x="7" y="6" width="1" height="1"/><rect class="pk" x="0" y="7" width="1" height="1"/><rect class="pr" x="1" y="7" width="2" height="1"/><rect class="pp" x="3" y="7" width="1" height="1"/><rect class="pr" x="4" y="7" width="3" height="1"/><rect class="pk" x="7" y="7" width="1" height="1"/><rect class="pk" x="0" y="8" width="1" height="1"/><rect class="pr" x="1" y="8" width="6" height="1"/><rect class="pk" x="7" y="8" width="1" height="1"/><rect class="pk" x="1" y="9" width="1" height="1"/><rect class="pr" x="2" y="9" width="4" height="1"/><rect class="pk" x="6" y="9" width="1" height="1"/><rect class="pk" x="2" y="10" width="4" height="1"/></symbol>
+<symbol id="s-wave" viewBox="0 0 48 24"><g class="wv"><rect x="1" y="10.5" width="2" height="3"/><rect x="4" y="9.0" width="2" height="6"/><rect x="7" y="7.0" width="2" height="10"/><rect x="10" y="5.0" width="2" height="14"/><rect x="13" y="8.0" width="2" height="8"/><rect x="16" y="4.0" width="2" height="16"/><rect x="19" y="2.0" width="2" height="20"/><rect x="22" y="6.0" width="2" height="12"/><rect x="25" y="3.0" width="2" height="18"/><rect x="28" y="1.0" width="2" height="22"/><rect x="31" y="5.0" width="2" height="14"/><rect x="34" y="8.0" width="2" height="8"/><rect x="37" y="6.0" width="2" height="12"/><rect x="40" y="2.0" width="2" height="20"/><rect x="43" y="4.0" width="2" height="16"/><rect x="46" y="7.0" width="2" height="10"/><rect x="49" y="9.0" width="2" height="6"/><rect x="52" y="6.0" width="2" height="12"/><rect x="55" y="3.0" width="2" height="18"/><rect x="58" y="5.0" width="2" height="14"/><rect x="61" y="8.0" width="2" height="8"/><rect x="64" y="9.5" width="2" height="5"/><rect x="67" y="10.5" width="2" height="3"/><rect x="70" y="11.0" width="2" height="2"/></g></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="/" translate="no" aria-label="MakerLens home"><svg class="mark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><rect class="lp" x="7" y="7" width="2" height="2"/><rect class="lp" x="9" y="9" width="2" height="2"/><rect class="lp" x="11" y="7" width="2" height="2"/></svg><span>Maker<b>Lens</b></span></a>
+  <nav aria-label="Main"><a href="/assets/">Assets</a><a href="/events/">Events</a><a href="/privacy.html">Privacy</a><a href="/legal.html">Legal</a></nav>
+  <button class="theme-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="i-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
+</div></header>
 
-<main>
-  <section class="hero">
-    <h1>Look inside RPG Maker games</h1>
-    <p class="lead">Free tools that open a game folder right in your browser. <strong>Your files never leave your device</strong> — nothing to install, no account.</p>
-  </section>
+<main id="main">
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="kicker">Free · In your browser · Nothing uploaded</span>
+    <h1 class="rise">Look inside any <em>RPG&nbsp;Maker</em> game</h1>
+    <p class="lede rise">Free tools that open a game folder right in your browser. <strong>Your files never leave your device</strong>: nothing to install, no account.</p>
+    <div class="cta rise"><a class="btn btn-p" href="/assets/">Open Assets <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn btn-s" href="/events/">Open Events</a></div>
+    <p class="hero-note rise only-d">MV, MZ, XP, VX, VX Ace, 2000, 2003</p>
+  </div>
+  <figure class="rise"><svg class="fig hero-fig" viewBox="0 0 640 580" role="img" aria-labelledby="hf-t hf-d">
+    <title id="hf-t">A magnifying lens over an encrypted file</title>
+    <desc id="hf-d">Rows of hexadecimal bytes fill a plate. Inside the lens the same file appears as a pixel-art hero sprite.</desc>
+    <defs>
+      <clipPath id="lens"><circle cx="330" cy="292" r="166"/></clipPath>
+      <pattern id="chk" width="36" height="36" patternUnits="userSpaceOnUse" x="158" y="120"><rect class="ck1" width="36" height="36"/><rect class="ck2" width="18" height="18"/><rect class="ck2" x="18" y="18" width="18" height="18"/></pattern>
+    </defs>
+    <rect x="1" y="1" width="638" height="578" rx="14" class="plate"/>
+    <g aria-hidden="true"><g class="hex"><text x="28" y="44" textLength="584" lengthAdjust="spacing"><tspan class="hx-h">52 50 47 4d 56 00 00 00 00 03 01 00 00 00 00 00</tspan> a5 4d ca 18 25 30 bb 1d</text><text x="28" y="63" textLength="584" lengthAdjust="spacing">6d 13 2c de d6 23 7b 2e d9 1e 3f 72 1f cb 19 71 17 44 94 d6 49 3c 9d 5c</text><text x="28" y="82" textLength="584" lengthAdjust="spacing">34 60 be 31 20 1e 69 fe da a0 ee e8 b9 99 7f 5c 7c 29 99 fd af e5 93 25</text><text x="28" y="101" textLength="584" lengthAdjust="spacing">3c d6 54 af 4d fa d7 14 27 a0 ae b3 fe e9 23 2f 8a f2 21 1f 9e e4 91 c5</text><text x="28" y="120" textLength="584" lengthAdjust="spacing">b1 0b ec b5 56 3b fc 1e 6f 93 42 7e cb c8 fe 29 55 e5 cd 8e 46 dc 8e d4</text><text x="28" y="139" textLength="584" lengthAdjust="spacing">b7 c2 76 4d 2a 5a 4d 76 77 06 f8 5d 86 90 02 4a d6 bd a3 40 1b e9 c8 cb</text><text x="28" y="158" textLength="584" lengthAdjust="spacing">cc c9 35 f6 cd 1f 61 22 6a e1 53 38 ae 1a 34 00 4d 33 ba 0d 24 6a c0 4c</text><text x="28" y="177" textLength="584" lengthAdjust="spacing">81 b1 ba f2 3e 3b f9 ee f5 f7 9f 2b 49 34 af 87 f5 52 0b 69 b9 4b 0d 98</text><text x="28" y="196" textLength="584" lengthAdjust="spacing">2e 85 bb 55 b6 72 a8 72 63 7a cd 74 66 fc b6 0e 0e 8f f1 84 63 b0 e4 b2</text><text x="28" y="215" textLength="584" lengthAdjust="spacing">ba 29 70 34 74 f0 64 ac 68 f7 00 f5 b0 2b 3d c6 66 f4 5b de aa 2c ca ed</text><text x="28" y="234" textLength="584" lengthAdjust="spacing">cd 2b 51 57 41 0e 4d ee 4a f2 b3 4f 43 0a 07 34 47 de 63 6c 0e 80 6c 95</text><text x="28" y="253" textLength="584" lengthAdjust="spacing">7b a6 84 d6 43 1f b5 ea d7 42 4d 09 e1 5d 02 4c 58 48 f2 3d 1f a6 f7 36</text><text x="28" y="272" textLength="584" lengthAdjust="spacing">1d 7f 61 8d 15 32 e7 0e 20 e2 a6 66 8d e7 f4 7e 84 67 e5 46 d5 3e c8 e2</text><text x="28" y="291" textLength="584" lengthAdjust="spacing">a1 25 7b db 25 6c 9b 3e 4f bb 49 81 46 ef 70 30 cb f9 53 72 52 dc ce ad</text><text x="28" y="310" textLength="584" lengthAdjust="spacing">d7 64 b6 a3 2f bb 09 ad ea e1 09 c4 a9 97 20 39 75 35 2b 87 8b 14 5c 8a</text><text x="28" y="329" textLength="584" lengthAdjust="spacing">42 d8 84 cf 4c fd a7 2d 8e 1d 5d d9 25 89 08 2d 85 2a 71 22 87 3e e8 05</text><text x="28" y="348" textLength="584" lengthAdjust="spacing">ad d5 89 42 16 7a 38 52 86 19 5c 67 9f 9c 69 94 e4 5b 8a b1 09 80 12 07</text><text x="28" y="367" textLength="584" lengthAdjust="spacing">09 61 f3 7d e4 36 dd fd c9 9d 6e 75 af 65 47 cf b1 1b 42 07 24 82 dc 53</text><text x="28" y="386" textLength="584" lengthAdjust="spacing">1c 2b c3 90 7c 96 17 eb 5e 50 89 e4 01 86 ba a8 a5 7d 11 9e 6f b6 5d 00</text><text x="28" y="405" textLength="584" lengthAdjust="spacing">ab c3 2a f3 8e 66 7f 02 2e 87 2d 49 cc 15 c9 0b 99 9b 77 2b 4f c7 a6 fd</text><text x="28" y="424" textLength="584" lengthAdjust="spacing">4c 91 4a 16 db 47 08 75 2b 0f 15 44 b8 35 c0 e7 19 09 7d fa 87 01 e9 23</text><text x="28" y="443" textLength="584" lengthAdjust="spacing">2f 21 f2 81 26 87 78 69 76 eb fc c3 27 f5 93 17 65 27 4b a9 82 9b 44 06</text><text x="28" y="462" textLength="584" lengthAdjust="spacing">f6 1f f8 89 32 6f fa 94 92 ed ee ee 3c 66 9f 2b f2 08 94 ea 27 e6 89 c6</text><text x="28" y="481" textLength="584" lengthAdjust="spacing">6b 6b 26 2e 48 86 b8 43 8f 39 ba 76 fe f8 c9 0c 51 01 fb e6 cf 9a 48 d5</text><text x="28" y="500" textLength="584" lengthAdjust="spacing">b0 c0 a1 3d a9 00 a6 ad cb 3d 64 06 94 81 be 21 c9 c7 27 b8 db 8c 18 8f</text><text x="28" y="519" textLength="584" lengthAdjust="spacing">34 1a 92 4c 7f 88 df a1 61 bf db 0e cc 68 29 19 d2 e6 46 92 f8 19 41 57</text></g></g>
+    <g class="handle"><line x1="452" y1="414" x2="560" y2="548" class="hd-line" stroke-width="26" stroke-linecap="round"/><line x1="452" y1="414" x2="480" y2="442" class="hd-cap" stroke-width="30" stroke-linecap="butt"/></g>
+    <circle class="ring" cx="330" cy="292" r="172"/>
+    <circle cx="330" cy="292" r="166" fill="url(#chk)"/>
+    <g clip-path="url(#lens)"><ellipse cx="330" cy="426" rx="108" ry="7" class="shadow"/><use href="#s-hero" x="222" y="172" width="216" height="252" shape-rendering="crispEdges"/></g>
+  </svg><figcaption><i>Green:</i> the 16-byte RPG Maker header of an encrypted file (<code>Actor1.rpgmvp</code>). Inside the lens: the same file as <code>.png</code>, after your browser decrypted it.</figcaption></figure>
+</div></section>
+<div class="ruler"><ul aria-label="Supported engines"><li>Reads games made with</li><li>2000</li><li>2003</li><li>XP</li><li>VX</li><li>VX Ace</li><li>MV</li><li>MZ</li></ul></div>
 
-  <section class="tools" aria-label="Tools">
-    <article class="tool">
-      <span class="tool-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="9.5" r="1.8"/><path d="M21 16l-5.5-5.5L5 20"/></svg></span>
-      <h2><a href="/assets/">Maker<span>Lens</span> <em>Assets</em></a></h2>
-      <p>Preview and download the images and audio of a game, encrypted or not: <code>.rpgmvp</code>, <code>.png_</code>, <code>.ogg_</code>, <code>.rgss3a</code>, <code>.xyz</code> and more. Filter by image size or audio length, hide duplicate files, save a folder as a ZIP. For modders and translators, and creators recovering their own work.</p>
-      <ul class="chips" aria-label="Supported versions"><li>MV</li><li>MZ</li><li>XP</li><li>VX</li><li>VX Ace</li><li>2000</li><li>2003</li></ul>
-      <span class="go" aria-hidden="true">Open Assets →</span>
-    </article>
+<section class="sec" id="assets"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="kicker">01 · MakerLens Assets</span><h2>Every image and sound in the game, in one grid</h2></div>
+    <div><p>Preview and download the images and audio of a game, encrypted or not: <code>.rpgmvp</code>, <code>.png_</code>, <code>.ogg_</code>, <code>.rgss3a</code>, <code>.xyz</code> and more. Filter by image size or audio length, hide duplicate files, save a folder as a ZIP. For modders and translators, and creators recovering their own work.</p></div>
+  </div>
+  <figure>
+  <div class="win" role="img" aria-label="Illustration of the Assets window: a folder list and a grid of image and audio thumbnails">
+    <div class="win-bar"><span class="brand"><svg class="mark" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><rect class="lp" x="7" y="7" width="2" height="2"/><rect class="lp" x="9" y="9" width="2" height="2"/><rect class="lp" x="11" y="7" width="2" height="2"/></svg><span>Maker<b>Lens</b> Assets</span></span><span class="path">MyGame / img / characters</span><span class="sw"><span class="on">Assets</span><span>Events</span></span></div>
+    <div class="win-body">
+      <div class="side"><p>Folders</p><ul><li class="on"><span>characters</span><span>48</span></li><li><span>enemies</span><span>31</span></li><li><span>faces</span><span>12</span></li><li><span>pictures</span><span>126</span></li><li><span>Duplicates</span><span>9</span></li></ul><p>Audio</p><ul><li><span>bgm</span><span>22</span></li><li><span>se</span><span>84</span></li></ul></div>
+      <div class="main"><div class="mtools"><span class="on">Images</span><span>Audio</span><span>48×48</span><span class="on">Unique only</span><span class="go">Download ZIP</span></div>
+      <ul class="grid">
+        <li><div class="thumb"><svg viewBox="0 0 12 14" class="px"><use href="#s-hero"/></svg></div><div class="tmeta"><span class="fname">Actor1.png</span><span class="fsz">48×64</span></div></li>
+        <li><div class="thumb"><svg viewBox="0 0 12 8" class="px"><use href="#s-slime"/></svg></div><div class="tmeta"><span class="fname">Monster3.png</span><span class="fsz">96×64</span></div></li>
+        <li><div class="thumb"><svg viewBox="0 0 8 11" class="px"><use href="#s-potion"/></svg></div><div class="tmeta"><span class="fname">Item_potion.png</span><span class="fsz">32×44</span></div></li>
+        <li><div class="thumb audio"><svg viewBox="0 0 48 24" class="wave"><use href="#s-wave"/></svg></div><div class="tmeta"><span class="fname">Battle1.ogg</span><span class="fsz">1:12</span></div></li>
+        <li><div class="thumb"><svg viewBox="0 0 12 14" class="px"><use href="#s-hero"/></svg><span class="dup">×2</span></div><div class="tmeta"><span class="fname">Actor1_copy.png</span><span class="fsz">48×64</span></div></li>
+        <li><div class="thumb"><svg viewBox="0 0 12 8" class="px"><use href="#s-slime"/></svg><span class="dup">×3</span></div><div class="tmeta"><span class="fname">Slime_b.png</span><span class="fsz">96×64</span></div></li>
+        <li><div class="thumb"><svg viewBox="0 0 8 11" class="px"><use href="#s-potion"/></svg></div><div class="tmeta"><span class="fname">Item_elixir.png</span><span class="fsz">32×44</span></div></li>
+        <li><div class="thumb audio"><svg viewBox="0 0 48 24" class="wave"><use href="#s-wave"/></svg></div><div class="tmeta"><span class="fname">Town2.ogg</span><span class="fsz">2:04</span></div></li>
+      </ul></div>
+    </div>
+  </div>
+  <figcaption>Illustration with made-up sample files.</figcaption>
+  </figure>
+  <details class="more" data-m="closed" open><summary>What it does</summary>
+  <div class="facts">
+    <div><h3>Key read from the game</h3><p>MV and MZ keep it in System.json, archives carry their own. Nothing to type.</p></div>
+    <div><h3>Duplicates by content</h3><p>A SHA-256 of the decrypted bytes hides identical copies and counts them.</p></div>
+    <div><h3>Filter before you download</h3><p>By pixel size or length. Only headers are read, never the whole file.</p></div>
+  </div></details>
+  <p class="links-row"><a class="link-arrow" href="/assets/">Open MakerLens Assets <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="link-arrow" href="/assets/faq.html">Assets FAQ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+</div></section>
 
-    <article class="tool">
-      <span class="tool-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="10" width="7" height="5" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/><path d="M6.5 8v8M10 5.5h3a1.5 1.5 0 011.5 1.5v3"/></svg></span>
-      <h2><a href="/events/">Maker<span>Lens</span> <em>Events</em></a></h2>
-      <p>See the dialogue, choices, conditions and switches of any map or common event as a flow graph, and play a cutscene with its pictures, faces and sound. Search by name, start from your own save. Find what unlocks an ending or a hidden route. Read-only: the game is never changed.</p>
-      <ul class="chips" aria-label="Supported versions"><li>MV</li><li>MZ</li><li>XP</li><li>VX</li><li>VX Ace</li><li>2000</li><li>2003</li></ul>
-      <span class="go" aria-hidden="true">Open Events →</span>
-    </article>
-  </section>
+<section class="sec band" id="events"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="kicker">02 · MakerLens Events</span><h2>The story of the game as a map you can follow</h2></div>
+    <div><p>See the dialogue, choices, conditions and switches of any map or common event as a flow graph, and play a cutscene with its pictures, faces and sound. Search by name, start from your own save. Find what unlocks an ending or a hidden route. Read-only: the game is never changed.</p></div>
+  </div>
+  <div class="ev">
+    <figure>
+    <svg class="fig graph-fig only-d" viewBox="0 0 640 450" role="img" aria-labelledby="gf-t gf-d">
+      <title id="gf-t">An event drawn as a flow graph</title>
+      <desc id="gf-d">A dialogue leads to a choice. Yes goes to a switch condition, No goes to a reply. The condition opens the gate or sends the guard to speak.</desc>
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="mk" d="M1 1l8 4-8 4z"/></marker>
+        <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="dot" cx="2" cy="2" r="1"/></pattern>
+      </defs>
+      <rect x="1" y="1" width="638" height="448" rx="14" class="plate"/>
+      <rect class="dotfill" x="1" y="1" width="638" height="448" rx="14"/>
+      <path d="M165 94V134" class="edge" marker-end="url(#ar)"/><path d="M165 218V262" class="edge" marker-end="url(#ar)"/><path d="M290 176H350" class="edge" marker-end="url(#ar)"/><path d="M290 294H350" class="edge" marker-end="url(#ar)"/><path d="M165 326V366" class="edge" marker-end="url(#ar)"/><path d="M475 326V396H290" class="edge dash" marker-end="url(#ar)"/>
+      <text x="173" y="246" class="n-l">Yes</text><text x="304" y="168" class="n-l">No</text><text x="296" y="286" class="n-l">else</text><text x="173" y="352" class="n-l">on</text>
+      <g class="n-d"><rect x="40" y="30" width="250" height="64" rx="6"/><rect x="40" y="30" width="5" height="64" rx="2" class="bar"/><text x="56" y="50" class="n-t">Elder · dialogue</text><text x="56" y="70" class="n-b">The seal on the gate has broken.</text></g>
+      <g class="n-c"><rect x="40" y="134" width="250" height="84" rx="6"/><rect x="40" y="134" width="5" height="84" rx="2" class="bar"/><text x="56" y="154" class="n-t">Choice</text><text x="56" y="174" class="n-b">Open the gate?</text><text x="56" y="192" class="n-b">› Yes     › No</text></g>
+      <g class="n-k"><rect x="40" y="262" width="250" height="64" rx="6"/><rect x="40" y="262" width="5" height="64" rx="2" class="bar"/><text x="56" y="282" class="n-t">Condition</text><text x="56" y="302" class="n-b">Switch 0012 “Gate opened” is ON</text></g>
+      <g class="n-d"><rect x="350" y="134" width="250" height="64" rx="6"/><rect x="350" y="134" width="5" height="64" rx="2" class="bar"/><text x="366" y="154" class="n-t">Hero · dialogue</text><text x="366" y="174" class="n-b">Not yet.</text></g>
+      <g class="n-d"><rect x="350" y="262" width="250" height="64" rx="6"/><rect x="350" y="262" width="5" height="64" rx="2" class="bar"/><text x="366" y="282" class="n-t">Guard · dialogue</text><text x="366" y="302" class="n-b">Come back with the key.</text></g>
+      <g class="n-d"><rect x="40" y="366" width="250" height="60" rx="6"/><rect x="40" y="366" width="5" height="60" rx="2" class="bar"/><text x="56" y="386" class="n-t">Gate · scene</text><text x="56" y="406" class="n-b">Plays pictures, faces and sound</text></g>
+    </svg>
+    <svg class="fig graph-fig only-m" viewBox="0 0 340 410" role="img" aria-labelledby="gm-t gm-d">
+      <title id="gm-t">An event drawn as a flow graph</title>
+      <desc id="gm-d">A dialogue leads to a choice, then to a switch condition. If the switch is on, the gate scene plays; otherwise a guard speaks.</desc>
+      <defs>
+        <marker id="arm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="mk" d="M1 1l8 4-8 4z"/></marker>
+      </defs>
+      <rect x="1" y="1" width="338" height="408" rx="12" class="plate"/>
+      <path d="M170 74V104M170 190V222M92 288V326M248 288V326" class="edge" marker-end="url(#arm)"/>
+      <text x="180" y="212" class="n-l">Yes</text><text x="102" y="312" class="n-l">on</text><text x="258" y="312" class="n-l">else</text>
+      <g class="n-d"><rect x="20" y="14" width="300" height="60" rx="6"/><rect x="20" y="14" width="5" height="60" rx="2" class="bar"/><text x="36" y="34" class="n-t">Elder · dialogue</text><text x="36" y="54" class="n-b">The seal on the gate has broken.</text></g>
+      <g class="n-c"><rect x="20" y="104" width="300" height="86" rx="6"/><rect x="20" y="104" width="5" height="86" rx="2" class="bar"/><text x="36" y="124" class="n-t">Choice</text><text x="36" y="146" class="n-b">Open the gate?</text><text x="36" y="168" class="n-b">› Yes     › No</text></g>
+      <g class="n-k"><rect x="20" y="222" width="300" height="66" rx="6"/><rect x="20" y="222" width="5" height="66" rx="2" class="bar"/><text x="36" y="242" class="n-t">Condition</text><text x="36" y="264" class="n-b">Switch 0012 “Gate opened” is ON</text></g>
+      <g class="n-d"><rect x="14" y="326" width="156" height="72" rx="6"/><rect x="14" y="326" width="5" height="72" rx="2" class="bar"/><text x="28" y="346" class="n-t">Gate · scene</text><text x="28" y="366" class="n-b">Plays pictures,</text><text x="28" y="384" class="n-b">faces and sound</text></g>
+      <g class="n-d"><rect x="176" y="326" width="150" height="72" rx="6"/><rect x="176" y="326" width="5" height="72" rx="2" class="bar"/><text x="190" y="346" class="n-t">Guard · dialogue</text><text x="190" y="366" class="n-b">Come back with</text><text x="190" y="384" class="n-b">the key.</text></g>
+    </svg>
+    <figcaption>Illustration of one event as a flow graph.</figcaption>
+    </figure>
+    <div class="player-wrap"><svg class="fig player-fig" viewBox="0 0 320 214" role="img" aria-labelledby="pf-t">
+      <title id="pf-t">The scene player showing a character and a message window</title>
+      <rect width="320" height="214" rx="10" fill="#0b1120"/>
+      <rect x="0" y="120" width="320" height="94" fill="#1b2336"/>
+      <rect x="96" y="22" width="128" height="104" rx="4" fill="#272f42"/>
+      <svg x="128" y="36" width="64" height="75" viewBox="0 0 12 14" class="px-dark"><use href="#s-hero"/></svg>
+      <rect x="14" y="146" width="292" height="54" rx="6" fill="#f8fafc" fill-opacity=".08" stroke="#f8fafc" stroke-opacity=".5"/>
+      <text x="28" y="168" class="p-n">Elder</text>
+      <text x="28" y="188" class="p-t">The seal on the gate has broken.</text>
+      <text x="14" y="22" class="p-m">Scene 3 of 27</text>
+      <rect x="238" y="9" width="68" height="18" rx="4" fill="none" stroke="#f8fafc" stroke-opacity=".4"/><text x="272" y="22" text-anchor="middle" class="p-m">A  auto</text>
+    </svg>
+  <details class="more" data-m="closed" open><summary>What it does</summary>
+  <ul class="notes">
+    <li><b>Names filled in</b>Switch, variable and actor names come from the game’s own data.</li>
+    <li><b>Scenes you can play</b>Events that show pictures with dialogue are listed as scenes.</li>
+    <li><b>Your progress</b>Load a save and the checks run the way your game stands.</li>
+  </ul></details>
+    </div>
+  </div>
+  <p class="links-row"><a class="link-arrow" href="/events/">Open MakerLens Events <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="link-arrow" href="/events/faq.html">Events FAQ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+</div></section>
 
-  <section class="promise" aria-label="How it works">
-    <div><h3>Local only</h3><p>Files are read by your browser with the File API. No upload, no server copy.</p></div>
-    <div><h3>Works offline</h3><p>Once a page has loaded, it keeps working without a connection.</p></div>
-    <div><h3>Free and open</h3><p>Source code on GitHub. No ads, no sign-up.</p></div>
-  </section>
-  <section class="faq" aria-labelledby="faq-title">
-    <h2 id="faq-title">Common questions</h2>
-    <div class="faq-item">
-      <h3>How do I open .rpgmvp, .png_ or .rgss3a files?</h3>
-      <p>Use <a href="/assets/">MakerLens Assets</a>. Select the game folder: MV, MZ and archive-based games (<code>.rgssad</code>, <code>.rgss2a</code>, <code>.rgss3a</code>: XP, VX, VX Ace) all open from it, and so do 2000/2003 games with their <code>.xyz</code> images. The key is read from the game itself, so you can preview the images and audio and download them one by one or as a ZIP.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can I see a game's dialogue, choices and switches without the editor?</h3>
-      <p>Yes. <a href="/events/">MakerLens Events</a> opens the data of a released RPG Maker game (any version from 2000 to MZ) and draws each map or common event as a flow graph, with switch, variable and actor names filled in. Events that show pictures with dialogue are listed as scenes you can play, and a save file lets them start from your own progress. It is read-only.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Are my game files uploaded anywhere?</h3>
-      <p>No. The browser reads the files on your device and everything is decoded there. The only anonymous data is a counter of page views and of a few actions by name (never what you open); see the <a href="/assets/privacy.html">privacy page</a>.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Which RPG Maker versions are supported?</h3>
-      <p>Both tools: MV, MZ, VX Ace, VX, XP, 2000 and 2003. Both are meant for games you own or have the rights holder's permission to inspect, not for repackaging or redistributing a game.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can I open the same game in both tools?</h3>
-      <p>Yes. After you open a game folder in Chrome or Edge, the <strong>Assets | Events</strong> switch in the header carries it to the other tool without picking it again. The folder stays on your device; the browser may ask once more before the other page can read it.</p>
-    </div>
-  </section>
+<section class="sec night" id="private"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="kicker">03 · How it works</span><h2>You pick a folder. The page reads it. That is all</h2></div>
+    <div><p>The browser reads the files with the File API and everything is decoded on your device, in memory. There is no upload and no server copy, and the page’s security policy limits which hosts it can reach.</p></div>
+  </div>
+  <details class="more" data-m="closed" open><summary>The three steps</summary>
+  <ol class="steps">
+    <li><h3>Pick a folder</h3><p>Choose the game’s root folder, an archive such as <code>Game.rgss3a</code>, or paste a game link.</p></li>
+    <li><h3>Decode in memory</h3><p>The key is read from the game itself. Nothing is written back and nothing is kept after you close the tab.</p></li>
+    <li><h3>Look, filter, save</h3><p>Browse, search and play. Download only what you choose to keep.</p></li>
+  </ol></details>
+  <div class="priv-row">
+    <figure>
+    <svg class="fig only-d" viewBox="0 0 600 240" role="img" aria-labelledby="pr-t pr-d">
+      <title id="pr-t">Where your files go</title>
+      <desc id="pr-d">A game folder is read and decoded inside the browser on your device. A dashed gap separates the device from servers, and nothing crosses it.</desc>
+      <rect x="1" y="1" width="378" height="238" rx="12" fill="none" stroke="#f8fafc" stroke-opacity=".55" stroke-width="1.5"/>
+      <text x="20" y="30" class="pv-s">Your device</text>
+      <rect x="24" y="66" width="96" height="108" rx="6" fill="none" stroke="#f8fafc" stroke-width="1.5"/>
+      <text x="72" y="116" text-anchor="middle" class="pv-t">Game</text><text x="72" y="136" text-anchor="middle" class="pv-t">folder</text>
+      <rect x="158" y="66" width="198" height="108" rx="6" fill="#f8fafc" fill-opacity=".08" stroke="#f8fafc" stroke-width="1.5"/>
+      <text x="176" y="94" class="pv-s">Browser tab</text>
+      <text x="176" y="122" class="pv-t">Reads, decrypts,</text><text x="176" y="142" class="pv-t">draws</text><text x="176" y="162" class="pv-t">File API, in memory</text>
+      <path d="M122 120h34m-7-5l7 5-7 5" fill="none" stroke="#f8fafc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="440" y1="14" x2="440" y2="226" stroke="#f8fafc" stroke-opacity=".5" stroke-dasharray="4 6" stroke-width="1.5"/>
+      <path d="M382 120h38" stroke="#f87171" stroke-width="1.5" stroke-dasharray="2 5" stroke-linecap="round"/>
+      <path d="M418 108l22 24M440 108l-22 24" stroke="#f87171" stroke-width="2" stroke-linecap="round"/>
+      <text x="460" y="30" class="pv-s">Servers</text>
+      <rect x="474" y="66" width="104" height="108" rx="6" fill="none" stroke="#f8fafc" stroke-opacity=".4" stroke-width="1.5" stroke-dasharray="4 5"/>
+      <text x="526" y="116" text-anchor="middle" class="pv-m">No file,</text><text x="526" y="136" text-anchor="middle" class="pv-m">name or key</text>
+    </svg>
+    <svg class="fig only-m" viewBox="0 0 340 330" role="img" aria-labelledby="pm-t pm-d">
+      <title id="pm-t">Where your files go</title>
+      <desc id="pm-d">A game folder is read and decoded inside the browser on your device. A dashed line separates the device from servers, and nothing crosses it.</desc>
+      <rect x="1" y="1" width="338" height="196" rx="12" fill="none" stroke="#f8fafc" stroke-opacity=".55" stroke-width="1.5"/>
+      <text x="16" y="28" class="pv-s">Your device</text>
+      <rect x="16" y="56" width="86" height="116" rx="6" fill="none" stroke="#f8fafc" stroke-width="1.5"/>
+      <text x="59" y="108" text-anchor="middle" class="pv-t">Game</text><text x="59" y="128" text-anchor="middle" class="pv-t">folder</text>
+      <rect x="130" y="56" width="194" height="116" rx="6" fill="#f8fafc" fill-opacity=".08" stroke="#f8fafc" stroke-width="1.5"/>
+      <text x="144" y="82" class="pv-s">Browser tab</text>
+      <text x="144" y="110" class="pv-t">Reads, decrypts,</text><text x="144" y="130" class="pv-t">draws</text><text x="144" y="154" class="pv-t">File API, in memory</text>
+      <path d="M104 114h24m-7-5l7 5-7 5" fill="none" stroke="#f8fafc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="10" y1="222" x2="330" y2="222" stroke="#f8fafc" stroke-opacity=".5" stroke-dasharray="4 6" stroke-width="1.5"/>
+      <path d="M230 197v14" stroke="#f87171" stroke-width="1.5" stroke-dasharray="2 4" stroke-linecap="round"/>
+      <path d="M220 212l20 20M240 212l-20 20" stroke="#f87171" stroke-width="2" stroke-linecap="round"/>
+      <text x="16" y="256" class="pv-s">Servers</text>
+      <rect x="16" y="268" width="308" height="48" rx="6" fill="none" stroke="#f8fafc" stroke-opacity=".4" stroke-width="1.5" stroke-dasharray="4 5"/>
+      <text x="170" y="298" text-anchor="middle" class="pv-m">No file, name or key</text>
+    </svg>
+    </figure>
+    <div class="stamp-row"><svg class="stamp" viewBox="0 0 200 200" role="img" aria-labelledby="st-t"><title id="st-t">Stamp: stays here, 0 bytes uploaded</title>
+      <circle class="st-r" cx="100" cy="100" r="94" stroke-width="6"/><circle class="st-r" cx="100" cy="100" r="78" stroke-width="2.5" stroke-dasharray="3 5"/>
+      <circle class="st-r" cx="94" cy="62" r="21" stroke-width="7"/><path class="st-r" d="M110 78l23 23" stroke-width="9" stroke-linecap="round"/>
+      <text class="st-t" x="100" y="128" text-anchor="middle">STAYS HERE</text><text class="st-t2" x="100" y="148" text-anchor="middle">0 bytes uploaded</text></svg>
+      <div><ul class="chips"><li>Local only</li><li>Works offline</li><li>Free and open</li></ul>
+      <p class="links-row"><a class="link-arrow" href="/privacy.html">Read the privacy page <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap faq">
+  <div><span class="kicker">04 · Common questions</span><h2>Before you open a folder</h2></div>
+  <div class="faq-list">
+    <details class="q" data-m="closed" open><summary>How do I open .rpgmvp, .png_ or .rgss3a files?</summary><div class="a"><p>Use <a href="/assets/">MakerLens Assets</a>. Select the game folder: MV, MZ and archive-based games (<code>.rgssad</code>, <code>.rgss2a</code>, <code>.rgss3a</code>: XP, VX, VX Ace) all open from it, and so do 2000/2003 games with their <code>.xyz</code> images. The key is read from the game itself, so you can preview the images and audio and download them one by one or as a ZIP.</p></div></details>
+    <details class="q"><summary>Can I see a game’s dialogue, choices and switches without the editor?</summary><div class="a"><p>Yes. <a href="/events/">MakerLens Events</a> opens the data of a released RPG Maker game (any version from 2000 to MZ) and draws each map or common event as a flow graph, with switch, variable and actor names filled in. Events that show pictures with dialogue are listed as scenes you can play, and a save file lets them start from your own progress. It is read-only.</p></div></details>
+    <details class="q"><summary>Are my game files uploaded anywhere?</summary><div class="a"><p>No. The browser reads the files on your device and everything is decoded there. The only anonymous data is a counter of page views and of a few actions by name (never what you open); see the <a href="/privacy.html">privacy page</a>.</p></div></details>
+    <details class="q"><summary>Which RPG Maker versions are supported?</summary><div class="a"><p>Both tools: MV, MZ, VX Ace, VX, XP, 2000 and 2003. Both are meant for games you own or have the rights holder’s permission to inspect, not for repackaging or redistributing a game. See <a href="/legal.html">Legal</a>.</p></div></details>
+    <details class="q"><summary>Do I need to install anything? Does it work offline?</summary><div class="a"><p>No install and no account. Desktop Chrome, Edge, Firefox and Brave work best; phone browsers may not offer folder selection. Once a page has loaded, it keeps working without a connection.</p></div></details>
+    <details class="q"><summary>Can I open the same game in both tools?</summary><div class="a"><p>Yes. After you open a game folder in Chrome or Edge, the <strong>Assets | Events</strong> switch in the header carries it to the other tool without picking it again. The folder stays on your device; the browser may ask once more before the other page can read it.</p></div></details>
+  </div>
+</div></section>
+
+<section class="closing" aria-labelledby="close-h"><div class="wrap">
+  <h2 id="close-h">Pick a folder. See what is inside.</h2>
+  <p>Two tools, one switch between them. Nothing is uploaded.</p>
+  <div class="cta"><a class="btn btn-p" href="/assets/">Open Assets</a><a class="btn btn-s" href="/events/">Open Events</a></div>
+</div></section>
 </main>
 
+<footer class="foot"><div class="wrap">
+  <div class="foot-brand"><a class="brand" href="/" translate="no"><svg class="mark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><rect class="lp" x="7" y="7" width="2" height="2"/><rect class="lp" x="9" y="9" width="2" height="2"/><rect class="lp" x="11" y="7" width="2" height="2"/></svg><span>Maker<b>Lens</b></span></a>
+  <p>Free tools to look inside RPG Maker games, right in your browser. A personal open-source project by Trương&nbsp;Tuấn&nbsp;Anh. Files never leave your device.</p></div>
+  <nav aria-label="Tools"><h2>Tools</h2><ul><li><a href="/assets/">MakerLens Assets</a></li><li><a href="/events/">MakerLens Events</a></li><li><a href="/assets/faq.html">Assets FAQ</a></li><li><a href="/events/faq.html">Events FAQ</a></li></ul></nav>
+  <nav aria-label="About"><h2>About</h2><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/legal.html">Legal</a></li><li><a href="https://github.com/Kokoroou/makerlens/discussions" rel="noopener">Community</a></li><li><a href="https://github.com/Kokoroou/makerlens" rel="noopener">GitHub</a></li></ul></nav>
+  <p class="fine">For games you own or have the rights holder’s permission to inspect. Read-only: your game is never changed.</p>
+</div></footer>
 
-<footer class="foot">
-  <a href="/assets/privacy.html">Privacy</a>
-  <a href="/assets/faq.html">Assets FAQ</a>
-  <a href="/events/faq.html">Events FAQ</a>
-  <a href="https://github.com/Kokoroou/makerlens/discussions" rel="noopener">Community</a>
-  <a href="https://github.com/Kokoroou/makerlens" rel="noopener">GitHub</a>
-</footer>
-
+<script src="/js/landing.js"></script>
 <script src="/assets/js/site.js"></script>
 <script src="/assets/js/analytics.js"></script>
 </body>
