@@ -21,9 +21,10 @@ Not for editing, repackaging or redistributing games.
 - To open the same game in both tools: use the Assets | Events switch in the header (Chrome or Edge); the folder stays on your device.
 - Files are never uploaded; there is no account and nothing to install. Both tools are free and open source (MIT).
 
-## Privacy
+## Privacy and legal
 
-https://makerlens.kokoroou.workers.dev/assets/privacy.html
+- Privacy (one page for both tools: files never leave the device; what the anonymous counter and the optional feedback form do): https://makerlens.kokoroou.workers.dev/privacy.html
+- Legal (intended use, user responsibility, takedown requests): https://makerlens.kokoroou.workers.dev/legal.html
 
 ## Source
 

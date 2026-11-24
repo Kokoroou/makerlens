@@ -10,7 +10,11 @@
 //   6. SEO basics on every page of the assembled site, tools included: the root
 //      favicon exists (Google shows one per hostname, from the home page), and each
 //      og:image / twitter:image / JSON-LD image on this host resolves to a file;
-//   7. the IndexNow key file (<32 hex>.txt, see scripts/indexnow.mjs) is served at the root.
+//   7. the IndexNow key file (<32 hex>.txt, see scripts/indexnow.mjs) is served at the root;
+//   8. page basics of the pages in site/: exactly one <h1>, a title in the family format
+//      ('... | MakerLens', og:title/twitter:title equal to it), the Privacy and Legal pages
+//      with their anchors, the /assets/privacy.html -> /privacy.html redirect in _redirects,
+//      and every sitemap URL on this host resolves to a file in _site/.
 // The tools' own pages are checked in their repos.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, posix, relative, resolve } from 'node:path';
@@ -101,6 +105,36 @@ try {
   const key = indexNowKey();
   if (!existsSync(join(out, key + '.txt'))) fail('_site', `missing IndexNow key file ${key}.txt`);
 } catch (e) { fail('site', e.message); }
+
+// 8. Page basics
+const decode = t => t.replace(/&amp;/g, '&');
+for (const page of own) {
+  const html = readFileSync(join(out, page), 'utf8');
+  const h1 = (html.match(/<h1[\s>]/g) || []).length;
+  if (h1 !== 1) fail(page, `expected exactly one <h1>, found ${h1}`);
+  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1];
+  if (!title || !/ \| MakerLens$/.test(title)) fail(page, `title must end with ' | MakerLens' (got '${title}')`);
+  else if (title.length > 65) fail(page, `title is ${title.length} characters (max 65)`);
+  for (const p of ['og:title', 'twitter:title']) {
+    const m = html.match(new RegExp(`<meta\\s+(?:property|name)="${p}"\\s+content="([^"]*)"`));
+    if (m && m[1] !== title) fail(page, `${p} differs from <title>`);
+  }
+}
+const REQUIRED = { 'privacy.html': ['files', 'analytics', 'feedback', 'hosting'], 'legal.html': ['does', 'use', 'not', 'you', 'rights', 'takedown'] };
+for (const [page, ids] of Object.entries(REQUIRED)) {
+  if (!existsSync(join(out, page))) { fail('_site', `missing ${page}`); continue; }
+  const html = readFileSync(join(out, page), 'utf8');
+  for (const id of ids) if (!html.includes(`id="${id}"`)) fail(page, `missing anchor #${id}`);
+}
+if (!existsSync(join(out, '_redirects')) || !/^\/assets\/privacy\.html\s+\/privacy\.html\s+301\s*$/m.test(readFileSync(join(out, '_redirects'), 'utf8'))) {
+  fail('_site', '_redirects must send /assets/privacy.html to /privacy.html (301): Privacy has one home');
+}
+const sitemap = readFileSync(join(out, 'sitemap.xml'), 'utf8');
+for (const m of sitemap.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)) {
+  if (!m[1].startsWith(ORIGIN)) continue;
+  const path = m[1].slice(ORIGIN.length);
+  if (!existsSync(join(out, path === '' || path.endsWith('/') ? path + 'index.html' : path))) fail('sitemap.xml', `${m[1]} is not in _site/`);
+}
 
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`OK: ${own.length} pages checked, tools at /assets/ and /events/.`);
