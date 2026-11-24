@@ -34,8 +34,8 @@ for (const p of ['index.html', 'assets/index.html', 'assets/js/site.js', 'assets
   if (!existsSync(join(out, p))) fail('_site', `missing ${p}`);
 }
 
-// 5. Shared design system: one tokens.css for the whole family
-const SHARED = ['css/tokens.css'];
+// 5. Shared design system: one tokens.css and one lens layer (css/lens.css + js/lens-gate.js) for the whole family
+const SHARED = ['css/tokens.css', 'css/lens.css', 'js/lens-gate.js'];
 for (const f of SHARED) {
   const a = join(out, 'assets', f), e = join(out, 'events', f);
   if (existsSync(a) && existsSync(e) && readFileSync(a, 'utf8') !== readFileSync(e, 'utf8')) {
