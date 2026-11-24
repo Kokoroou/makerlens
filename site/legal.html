@@ -64,7 +64,7 @@
   <div>
     <span class="kicker">Legal Notice</span>
     <h1 class="rise">What these tools do, and what they are not for</h1>
-    <p class="lede rise">This page applies to MakerLens Assets and MakerLens Events. It is explicit about what the tools do and do not do, and it reduces the risk of DMCA or similar complaints for contributors and users.</p>
+    <p class="lede rise">This notice applies to MakerLens Assets and MakerLens Events. It states what the Tools do and do not do, to reduce the risk of DMCA or similar complaints for contributors and users.</p>
   </div>
   <aside class="spec rise" aria-label="Full texts"><dl>
     <dt>Assets</dt><dd><a href="https://github.com/Kokoroou/rpgmaker-assets-viewer/blob/main/LEGAL.md" rel="noopener">LEGAL.md on GitHub</a></dd>
@@ -74,25 +74,45 @@
 </div></section>
 <div class="wrap doc">
   <aside class="toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#does">What they do</a></li><li><a href="#use">Intended use</a></li><li><a href="#not">Not for</a></li><li><a href="#you">Your duty</a></li><li><a href="#rights">Copyright</a></li><li><a href="#takedown">Takedown</a></li></ul></aside>
-  <div class="doc-body">
-<section id="does"><h2>What the tools do</h2>
-<div class="two"><div class="card-x yes"><h3>They do</h3><p>Read only the files you select, on your own device. Reverse the game’s own obfuscation in browser memory, using the key that ships with the game or the archive.</p></div>
-<div class="card-x no"><h3>They never</h3><p>Upload, store or transmit any file or key, or tell us which files or games you open. They only read: your game is never modified, and MakerLens Events is read-only too.</p></div></div>
-<p><strong>RPG Maker MV and MZ</strong> keep an XOR key in plaintext in <code>data/System.json</code>, which ships with every game deployment; the tool reads it from your local filesystem, reverses the XOR in browser memory and shows the result through a temporary Blob URL. <strong>XP, VX and VX Ace</strong> pack assets into an archive (<code>.rgssad</code>, <code>.rgss2a</code>, <code>.rgss3a</code>) whose key is embedded in the archive itself.</p>
-<p>Because the keys are co-located with, or embedded in, the content they “protect”, this obfuscation is not considered effective access control under most legal interpretations, and is substantially different from true DRM systems. The only automatic network requests are described on the <a href="/privacy.html">privacy page</a>.</p></section>
+  <div class="doc-body legal">
+<p class="defs"><strong>Definitions.</strong> In this notice, “<strong>the Tools</strong>” means MakerLens Assets and MakerLens Events; “<strong>the Maintainer</strong>” means the maintainer of the Tools (<a href="https://github.com/Kokoroou" rel="noopener">Kokoroou</a> on GitHub); and “<strong>you</strong>” means any person who uses the Tools.</p>
+<section id="does"><h2>What the Tools do</h2>
+<ol class="clauses">
+<li><div><p>The Tools:</p><ul><li>read only the files you explicitly select from your local filesystem;</li><li>reverse the game’s own obfuscation entirely in browser memory, using the key that ships with the game or the archive;</li><li>show the result through a temporary Blob URL.</li></ul></div></li>
+<li><div><p>The Tools never:</p><ul><li>upload, store or transmit any file or key to a remote server;</li><li>collect information about which files or games are opened;</li><li>modify your game: they only read, and MakerLens Events is read-only too.</li></ul></div></li>
+<li><div>The only automatic network requests are described on the <a href="/privacy.html">privacy page</a>.</div></li>
+<li><div><strong>RPG Maker MV and MZ.</strong> The engine stores an XOR key in plaintext in <code>data/System.json</code>, which ships with every game deployment. The Tools read it from your local filesystem and reverse the XOR in browser memory.</div></li>
+<li><div><strong>RPG Maker XP, VX and VX Ace.</strong> Assets are packed into an archive (<code>.rgssad</code>, <code>.rgss2a</code>, <code>.rgss3a</code>). Its key is embedded in the archive itself.</div></li>
+<li><div>Because the keys are co-located with, or embedded in, the content they “protect”, this obfuscation is not considered effective access control under most legal interpretations, and is substantially different from true DRM systems.</div></li>
+</ol></section>
 <section id="use"><h2>Intended use</h2>
-<ul><li><strong>Game developers</strong> working on their own RPG Maker projects who need to inspect or recover their own assets.</li><li><strong>Artists and contributors</strong> who created assets for a game and need to review or retrieve their own work.</li><li><strong>Modders</strong> operating under explicit permission from the game’s copyright holder.</li><li><strong>Researchers and educators</strong> studying file formats or game development workflows.</li></ul></section>
+<ol class="clauses">
+<li><div><p>The Tools are intended for:</p><ul><li><strong>game developers</strong> working on their own RPG Maker projects who need to inspect or recover their own assets;</li><li><strong>artists and contributors</strong> who created assets for a game and need to review or retrieve their own work;</li><li><strong>modders</strong> operating under explicit permission from the game’s copyright holder;</li><li><strong>researchers and educators</strong> studying file formats or game development workflows.</li></ul></div></li>
+</ol></section>
 <section id="not"><h2>Not for</h2>
-<ul><li>Extracting, distributing or repurposing assets from games you do not own or have not received explicit permission to modify.</li><li>Circumventing access controls on commercially distributed games without authorization.</li><li>Any use that violates the End User License Agreement of the game or the RPG Maker engine.</li></ul></section>
+<ol class="clauses">
+<li><div><p>The Tools are not for:</p><ul><li>extracting, distributing or repurposing assets from games you do not own or have not received explicit permission to modify;</li><li>circumventing access controls on commercially distributed games without authorization;</li><li>any use that violates the End User License Agreement of the game or the RPG Maker engine.</li></ul></div></li>
+</ol></section>
 <section id="you"><h2>Your responsibility</h2>
-<ol><li>You are responsible for ensuring you have the legal right to access and process the files you select.</li><li>The tools do not grant you any rights over third-party copyrighted content.</li><li>The authors of the tools are not liable for how you use the output.</li></ol></section>
+<ol class="clauses">
+<li><div><p>By using the Tools, you accept that:</p><ul><li>you are responsible for ensuring you have the legal right to access and process the files you select;</li><li>the Tools do not grant you any rights over third-party copyrighted content;</li><li>the authors of the Tools are not liable for how you use the output.</li></ul></div></li>
+</ol></section>
 <section id="rights"><h2>Copyright and licences</h2>
-<p>Game assets (images, audio, scripts) distributed with a game are protected by copyright regardless of whether they are obfuscated. Decrypting them for personal inspection does not create a licence to redistribute them.</p>
-<p>Kadokawa / Gotcha Gotcha Games publish a separate EULA for each RPG Maker version. Consult the one that applies to the game you are working with; common restrictions include limits on asset redistribution and derivative works.</p>
-<p>The source code of MakerLens Assets and MakerLens Events is open source under the MIT licence (see the links above). The projects ask contributors not to commit real game assets or game data, even as test fixtures, without permission from the copyright holder.</p></section>
+<ol class="clauses">
+<li><div>Game assets (images, audio, scripts) distributed with a game are protected by copyright regardless of whether they are obfuscated.</div></li>
+<li><div>Decrypting assets for personal inspection does not create a licence to redistribute them.</div></li>
+<li><div>Kadokawa / Gotcha Gotcha Games publish a separate EULA for each RPG Maker version. You should consult the one that applies to the game you are working with. Common restrictions include limits on asset redistribution and derivative works.</div></li>
+<li><div>The source code of the Tools is open source under the MIT licence (see the links above).</div></li>
+<li><div>Under that licence, the software is provided “as is”, without warranty of any kind, express or implied, including the warranties of merchantability, fitness for a particular purpose and noninfringement. The authors or copyright holders are not liable for any claim, damages or other liability arising from, out of or in connection with the software or its use.</div></li>
+<li><div>The projects ask contributors not to commit real game assets or game data, even as test fixtures, without permission from the copyright holder.</div></li>
+</ol></section>
 <section id="takedown"><h2>Takedown requests</h2>
-<p>If you are a rights holder and believe a tool is being used to infringe your copyright, please <a href="https://github.com/Kokoroou/rpgmaker-assets-viewer/issues" rel="noopener">open an issue</a> or contact the maintainer directly (<a href="https://github.com/Kokoroou" rel="noopener">Kokoroou</a> on GitHub). We will respond promptly. A takedown request directed at a repository must target the tool itself, not individual users’ actions, which are outside the project’s control.</p>
-<p class="doc-meta">One notice for both tools. Full texts: see the links at the top of this page.</p></section>
+<ol class="clauses">
+<li><div>If you are a rights holder and believe a Tool is being used to infringe your copyright, please <a href="https://github.com/Kokoroou/rpgmaker-assets-viewer/issues" rel="noopener">open an issue</a> or contact the Maintainer directly.</div></li>
+<li><div>The Maintainer will respond promptly.</div></li>
+<li><div>A takedown request directed at a repository must target the Tool itself, not individual users’ actions, which are outside the project’s control.</div></li>
+</ol>
+<p class="doc-meta">One notice for both Tools. Full texts: see the links at the top of this page.</p></section>
   </div>
 </div>
 <section class="closing" aria-labelledby="close-h"><div class="wrap">

@@ -52,6 +52,12 @@
 <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></symbol>
 <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-device" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+<symbol id="i-count" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
 </svg>
 <header class="top"><div class="wrap bar">
   <a class="brand" href="/" translate="no" aria-label="MakerLens home"><svg class="mark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><rect class="lp" x="7" y="7" width="2" height="2"/><rect class="lp" x="9" y="9" width="2" height="2"/><rect class="lp" x="11" y="7" width="2" height="2"/></svg><span>Maker<b>Lens</b></span></a>
@@ -66,30 +72,81 @@
     <h1 class="rise">Your files never leave your device</h1>
     <p class="lede rise">MakerLens Assets and MakerLens Events read and decrypt your game in your browser. No file, folder name or key is sent anywhere, and your browser enforces it with a Content-Security-Policy. Once the page has loaded it works offline.</p>
   </div>
-  <div class="stamp-row"><svg class="stamp" viewBox="0 0 200 200" role="img" aria-labelledby="st-t"><title id="st-t">Stamp: stays here, 0 bytes uploaded</title>
+  <aside class="sum" aria-label="Summary">
+    <div class="sum-top"><svg class="stamp" viewBox="0 0 200 200" role="img" aria-labelledby="st-t"><title id="st-t">Stamp: stays here, 0 bytes uploaded</title>
 <circle class="st-r" cx="100" cy="100" r="94" stroke-width="6"/><circle class="st-r" cx="100" cy="100" r="78" stroke-width="2.5" stroke-dasharray="3 5"/>
 <circle class="st-r" cx="94" cy="62" r="21" stroke-width="7"/><path class="st-r" d="M110 78l23 23" stroke-width="9" stroke-linecap="round"/>
-<text class="st-t" x="100" y="128" text-anchor="middle">STAYS HERE</text><text class="st-t2" x="100" y="148" text-anchor="middle">0 bytes uploaded</text></svg></div>
+<text class="st-t" x="100" y="128" text-anchor="middle">STAYS HERE</text><text class="st-t2" x="100" y="148" text-anchor="middle">0 bytes uploaded</text></svg>
+    <p class="sum-h">The short version</p></div>
+    <ul>
+      <li><a href="#files"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-device"/></svg><span><b>Files stay on your device</b> Nothing is uploaded.</span></a></li>
+      <li><a href="#analytics"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-count"/></svg><span><b>Anonymous count</b> No cookies, no IP stored.</span></a></li>
+      <li><a href="#feedback"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-chat"/></svg><span><b>Feedback is optional</b> Sent only when you press.</span></a></li>
+      <li><a href="#hosting"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-server"/></svg><span><b>Hosting and contact</b> Cloudflare Workers.</span></a></li>
+    </ul>
+  </aside>
 </div></section>
 <div class="wrap doc">
   <aside class="toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#files">Your files</a></li><li><a href="#analytics">Anonymous count</a></li><li><a href="#feedback">Feedback</a></li><li><a href="#hosting">Hosting, contact</a></li></ul></aside>
   <div class="doc-body">
 <section id="files"><h2>Your files</h2>
 <ul>
-<li><strong>Nothing is uploaded.</strong> When you pick a folder, Chrome may say “upload”: that is its standard wording for giving a page access to a folder. The files are only read locally.</li>
-<li>A <strong>game link</strong> (made inside a game published with <a href="https://github.com/Kokoroou/rpgmaker-web-toolkit" rel="noopener">rpgmaker-web-toolkit</a>) carries its key after the <code>#</code>, which browsers never send to a server. Your browser sends it only to that game’s own site. The files go straight from there into your browser, not through MakerLens.</li>
-<li>The Assets | Events switch passes the open folder to the other tool inside your browser only. Nothing is sent.</li>
-<li>The tools only read: your game is never modified.</li>
-<li>Your theme, layout choices and whether you answered the feedback card are kept in your browser’s local storage. They never leave your device.</li>
+<li><strong>Nothing is uploaded.</strong> The files are only read locally.</li>
+<li>When you pick a folder, Chrome may say “upload”. That is its standard wording for giving a page access to a folder.</li>
+<li>A <strong>game link</strong> comes from a game published with <a href="https://github.com/Kokoroou/rpgmaker-web-toolkit" rel="noopener">rpgmaker-web-toolkit</a>. It carries its key after the <code>#</code>, which browsers never send to a server.</li>
+<li>Your browser sends the key only to that game’s own site. The files go from there straight into your browser, not through MakerLens.</li>
+<li>The Assets | Events switch passes the open folder to the other tool inside your browser. Nothing is sent.</li>
+<li>The tools only read. Your game is never modified.</li>
+<li>Your theme, layout choices and whether you answered the feedback card stay in your browser’s local storage, on your device.</li>
 </ul></section>
 <section id="analytics"><h2>Anonymous usage count</h2>
-<p>Each page load on the MakerLens site sends one request to <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a>: the page path, the referring site and any campaign parameter such as <code>utm_source</code>. A few actions are also counted by name only, at most once per page load: how a game was opened (for example a folder, an archive or a game link) and whether that worked, its engine family (such as MV, MZ or VX Ace), which features were used (for example the image viewer, the filters, the flow graph or the scene player), the feedback card, and switching between Assets and Events. Never what was opened, searched or typed.</p>
-<p>No cookies or identifiers, no IP address stored. Nothing is sent with Do Not Track or Global Privacy Control, or on a local copy. If it is blocked, the tools work the same.</p></section>
+<p>Each page load on the MakerLens site sends one request to <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a>. A few actions are also counted by name only, at most once per page load.</p>
+<div class="two">
+<div class="card-x yes"><h3>Counted</h3><ul class="ic-list">
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>The page path</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>The referring site and any campaign parameter, such as <code>utm_source</code></span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>How a game was opened (a folder, an archive or a game link) and whether that worked</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>Its engine family, such as MV, MZ or VX&nbsp;Ace</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>Which features were used: the image viewer, the filters, the flow graph or the scene player</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>The feedback card, and switching between Assets and Events</span></li>
+</ul></div>
+<div class="card-x no"><h3>Never collected</h3><ul class="ic-list">
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg><span>What was opened, searched or typed</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg><span>Cookies or identifiers</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg><span>Your IP address (it is not stored)</span></li>
+</ul></div></div>
+<ul>
+<li>Nothing is sent with Do Not Track or Global Privacy Control, or on a local copy.</li>
+<li>If the counter is blocked, the tools work the same.</li>
+</ul></section>
 <section id="feedback"><h2>Feedback (optional)</h2>
-<p>Nothing is sent unless you tap a star or press Send. A message contains the rating, the comment you typed, your browser language, roughly how many games you have opened and, for bug reports only (you can remove it), your browser and system. Never file or folder names, game titles or keys. The message is stored with its date but no IP address or identifier, and is kept until deleted. <strong>Please don’t put personal information in a comment.</strong> To get a reply or have a comment removed, <a href="https://github.com/Kokoroou/rpgmaker-assets-viewer/issues" rel="noopener">open a GitHub issue</a>.</p></section>
+<p>Nothing is sent unless you tap a star or press Send.</p>
+<div class="two">
+<div class="card-x yes"><h3>A message contains</h3><ul class="ic-list">
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>The rating</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>The comment you typed</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>Your browser language</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>Roughly how many games you have opened</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span>Bug reports only: your browser and system (you can remove it)</span></li>
+</ul></div>
+<div class="card-x no"><h3>Never included</h3><ul class="ic-list">
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg><span>File or folder names</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg><span>Game titles</span></li>
+<li><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg><span>Keys</span></li>
+</ul></div></div>
+<ul>
+<li>The message is stored with its date but no IP address or identifier. It is kept until deleted.</li>
+<li><strong>Please don’t put personal information in a comment.</strong></li>
+<li>To get a reply or have a comment removed, <a href="https://github.com/Kokoroou/rpgmaker-assets-viewer/issues" rel="noopener">open a GitHub issue</a>.</li>
+</ul></section>
 <section id="hosting"><h2>Hosting and contact</h2>
-<p>The site is served by Cloudflare Workers (the old address by GitHub Pages). Like any host, they see your IP address to deliver the pages, under their own privacy policies; request logs for the MakerLens Worker are off.</p>
-<p>MakerLens is a personal open-source project by Trương&nbsp;Tuấn&nbsp;Anh (<a href="https://github.com/Kokoroou" rel="noopener">Kokoroou</a>). The code, including what is sent above, is public on GitHub (<a href="https://github.com/Kokoroou/rpgmaker-assets-viewer" rel="noopener">Assets</a>, <a href="https://github.com/Kokoroou/rpgmaker-events-viewer" rel="noopener">Events</a>). For a privacy question or request, open an issue there.</p>
+<ul>
+<li>The site is served by Cloudflare Workers (the old address by GitHub Pages).</li>
+<li>Like any host, they see your IP address to deliver the pages, under their own privacy policies. Request logs for the MakerLens Worker are off.</li>
+<li>MakerLens is a personal open-source project by Trương&nbsp;Tuấn&nbsp;Anh (<a href="https://github.com/Kokoroou" rel="noopener">Kokoroou</a>).</li>
+<li>The code, including what is sent above, is public on GitHub (<a href="https://github.com/Kokoroou/rpgmaker-assets-viewer" rel="noopener">Assets</a>, <a href="https://github.com/Kokoroou/rpgmaker-events-viewer" rel="noopener">Events</a>).</li>
+<li>For a privacy question or request, open an issue there.</li>
+</ul>
 <p class="doc-meta">This page covers both MakerLens tools. Last updated: 24 November 2026.</p></section>
   </div>
 </div>
