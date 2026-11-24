@@ -1,0 +1,59 @@
+title: "[Game won't open] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the details! They help us answer faster.
+
+        **Please do not attach or paste game files, images, audio or dialogue.** MakerLens never receives your files, and describing what you see is enough.
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Which tool?
+      options:
+        - MakerLens Assets
+        - MakerLens Events
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: RPG Maker version
+      description: Not sure? Say what the game folder contains in the box below, for example data/System.json or Game.rgss3a.
+      options:
+        - Not sure
+        - RPG Maker 2000 / 2003 (RPG_RT.ldb, Map####.lmu)
+        - RPG Maker XP / VX / VX Ace (Data/ folder or .rgssad, .rgss2a, .rgss3a)
+        - RPG Maker MV (data/ or www/data/)
+        - RPG Maker MZ (data/)
+    validations:
+      required: true
+  - type: dropdown
+    id: open-way
+    attributes:
+      label: How did you open it?
+      options:
+        - Select Game Folder
+        - Drag and drop
+        - Archive (Game.rgss3a, .rgss2a, .rgssad)
+        - Game link
+        - Individual files
+        - Data files
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and system
+      placeholder: Chrome 131 on Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you see?
+      description: The message on screen, or what stayed empty. Add what the game folder contains if you are unsure of the version.
+    validations:
+      required: true
