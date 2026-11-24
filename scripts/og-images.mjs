@@ -41,20 +41,20 @@ const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const CARDS = {
   family: {
     suffix: '', path: '/',
-    title: 'Look inside<br>RPG Maker games',
-    sub: 'Free tools that open a game folder right in your browser. Nothing to install.',
+    title: 'Look inside your <em>RPG&nbsp;Maker</em> game', bar: 'MyGame /',
+    sub: 'See its images, sounds, dialogue and cutscenes. No install, no account.',
     chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace', '2000', '2003'],
     items: [
       ['image', 'MakerLens Assets', 'Extract encrypted images and audio'],
       ['flow', 'MakerLens Events', 'Event dialogue and choices as a graph'],
       ['eye', 'Read-only', 'The game is never changed'],
-      ['folder', 'No install, no account', 'Works in Chrome, Edge and Firefox'],
+      ['shield', 'Files stay on your device', 'Read and decoded in memory'],
     ],
   },
   assets: {
     suffix: 'Assets', path: '/assets/',
-    title: 'View &amp; extract<br>RPG Maker assets',
-    sub: 'Preview encrypted images and audio, then download them — right in your browser.',
+    title: 'Every image &amp; sound, in <em>one grid</em>', bar: 'img / characters',
+    sub: 'Preview encrypted images and audio, then download them, right in your browser.',
     chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace', '2000', '2003'],
     items: [
       ['folder', 'Open a game folder', '.rpgmvp · .png_ · .rpgmvo · .ogg_', true],
@@ -65,8 +65,8 @@ const CARDS = {
   },
   events: {
     suffix: 'Events', path: '/events/',
-    title: 'RPG Maker events<br>as a flow graph',
-    sub: 'Dialogue, choices, conditions and jumps of every event — right in your browser.',
+    title: 'Follow the story<br><em>as a map</em>', bar: 'Map003 · Elder',
+    sub: 'Dialogue, choices and switches of every event as a flow graph. Play the cutscenes.',
     chips: ['MV', 'MZ', 'XP', 'VX', 'VX Ace', '2000', '2003'],
     items: [
       ['folder', 'Open a game folder', 'or just its data/ folder', false],
@@ -77,38 +77,54 @@ const CARDS = {
   },
 };
 
+// The share card wears the site's "field guide" look (site/css/landing.css): paper with a
+// faint grid, serif title, mono labels, 2px ink borders with a hard shadow, green as the
+// only accent, the lens mark with three green pixels and the pixel-art hero of the landing
+// page (its <symbol id="s-hero"> is reused). No URL on the card: the link preview shows it.
+const SPRITES = readFileSync(join(root, 'site/index.html'), 'utf8').match(/<symbol id="s-hero"[\s\S]*?<\/symbol>/)[0];
+const LENS = '<svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="#0f172a" stroke-width="2"/><path d="M15 15l6 6" stroke="#0f172a" stroke-width="2.6" stroke-linecap="round"/><rect fill="#15803d" x="7" y="7" width="2" height="2"/><rect fill="#15803d" x="9" y="9" width="2" height="2"/><rect fill="#15803d" x="11" y="7" width="2" height="2"/></svg>';
+
 function cardHTML(c) {
-  const word = `Maker<span class="g">Lens</span>${c.suffix ? ` <span class="sfx">${c.suffix}</span>` : ''}`;
+  const word = `Maker<i>Lens</i>${c.suffix ? ` <span class="sfx">${c.suffix}</span>` : ''}`;
   const items = c.items.map(([ic, h, p, mono]) =>
-    `<div class="item"><span class="ic">${svg(ICON[ic], 20)}</span><div><b>${h}</b><small class="${mono ? 'mono' : ''}">${p}</small></div></div>`).join('');
+    `<div class="item"><span class="ic">${svg(ICON[ic], 22)}</span><div><b>${h}</b><small class="${mono ? 'mono' : ''}">${p}</small></div></div>`).join('');
   return `<!doctype html><html><head><meta charset="utf-8"><style>
   *{box-sizing:border-box;margin:0}
-  body{width:1200px;height:630px;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#f1f5f9;
-    background:radial-gradient(520px 360px at 300px 260px,rgba(34,197,94,.13),transparent 70%),
-      radial-gradient(circle,rgba(148,163,184,.09) 1px,transparent 1.2px) 0 0/24px 24px,#0b1120}
-  .wrap{display:flex;gap:48px;padding:72px 80px 0}
-  .left{flex:1;display:flex;flex-direction:column;height:530px}
-  .brand{display:flex;align-items:center;gap:18px}
-  .mark{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;background:rgba(34,197,94,.12);border:1.5px solid rgba(34,197,94,.3);color:#4ade80}
-  .word{font-size:40px;font-weight:700;letter-spacing:-.02em}.g{color:#4ade80}.sfx{color:#94a3b8;font-weight:600}
-  h1{font-size:58px;line-height:1.08;letter-spacing:-.035em;font-weight:800;margin-top:56px}
-  p{font-size:25px;line-height:1.35;color:#94a3b8;margin-top:22px;max-width:500px}
+  :root{--serif:Charter,'Bitstream Charter',Georgia,serif;--mono:'DejaVu Sans Mono',monospace;--ink:#0f172a;--t2:#475569;--g:#15803d}
+  body{width:1200px;height:630px;overflow:hidden;font-family:var(--serif);color:var(--ink);background-color:#f8fafc;
+    background-image:linear-gradient(rgba(15,23,42,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.06) 1px,transparent 1px);
+    background-size:28px 28px;border:10px solid var(--ink);position:relative}
+  .wrap{display:flex;gap:44px;padding:50px 56px 0 62px}
+  .left{flex:1;display:flex;flex-direction:column;height:520px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .word{font-size:42px;font-weight:700;letter-spacing:-.02em}.word i{color:var(--g)}.sfx{color:var(--t2)}
+  .kicker{align-self:flex-start;margin-top:30px;font:700 18px/1 var(--mono);color:var(--g);border:2.5px solid var(--g);background:#fff;border-radius:999px;padding:9px 18px;transform:rotate(-1.5deg)}
+  h1{font-size:66px;line-height:1.02;letter-spacing:-.03em;font-weight:700;margin-top:22px}
+  h1 em{font-style:italic;color:var(--g)}
+  p{font-size:25px;line-height:1.38;color:var(--t2);margin-top:18px;max-width:560px}
   .chips{display:flex;gap:8px;margin-top:auto;padding:0}
-  .chips li{list-style:none;white-space:nowrap;padding:7px 14px;border-radius:999px;background:#1e293b;border:1px solid #334155;color:#cbd5e1;font-weight:600;font-size:19px}
-  .url{font-family:'DejaVu Sans Mono',monospace;color:#64748b;font-size:16px;margin-top:22px}
-  .right{width:440px;display:flex;flex-direction:column;gap:14px;padding-top:32px}
-  .item{display:flex;gap:16px;align-items:center;padding:17px 20px;border-radius:12px;background:rgba(15,23,42,.85);border:1px solid #1e293b}
-  .ic{width:40px;height:40px;flex:none;border-radius:9px;display:grid;place-items:center;background:rgba(34,197,94,.1);color:#4ade80}
-  b{display:block;font-size:20px;font-weight:600}small{display:block;font-size:15.5px;color:#94a3b8;margin-top:3px}
-  small.mono{font-family:'DejaVu Sans Mono',monospace;font-size:14px}
-  .safe{display:flex;gap:12px;align-items:center;padding:14px 20px;border-radius:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3);color:#4ade80;font-weight:600;font-size:19px}
-  </style></head><body><div class="wrap">
-  <div class="left"><div class="brand"><span class="mark">${svg(MARK, 34)}</span><span class="word">${word}</span></div>
+  .chips li{list-style:none;white-space:nowrap;padding:8px 12px;border:2.5px solid var(--ink);border-radius:7px;background:#fff;font:700 18px/1 var(--mono)}
+  .right{width:430px;padding-top:6px}
+  .card{background:#fff;border:3px solid var(--ink);border-radius:10px;box-shadow:9px 9px 0 var(--ink);overflow:hidden}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:52px;border-bottom:3px solid var(--ink);background:#f1f5f9;font:400 16px var(--mono);color:var(--t2)}
+  .dots{display:flex;gap:7px}.dots i{width:12px;height:12px;border:2px solid var(--ink);border-radius:50%}.dots i:first-child{background:var(--g)}
+  .item{display:flex;gap:16px;align-items:center;padding:16px 20px;border-top:1.5px solid #cbd5e1}
+  .item:first-of-type{border-top:0}
+  .ic{width:44px;height:44px;flex:none;border-radius:8px;display:grid;place-items:center;background:var(--g);color:#fff;border:2.5px solid var(--ink)}
+  b{display:block;font-size:22px;font-weight:700;line-height:1.2}small{display:block;font-size:17px;color:var(--t2);margin-top:3px}
+  small.mono{font-family:var(--mono);font-size:15px}
+  .stamp{position:absolute;left:1000px;top:438px;width:140px;height:140px;transform:rotate(-10deg)}
+  .pk{fill:#0f172a}.ph{fill:#7b3f1d}.ps{fill:#efc59a}.pc{fill:#15803d}.pb{fill:#1d4ed8}.pw{fill:#f8fafc}
+  .hero{position:absolute;left:600px;top:488px;width:72px;height:84px}
+  </style></head><body><svg width="0" height="0" style="position:absolute">${SPRITES}</svg><div class="wrap">
+  <div class="left"><div class="brand">${LENS}<span class="word">${word}</span></div>
+  <span class="kicker">Free · In your browser · Nothing uploaded</span>
   <h1>${c.title}</h1><p>${c.sub}</p>
-  <ul class="chips">${c.chips.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-  <div class="url">${HOST}${c.path}</div></div>
-  <div class="right">${items}<div class="safe">${svg(ICON.shield, 20)}Your files never leave your device</div></div>
-  </div></body></html>`;
+  <ul class="chips">${c.chips.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+  <div class="right"><div class="card"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>${c.bar}</span></div>${items}</div>
+  <svg class="hero" viewBox="0 0 12 14" shape-rendering="crispEdges"><use href="#s-hero"/></svg>
+  <svg class="stamp" viewBox="0 0 200 200"><circle cx="100" cy="100" r="94" fill="#f8fafc" stroke="#15803d" stroke-width="7"/><circle cx="100" cy="100" r="78" fill="none" stroke="#15803d" stroke-width="2.5" stroke-dasharray="3 5"/><circle cx="94" cy="62" r="21" fill="none" stroke="#15803d" stroke-width="7"/><path d="M110 78l23 23" stroke="#15803d" stroke-width="9" stroke-linecap="round"/><text x="100" y="130" text-anchor="middle" font-family="DejaVu Sans Mono" font-weight="700" font-size="21" fill="#15803d">STAYS HERE</text><text x="100" y="152" text-anchor="middle" font-family="DejaVu Sans Mono" font-size="13" fill="#15803d">0 bytes uploaded</text></svg>
+  </div></div></body></html>`;
 }
 
 const browser = await chromium.launch();

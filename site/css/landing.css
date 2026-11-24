@@ -31,7 +31,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 72px; }
 body {
   margin: 0;
   min-height: 100vh;
@@ -59,17 +59,20 @@ code { font-family: var(--mono); font-size: .88em; background: var(--s3); paddin
 .skip:focus { top: 12px; }
 .only-m { display: none; }
 
-/* header: lens mark with three green pixels, mono nav with a rule under the current page */
-.top { background: var(--bg); border-bottom: 2px solid var(--t); position: relative; z-index: 5; }
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; }
-.brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font: 700 21px/1 var(--serif); letter-spacing: -.02em; color: var(--t); }
+/* header: lens mark with three green pixels, mono nav with a rule under the current page.
+   Compact (56px, one row on phones too) and pinned to the top while the page scrolls; it gains
+   the hard shadow once the page has moved (scroll-driven, CSS only). Mirrored for the tools'
+   faq.html in css/family-chrome.css of both tool repos: edit the three together. */
+.top { background: var(--bg); border-bottom: 2px solid var(--t); position: sticky; top: 0; z-index: 20; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font: 700 20px/1 var(--serif); letter-spacing: -.02em; color: var(--t); }
 .brand b { font-weight: 700; font-style: italic; color: var(--a); }
 .brand:hover { color: var(--t); }
 .brand:hover b { color: var(--a); }
 .mark { color: currentColor; }
 .lp { fill: var(--a); }
 .top nav { display: flex; gap: 8px; }
-.top nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; font: 400 14px/1 var(--mono); text-decoration: none; color: var(--t2); border-radius: 0; }
+.top nav a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: 0 12px; font: 400 14px/1 var(--mono); text-decoration: none; color: var(--t2); border-radius: 0; }
 .top nav a:hover { background: var(--s3); color: var(--t); }
 .top nav a[aria-current="page"] { color: var(--t); font-weight: 700; box-shadow: inset 0 -4px 0 var(--a-bg); }
 .theme-btn { display: inline-grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 50%; border: 2px solid var(--t); background: transparent; color: var(--t); cursor: pointer; }
@@ -245,6 +248,9 @@ details.q summary:hover { color: var(--a); }
 details.q .a { padding: 0 20px 20px; color: var(--t2); }
 details.q .a p + p { margin-top: 12px; }
 details.q .a a { color: var(--t); }
+details.q .a ul, details.q .a ol { margin: 8px 0 0; padding-left: 22px; }
+details.q .a li + li { margin-top: 6px; }
+details.q .a li::marker { color: var(--a); }
 
 /* closing call to action + footer (always dark) */
 .closing { background: var(--night); color: var(--on-night); text-align: center; padding: 88px 0 96px; border-top: 4px solid var(--bd2); }
@@ -298,12 +304,43 @@ details.q .a a { color: var(--t); }
 .doc-body a { color: var(--t); }
 .doc-body a:hover { color: var(--a); }
 .doc-meta { font: 400 14px var(--mono); color: var(--t2); }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; align-items: start; }
 .card-x { border: 2px solid var(--t); border-radius: var(--r); background: var(--s1); padding: 20px; }
 .card-x h3 { font-size: 19px; margin-bottom: 6px; }
 .card-x p { margin: 0; color: var(--t2); font-size: 16px; }
 .card-x.no { border-left: 8px solid var(--err); }
 .card-x.yes { border-left: 8px solid var(--a-bg); }
+.card-x ul { margin: 0; }
+.doc-body .ic-list { list-style: none; padding: 0; margin: 0; }
+.ic-list li { display: flex; gap: 10px; align-items: flex-start; margin-top: 10px; font-size: 16px; }
+.ic-list li:first-child { margin-top: 0; }
+.ic-list .ic { flex: none; margin-top: 2px; }
+.card-x.yes .ic { color: var(--a); }
+.card-x.no .ic { color: var(--err); }
+.card-x .ic-list code { overflow-wrap: anywhere; }
+.defs { border: 2px solid var(--t); border-radius: var(--r); background: var(--s1); padding: 14px 18px; margin-bottom: 40px; }
+.doc-body .defs { color: var(--t2); }
+.legal { counter-reset: sec; }
+.legal section { counter-increment: sec; counter-reset: cl; }
+.legal h2::before { content: counter(sec) ". "; color: var(--t2); font-family: var(--mono); font-weight: 400; }
+.doc-body .clauses { list-style: none; padding: 0; margin-top: 0; }
+.clauses > li { counter-increment: cl; display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--bd2); }
+.clauses > li:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.clauses > li::before { content: counter(sec) "." counter(cl); font: 700 15px/1.7 var(--mono); color: var(--t); }
+.clauses ul { margin-top: 8px; }
+.doc-body .clauses p + p { margin-top: 8px; }
+/* privacy: the summary card beside the heading */
+.page-head .sum { border: 2px solid var(--t); box-shadow: 6px 6px 0 var(--shadow); border-radius: var(--r); background: var(--s1); padding: 16px 20px 8px; }
+.sum-top { display: flex; align-items: center; gap: 16px; }
+.page-head .sum .stamp { width: 104px; }
+.page-head .sum .stamp .st-t2 { display: none; }
+.sum-h { margin: 0; font: 700 15px/1.3 var(--mono); color: var(--t); }
+.sum ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.sum li + li { border-top: 1px solid var(--bd2); }
+.sum a { display: flex; gap: 12px; align-items: center; min-height: 56px; padding: 8px 0; color: var(--t2); text-decoration: none; font-size: 15px; line-height: 1.35; }
+.sum a b { display: block; color: var(--t); font: 700 15px/1.35 var(--mono); }
+.sum a:hover b { color: var(--a); }
+.sum .ic { flex: none; color: var(--a); }
 
 /* 404 */
 .notfound { max-width: 640px; margin: 0 auto; padding: 80px 24px 96px; text-align: center; }
@@ -333,7 +370,7 @@ details.q .a a { color: var(--t); }
 }
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .sec-head, .win, .graph-fig, .player-wrap, .priv-row figure, .stamp-row, .facts, .faq-list, .closing .wrap,
+    .stamp-row > div, .closing p, .closing .cta,
     .steps li, .n-d, .n-c, .n-k {
       animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 40%;
     }
@@ -381,10 +418,11 @@ details.q .a a { color: var(--t); }
   .only-m { display: block; }
   .links-row { margin-top: 12px; }
   .only-d { display: none; }
-  .bar { flex-wrap: wrap; gap: 8px 12px; min-height: 0; padding-top: 8px; padding-bottom: 8px; }
-  .bar .theme-btn { margin-left: auto; }
-  .top nav { order: 3; width: 100%; gap: 8px; margin: 0 -12px; }
-  .top nav a { flex: 1 1 0; justify-content: center; padding: 0 4px; }
+  .bar { gap: 8px; min-height: 56px; }
+  .top .brand > span { display: none; }
+  .top .brand { flex: none; min-width: 44px; justify-content: center; }
+  .top nav { flex: 1 1 auto; justify-content: center; gap: 8px; }
+  .top nav a { flex: 0 1 auto; padding: 0 4px; font-size: 13px; }
   .hero { padding: 20px 0 32px; }
   .hero .wrap { gap: 24px; }
   .hero h1 { font-size: 38px; }
@@ -414,7 +452,7 @@ details.q .a a { color: var(--t); }
   .side { display: none; }
   .win-bar .path { display: none; }
   .win .main { padding: 12px; }
-  .grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
   .grid li:nth-child(n+7) { display: none; }
   .tmeta { justify-content: flex-start; }
   .tmeta .fsz { display: none; }
@@ -444,4 +482,90 @@ details.q .a a { color: var(--t); }
   .doc { padding: 32px 16px 56px; gap: 24px; }
   .doc-body section { padding-bottom: 28px; margin-bottom: 28px; }
   .notfound { padding: 48px 16px 64px; }
+}
+
+/* Desktop: each landing section fits one window under the pinned header (checked at 1280x800
+   and 1440x900). The text sits in a left column and the illustration on the right; the
+   wrappers below become display: contents so their parts can be placed on one grid. Tablet
+   and phone keep the stacked layout above. */
+.toc { top: 72px; }
+@media (min-width: 1001px) {
+  .hero { padding: 48px 0 56px; }
+  .sec { padding: 48px 0; }
+  .sec h2 { font-size: clamp(32px, 3.2vw, 44px); }
+  .sec-head p { font-size: 17px; }
+  .split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 48px; align-items: start; }
+  .split > .sec-head, .split > .ev, .split .player-wrap, .split > .priv-row { display: contents; }
+  .split .sec-head > div:first-child { grid-area: h; }
+  .split .sec-head > div:last-child { grid-area: p; margin-top: 16px; }
+  .split > .links-row { grid-area: l; margin-top: 20px; }
+
+  #assets .split { grid-template-areas: "h f" "p f" "l f" "m m"; grid-template-rows: auto auto 1fr auto; }
+  #assets .split > figure { grid-area: f; }
+  #assets .split > .more { grid-area: m; }
+  #assets .facts { margin-top: 32px; }
+  .side { padding: 12px; }
+  .win-body { grid-template-columns: 156px minmax(0, 1fr); }
+  .side li { height: 30px; }
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+
+  #events .split { grid-template-areas: "h g" "p g" "pl g" "pl n" "pl l"; grid-template-rows: auto auto 1fr auto auto; }
+  #events .ev > figure { grid-area: g; }
+  #events .player-fig { grid-area: pl; margin-top: 20px; width: 100%; max-width: 400px; }
+  #events .player-wrap > .more { grid-area: n; }
+  #events .notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 20px; margin-top: 12px; }
+  #events .split > .links-row { margin-top: 12px; }
+  #events .notes li { border-bottom: 0; padding: 12px 0 0; font-size: 15px; }
+  #events .notes b { font-size: 16px; }
+
+  #private .split { grid-template-areas: "h f" "p f" "p s" "m m"; grid-template-rows: auto auto 1fr auto; }
+  #private .priv-row > figure { grid-area: f; }
+  #private .stamp-row { grid-area: s; margin-top: 24px; }
+  #private .stamp { width: 132px; }
+  #private .split > .more { grid-area: m; margin-top: 48px; }
+  .steps li { padding: 28px 22px 20px; }
+}
+
+/* Scroll reveals, part by part: each element animates on its own view() timeline, so a
+   section unfolds piece by piece as it scrolls in (label, title, text, illustration, then the
+   cards one after another). Browsers without scroll-driven animations show everything at once. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .top { animation: top-lift linear both; animation-timeline: scroll(root); animation-range: 0 96px; }
+    @keyframes top-lift { from { box-shadow: 0 0 0 var(--shadow); } to { box-shadow: 0 4px 0 var(--shadow); } }
+  }
+  @supports (animation-timeline: view()) {
+    .sec .kicker, .closing h2 { animation: pop linear both; animation-timeline: view(); animation-range: entry 10% entry 60%; }
+    .sec h2 { animation: from-left linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
+    .sec-head p, .links-row, .faq-list details { animation: reveal linear both; animation-timeline: view(); animation-range: entry 15% entry 80%; }
+    .win, .graph-fig, .priv-row figure { animation: wipe linear both; animation-timeline: view(); animation-range: entry 5% entry 65%; }
+    .player-fig { animation: from-right linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
+    .facts > div, .notes li, .chips li { animation: reveal linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
+    .facts > div:nth-child(2), .notes li:nth-child(2), .chips li:nth-child(2), .faq-list details:nth-child(2) { animation-range: entry 20% entry 80%; }
+    .facts > div:nth-child(3), .notes li:nth-child(3), .chips li:nth-child(3), .faq-list details:nth-child(3) { animation-range: entry 30% entry 90%; }
+    .faq-list details:nth-child(n+4) { animation-range: entry 35% entry 95%; }
+    .ruler li { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; }
+    @keyframes pop { from { opacity: 0; transform: scale(.7) rotate(-6deg); } to { opacity: 1; transform: rotate(-1.2deg); } }
+    @keyframes from-left { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+    @keyframes from-right { from { opacity: 0; transform: translateX(48px) rotate(2deg); } to { opacity: 1; transform: none; } }
+    @keyframes wipe { from { opacity: .2; clip-path: inset(0 100% 0 0); transform: translateY(24px); } to { opacity: 1; clip-path: inset(-16px); transform: none; } }
+  }
+}
+
+/* Phone: shorter sections. One row of thumbnails, captions for screen readers only (the
+   figures carry their own labels), and the scene player only on wider screens (the graph
+   above it already shows the same line). The graph keeps its size so its text stays >= 12px. */
+@media (max-width: 640px) {
+  .grid li:nth-child(n+4) { display: none; }
+  .sec figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  #events .player-fig { display: none; }
+  .ev .player-wrap { gap: 0; }
+  .priv-row { margin-top: 24px; }
+}
+
+/* narrow phones (< 375px): three links fit with 8px between them; Legal (Privacy on the Legal
+   page) stays reachable from the footer */
+@media (max-width: 374px) {
+  .top nav a[href="/legal.html"]:not([aria-current]) { display: none; }
+  .top nav:has(a[href="/legal.html"][aria-current]) a[href="/privacy.html"] { display: none; }
 }

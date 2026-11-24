@@ -132,7 +132,7 @@
 </div></section>
 <div class="ruler"><ul aria-label="Supported engines"><li>Reads games made with</li><li>2000</li><li>2003</li><li>XP</li><li>VX</li><li>VX Ace</li><li>MV</li><li>MZ</li></ul></div>
 
-<section class="sec" id="assets"><div class="wrap">
+<section class="sec" id="assets"><div class="wrap split">
   <div class="sec-head">
     <div><span class="kicker">MakerLens Assets</span><h2>Every image and sound in the game, in one grid</h2></div>
     <div><p>Preview and download the images and audio of a game, encrypted or not: <code>.rpgmvp</code>, <code>.png_</code>, <code>.ogg_</code>, <code>.rgss3a</code>, <code>.xyz</code> and more. Filter by image size or audio length, hide duplicate files, save a folder as a ZIP. For modders and translators, and creators recovering their own work.</p></div>
@@ -166,7 +166,7 @@
   <p class="links-row"><a class="link-arrow" href="/assets/">Open MakerLens Assets <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="link-arrow" href="/assets/faq.html">Assets FAQ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
 </div></section>
 
-<section class="sec band" id="events"><div class="wrap">
+<section class="sec band" id="events"><div class="wrap split">
   <div class="sec-head">
     <div><span class="kicker">MakerLens Events</span><h2>Follow the story of a game as a map</h2></div>
     <div><p>See the dialogue, choices, conditions and switches of any map or common event as a flow graph, and play a cutscene with its pictures, faces and sound. Search by name, start from your own save. Find what unlocks an ending or a hidden route. The game is only read, never changed.</p></div>
@@ -231,7 +231,7 @@
   <p class="links-row"><a class="link-arrow" href="/events/">Open MakerLens Events <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="link-arrow" href="/events/faq.html">Events FAQ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
 </div></section>
 
-<section class="sec night" id="private"><div class="wrap">
+<section class="sec night" id="private"><div class="wrap split">
   <div class="sec-head">
     <div><span class="kicker">How it works</span><h2>You pick a folder. The page reads it. That is all</h2></div>
     <div><p>The browser reads the files with the File API and everything is decoded on your device, in memory. There is no upload and no server copy, and the page’s security policy limits which hosts it can reach.</p></div>
@@ -293,12 +293,12 @@
 <section class="sec" id="faq"><div class="wrap faq">
   <div><span class="kicker">Common questions</span><h2>Before you open a folder</h2></div>
   <div class="faq-list">
-    <details class="q" data-m="closed" open><summary>How do I open .rpgmvp, .png_ or .rgss3a files?</summary><div class="a"><p>Use <a href="/assets/">MakerLens Assets</a>. Select the game folder: MV, MZ and archive-based games (<code>.rgssad</code>, <code>.rgss2a</code>, <code>.rgss3a</code>: XP, VX, VX Ace) all open from it, and so do 2000/2003 games with their <code>.xyz</code> images. The key is read from the game itself, so you can preview the images and audio and download them one by one or as a ZIP.</p></div></details>
-    <details class="q"><summary>Can I see a game’s dialogue, choices and switches without the editor?</summary><div class="a"><p>Yes. <a href="/events/">MakerLens Events</a> opens the data of a released RPG Maker game (any version from 2000 to MZ) and draws each map or common event as a flow graph, with switch, variable and actor names filled in. Events that show pictures with dialogue are listed as scenes you can play, and a save file lets them start from your own progress. It is read-only.</p></div></details>
-    <details class="q"><summary>Are my game files uploaded anywhere?</summary><div class="a"><p>No. The browser reads the files on your device and everything is decoded there. The only anonymous data is a counter of page views and of a few actions by name (never what you open); see the <a href="/privacy.html">privacy page</a>.</p></div></details>
-    <details class="q"><summary>Which RPG Maker versions are supported?</summary><div class="a"><p>Both tools: MV, MZ, VX Ace, VX, XP, 2000 and 2003. Both are meant for games you own or have the rights holder’s permission to inspect, not for repackaging or redistributing a game. See <a href="/legal.html">Legal</a>.</p></div></details>
-    <details class="q"><summary>Do I need to install anything? Does it work offline?</summary><div class="a"><p>No install and no account. Desktop Chrome, Edge, Firefox and Brave work best; phone browsers may not offer folder selection. Once a page has loaded, it keeps working without a connection.</p></div></details>
-    <details class="q"><summary>Can I open the same game in both tools?</summary><div class="a"><p>Yes. After you open a game folder in Chrome or Edge, the <strong>Assets | Events</strong> switch in the header carries it to the other tool without picking it again. The folder stays on your device; the browser may ask once more before the other page can read it.</p></div></details>
+    <details class="q" data-m="closed" open><summary>How do I open .rpgmvp, .png_ or .rgss3a files?</summary><div class="a"><p>Select the game folder in <a href="/assets/">MakerLens Assets</a>. The key is read from the game itself.</p><ul><li>MV and MZ games: <code>.rpgmvp</code>, <code>.png_</code> and audio files.</li><li>VX Ace, VX and XP archives: <code>.rgss3a</code>, <code>.rgss2a</code>, <code>.rgssad</code>.</li><li>2000 and 2003 games: <code>.xyz</code> images.</li><li>Preview the images and audio, then download them one by one or as a ZIP.</li></ul></div></details>
+    <details class="q"><summary>Can I see a game’s dialogue, choices and switches without the editor?</summary><div class="a"><p>Yes, in <a href="/events/">MakerLens Events</a>. It is read-only.</p><ul><li>Opens the data of a released RPG Maker game, from 2000 to MZ.</li><li>Draws each map or common event as a flow graph.</li><li>Fills in switch, variable and actor names.</li><li>Lists scenes with pictures and dialogue that you can play.</li><li>A save file lets a scene start from your own progress.</li></ul></div></details>
+    <details class="q"><summary>Are my game files uploaded anywhere?</summary><div class="a"><p>No. The browser reads and decodes your files on your device.</p><ul><li>The only data sent is anonymous: a counter of page views and of a few actions, by name.</li><li>It never records what you open.</li><li>Details are on the <a href="/privacy.html">privacy page</a>.</li></ul></div></details>
+    <details class="q"><summary>Which RPG Maker versions are supported?</summary><div class="a"><p>Both tools support MV, MZ, VX Ace, VX, XP, 2000 and 2003.</p><ul><li>Use them for games you own, or with the rights holder’s permission to inspect.</li><li>They are not for repackaging or redistributing a game.</li><li>Read the <a href="/legal.html">Legal</a> page.</li></ul></div></details>
+    <details class="q"><summary>Do I need to install anything? Does it work offline?</summary><div class="a"><p>No install and no account are needed.</p><ul><li>Desktop Chrome, Edge, Firefox and Brave work best.</li><li>Phone browsers may not offer folder selection.</li><li>Once a page has loaded, it keeps working without a connection.</li></ul></div></details>
+    <details class="q"><summary>Can I open the same game in both tools?</summary><div class="a"><p>Yes. The folder stays on your device.</p><ol><li>Open a game folder in Chrome or Edge.</li><li>Click the <strong>Assets | Events</strong> switch in the header.</li><li>The other tool opens the same folder without asking you to pick it again. The browser may ask once more for permission.</li></ol></div></details>
   </div>
 </div></section>
 
