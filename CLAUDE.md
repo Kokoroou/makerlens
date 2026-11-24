@@ -8,15 +8,18 @@ The home of the MakerLens family at `https://makerlens.kokoroou.workers.dev/`: a
 
 ```
 site/                 → /         landing page, 404.html, robots.txt, sitemap.xml (the only one: lists /assets/ and /events/ too), llms.txt, _headers,
-                                  favicon.ico/.svg + apple-touch-icon.png (the only favicon for the whole hostname), og-image.png
+                                  favicon.ico/.svg + apple-touch-icon.png (the only favicon for the whole hostname), og-image.png,
+                                  <32 hex>.txt (IndexNow key: public by design, content = its name; one file only)
 tools/assets (CI)     → /assets/  Kokoroou/rpgmaker-assets-viewer, via its scripts/assemble-site.sh
 tools/events (CI)     → /events/  Kokoroou/rpgmaker-events-viewer (formerly lore-insight), same
 scripts/build.sh      assembles _site/ (ASSETS_SRC / EVENTS_SRC override the tool paths)
 scripts/check-site.mjs checks _site/: tools in place, landing CSP/hosts, local links, JSON-LD,
                       root favicon, and every og:image/twitter:image/JSON-LD image on this host exists
+scripts/indexnow.mjs   pings IndexNow (Bing, Yandex, Naver; not Google) with the sitemap's URLs after deploy
 scripts/og-images.mjs  redraws og-image.png (landing + each tool) and the icons with Playwright; output is committed
 src/worker.js         runs only when no static file matches: a//b → 301 a/b, dir/ → dir/index.html, dir → 301 dir/, else 404.html
 tests/worker.test.mjs src/worker.js against a fake ASSETS binding (npm test), incl. no open redirect
+tests/indexnow.test.mjs the key file and the IndexNow request body (no network)
 wrangler.jsonc        Worker config; html_handling "none" keeps .html URLs (faq.html) as on the old GitHub Pages site
 ```
 
@@ -26,14 +29,14 @@ wrangler.jsonc        Worker config; html_handling "none" keeps .html URLs (faq.
 npm ci
 ASSETS_SRC=../rpgmaker-assets-viewer EVENTS_SRC=../rpgmaker-events-viewer npm run build
 npm run check
-npm test      # src/worker.js
+npm test      # src/worker.js, scripts/indexnow.mjs
 npm run dev   # wrangler dev on http://localhost:8787/
 ```
 
 ## CI/CD
 
 - `.github/workflows/ci.yml` — agent-toolkit quality gate; builds from the tools' `main` and runs `npm run check` and `npm test` (+ Gitleaks, Semgrep).
-- `.github/workflows/deploy.yml` — on push to `main`, `repository_dispatch: tool-updated` (sent by each tool repo's `notify-makerlens.yml`) or by hand with optional tool refs: runs both tool repos' own checks, `npm test`, builds, checks, `wrangler deploy`. Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+- `.github/workflows/deploy.yml` — on push to `main`, `repository_dispatch: tool-updated` (sent by each tool repo's `notify-makerlens.yml`) or by hand with optional tool refs: runs both tool repos' own checks, `npm test`, builds, checks, `wrangler deploy`, then `node scripts/indexnow.mjs` (continue-on-error: a failed ping never fails the deploy, so a new page reaches Bing as soon as it is in `site/sitemap.xml`). Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 - `wrangler` is pinned exactly in `package.json` (4.153.0+: earlier versions pull a vulnerable undici) (Dependabot updates it with a cooldown).
 
 ## Rules
@@ -71,3 +74,7 @@ Current titles:
 | `/events/` | RPG Maker Event Viewer — 2000 to MZ, Graph & Scenes \| MakerLens |
 | `/events/faq.html` | RPG Maker Event Viewer FAQ — Folders, Scenes, Saves \| MakerLens |
 | 404 | Page Not Found \| MakerLens |
+
+## Releases
+
+`.github/workflows/release.yml` (release-please, via agent-toolkit's shared `release.yml@v0`, same as rpgmaker-web-toolkit) keeps a `chore(main): release X.Y.Z` PR up to date from the Conventional Commits on `main` (`feat:` → minor, `fix:` → patch, `feat!:` → major; `docs:` `ci:` `chore:` `refactor:` `test:` alone make no release). Merging it tags `vX.Y.Z` and creates the GitHub Release; nothing is attached (the site is deployed by makerlens' `deploy.yml`). The first release is `v1.0.0` (`initial-version`). So squash-merge PRs with a Conventional Commit title, and never edit `CHANGELOG.md` or `version.txt` by hand.

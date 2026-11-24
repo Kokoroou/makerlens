@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: A problem in MakerLens Assets (/assets/)
+    url: https://github.com/Kokoroou/rpgmaker-assets-viewer/issues/new/choose
+    about: Images or audio that do not open, filters, downloads.
+  - name: A problem in MakerLens Events (/events/)
+    url: https://github.com/Kokoroou/rpgmaker-events-viewer/issues/new/choose
+    about: Event graph, scene preview, save files.
+  - name: Privacy – what the site sends
+    url: https://makerlens.kokoroou.workers.dev/assets/privacy.html
+    about: MakerLens reads your game files only in your browser.

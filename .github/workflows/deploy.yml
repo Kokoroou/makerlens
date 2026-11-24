@@ -85,3 +85,10 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # Ping IndexNow (Bing, Yandex, Naver…; Google does not use it) with the URLs in
+      # site/sitemap.xml. The key is public by design (site/<key>.txt). A failed ping
+      # must not mark the deploy as failed: the site is already live.
+      - name: Notify IndexNow
+        continue-on-error: true
+        run: node scripts/indexnow.mjs

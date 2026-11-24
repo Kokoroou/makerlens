@@ -9,11 +9,13 @@
 //      copy of Assets' css/tokens.css so both tools share one look);
 //   6. SEO basics on every page of the assembled site, tools included: the root
 //      favicon exists (Google shows one per hostname, from the home page), and each
-//      og:image / twitter:image / JSON-LD image on this host resolves to a file.
+//      og:image / twitter:image / JSON-LD image on this host resolves to a file;
+//   7. the IndexNow key file (<32 hex>.txt, see scripts/indexnow.mjs) is served at the root.
 // The tools' own pages are checked in their repos.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, posix, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { indexNowKey } from './indexnow.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, '_site');
@@ -93,6 +95,12 @@ const ORIGIN = 'https://makerlens.kokoroou.workers.dev/';
     }
   }
 }(out));
+
+// 7. IndexNow key file at the root
+try {
+  const key = indexNowKey();
+  if (!existsSync(join(out, key + '.txt'))) fail('_site', `missing IndexNow key file ${key}.txt`);
+} catch (e) { fail('site', e.message); }
 
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`OK: ${own.length} pages checked, tools at /assets/ and /events/.`);
