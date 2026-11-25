@@ -136,14 +136,14 @@
 <section class="sec" id="assets"><div class="wrap split">
   <div class="sec-head">
     <div><span class="kicker">MakerLens Assets</span><h2>Every image and sound in the game, in one grid</h2></div>
-    <div><p>Preview and download the images and audio of a game, encrypted or not: <code>.rpgmvp</code>, <code>.png_</code>, <code>.ogg_</code>, <code>.rgss3a</code>, <code>.xyz</code> and more. Filter by image size or audio length, hide duplicate files, save a folder as a ZIP. For modders and translators, and creators recovering their own work.</p></div>
+    <div><p>Preview the images and audio of a game, encrypted or not: <code>.rpgmvp</code>, <code>.png_</code>, <code>.ogg_</code>, <code>.rgss3a</code>, <code>.xyz</code> and more. Filter by image size or audio length, and set aside files that are copies of one another. For modders and translators, and creators recovering their own work.</p></div>
   </div>
   <figure>
   <div class="win" role="img" aria-label="Illustration of the Assets window: a folder list and the pictures folder as a grid of scene thumbnails">
     <div class="win-bar"><span class="brand"><svg class="mark" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><rect class="lp" x="7" y="7" width="2" height="2"/><rect class="lp" x="9" y="9" width="2" height="2"/><rect class="lp" x="11" y="7" width="2" height="2"/></svg><span>Maker<b>Lens</b> Assets</span></span><span class="path">MyGame / img / pictures</span><span class="sw"><span class="on">Assets</span><span>Events</span></span></div>
     <div class="win-body">
-      <div class="side"><p>Folders</p><ul><li><span>characters</span><span>48</span></li><li><span>enemies</span><span>31</span></li><li><span>faces</span><span>12</span></li><li class="on"><span>pictures</span><span>126</span></li><li><span>Duplicates</span><span>9</span></li></ul><p>Audio</p><ul><li><span>bgm</span><span>22</span></li><li><span>se</span><span>84</span></li></ul></div>
-      <div class="main"><div class="mtools"><span class="on">Images</span><span>Audio</span><span>816×624</span><span class="on">Unique only</span><span class="go">Download ZIP</span></div>
+      <div class="side"><p>Folders</p><ul><li><span>characters</span><span>48</span></li><li><span>enemies</span><span>31</span></li><li><span>faces</span><span>12</span></li><li class="on"><span>pictures</span><span>126</span></li><li class="dupes"><span>Duplicates</span><span class="tg" aria-hidden="true"></span></li></ul><p>Audio</p><ul><li><span>bgm</span><span>22</span></li><li><span>se</span><span>84</span></li></ul></div>
+      <div class="main"><div class="mtools"><span class="on">Images</span><span>Audio</span><span>816×624</span><span class="go">Download</span></div>
       <ul class="grid">
         <li><div class="thumb"><svg viewBox="0 0 32 24" class="pic" shape-rendering="crispEdges"><use href="#s-day"/></svg></div><div class="tmeta"><span class="fname">Title.png</span><span class="fsz">816×624</span></div></li>
         <li><div class="thumb"><svg viewBox="0 0 12 14" class="px"><use href="#s-hero"/></svg></div><div class="tmeta"><span class="fname">Elder.png</span><span class="fsz">240×280</span></div></li>
@@ -161,71 +161,86 @@
   <details class="more" data-m="closed" open><summary>What it does</summary>
   <div class="facts">
     <div><h3>Key read from the game</h3><p>MV and MZ keep it in System.json, archives carry their own. Nothing to type.</p></div>
-    <div><h3>Duplicates by content</h3><p>A SHA-256 of the decrypted bytes hides identical copies and counts them.</p></div>
-    <div><h3>Filter before you download</h3><p>By pixel size or length. Only headers are read, never the whole file.</p></div>
+    <div><h3>Duplicates by content</h3><p>A SHA-256 of the decrypted bytes finds identical copies. One switch hides them.</p></div>
+    <div><h3>Filter by size or length</h3><p>By pixel size or audio length. Only headers are read, never the whole file.</p></div>
   </div></details>
   <p class="links-row"><a class="link-arrow" href="/assets/">Open MakerLens Assets <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="link-arrow" href="/assets/faq.html">Assets FAQ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
 </div></section>
 
 <section class="sec band" id="events"><div class="wrap split">
   <div class="sec-head">
-    <div><span class="kicker">MakerLens Events</span><h2>Follow the story of a game as a map</h2></div>
-    <div><p>See the dialogue, choices, conditions and switches of any map or common event as a flow graph, and play a cutscene with its pictures, faces and sound. Search by name, start from your own save. Find what unlocks an ending or a hidden route. The game is only read, never changed.</p></div>
+    <div><span class="kicker">MakerLens Events</span><h2>Play a game’s scenes, see the story behind them</h2></div>
+    <div><p>Watch the cutscenes of any game with their pictures, faces, music and choices, one scene after another, full screen on a phone too. Start from your own save to see them the way your game stands. Behind each scene, the dialogue, choices and switches of every event as a flow graph. The game is only read, never changed.</p></div>
   </div>
   <div class="ev">
     <figure>
-    <svg class="fig graph-fig only-d" viewBox="0 0 640 450" role="img" aria-labelledby="gf-t gf-d">
-      <title id="gf-t">An event drawn as a flow graph</title>
-      <desc id="gf-d">A dialogue leads to a choice. Yes goes to a switch condition, No goes to a reply. The condition opens the gate or sends the guard to speak.</desc>
-      <defs>
-        <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="mk" d="M1 1l8 4-8 4z"/></marker>
-        <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="dot" cx="2" cy="2" r="1"/></pattern>
-      </defs>
-      <rect x="1" y="1" width="638" height="448" rx="14" class="plate"/>
-      <rect class="dotfill" x="1" y="1" width="638" height="448" rx="14"/>
-      <path d="M165 94V134" class="edge" marker-end="url(#ar)"/><path d="M165 218V262" class="edge" marker-end="url(#ar)"/><path d="M290 176H350" class="edge" marker-end="url(#ar)"/><path d="M290 294H350" class="edge" marker-end="url(#ar)"/><path d="M165 326V366" class="edge" marker-end="url(#ar)"/><path d="M475 326V396H290" class="edge dash" marker-end="url(#ar)"/>
-      <text x="173" y="246" class="n-l">Yes</text><text x="304" y="168" class="n-l">No</text><text x="296" y="286" class="n-l">else</text><text x="173" y="352" class="n-l">on</text>
-      <g class="n-d"><rect x="40" y="30" width="250" height="64" rx="6"/><rect x="40" y="30" width="5" height="64" rx="2" class="bar"/><text x="56" y="50" class="n-t">Elder · dialogue</text><text x="56" y="70" class="n-b">The seal on the gate has broken.</text></g>
-      <g class="n-c"><rect x="40" y="134" width="250" height="84" rx="6"/><rect x="40" y="134" width="5" height="84" rx="2" class="bar"/><text x="56" y="154" class="n-t">Choice</text><text x="56" y="174" class="n-b">Open the gate?</text><text x="56" y="192" class="n-b">› Yes     › No</text></g>
-      <g class="n-k"><rect x="40" y="262" width="250" height="64" rx="6"/><rect x="40" y="262" width="5" height="64" rx="2" class="bar"/><text x="56" y="282" class="n-t">Condition</text><text x="56" y="302" class="n-b">Switch 0012 “Gate opened” is ON</text></g>
-      <g class="n-d"><rect x="350" y="134" width="250" height="64" rx="6"/><rect x="350" y="134" width="5" height="64" rx="2" class="bar"/><text x="366" y="154" class="n-t">Hero · dialogue</text><text x="366" y="174" class="n-b">Not yet.</text></g>
-      <g class="n-d"><rect x="350" y="262" width="250" height="64" rx="6"/><rect x="350" y="262" width="5" height="64" rx="2" class="bar"/><text x="366" y="282" class="n-t">Guard · dialogue</text><text x="366" y="302" class="n-b">Come back with the key.</text></g>
-      <g class="n-d"><rect x="40" y="366" width="250" height="60" rx="6"/><rect x="40" y="366" width="5" height="60" rx="2" class="bar"/><text x="56" y="386" class="n-t">Gate · scene</text><text x="56" y="406" class="n-b">Plays pictures, faces and sound</text></g>
+    <svg class="fig scene-fig only-d" viewBox="0 0 640 450" role="img" aria-labelledby="sf-t sf-d">
+      <title id="sf-t">The scene player</title>
+      <desc id="sf-d">A cutscene plays: a hero stands before a gate at night while the elder speaks in the message window. Below, a progress bar and the controls of a video player: previous scene, back, pause, next, next scene, sound, dialogue and full screen.</desc>
+      <rect width="640" height="450" fill="#020617"/>
+      <rect x="20" y="16" width="16" height="16" rx="3" fill="none" stroke="#4ade80" stroke-width="2"/><path d="M24 16v16M32 16v16" stroke="#4ade80" stroke-width="2"/>
+      <text x="48" y="24" class="p-h">Gate</text><text x="48" y="40" class="p-m">Village · scene 3 of 12</text>
+      <path d="M606 18l12 12M618 18l-12 12" class="p-i"/>
+      <svg x="112" y="56" width="416" height="312" viewBox="0 0 32 24" shape-rendering="crispEdges"><use href="#s-gate"/></svg>
+      <svg x="150" y="190" width="84" height="98" viewBox="0 0 12 14" class="px-dark" shape-rendering="crispEdges"><use href="#s-hero"/></svg>
+      <rect x="122" y="292" width="396" height="68" rx="6" fill="#020617" fill-opacity=".86" stroke="#f8fafc" stroke-opacity=".75"/>
+      <rect x="122" y="272" width="64" height="22" rx="4" fill="#4ade80"/><text x="154" y="288" text-anchor="middle" class="p-nm">Elder</text>
+      <text x="138" y="320" class="p-t">The seal on the gate has broken.</text>
+      <text x="138" y="342" class="p-t">Will you open it?</text>
+      <rect x="20" y="384" width="600" height="4" rx="2" fill="#334155"/><rect x="20" y="384" width="236" height="4" rx="2" fill="#4ade80"/><circle cx="256" cy="386" r="7" fill="#4ade80"/>
+      <g class="p-i">
+        <path d="M33 405v14l-10-7z M21 405v14"/>
+        <path d="M74 404l-8 8 8 8"/>
+        <path d="M156 404l8 8-8 8"/>
+        <path d="M195 405v14l10-7z M207 405v14"/>
+        <path d="M232 409h5l6-5v16l-6-5h-5z M248 408a6 6 0 010 8"/>
+        <path d="M560 406h20v12h-20z M564 412h4M572 412h4"/>
+        <path d="M598 410v-5h5M620 410v-5h-5M598 414v5h5M620 414v5h-5"/>
+      </g>
+      <rect x="96" y="396" width="44" height="32" rx="6" fill="#22c55e"/><rect x="111" y="404" width="4" height="16" rx="1" fill="#052e16"/><rect x="121" y="404" width="4" height="16" rx="1" fill="#052e16"/>
+      <text x="268" y="417" class="p-m">2 / 9</text>
     </svg>
-    <svg class="fig graph-fig only-m" viewBox="0 0 340 410" role="img" aria-labelledby="gm-t gm-d">
-      <title id="gm-t">An event drawn as a flow graph</title>
-      <desc id="gm-d">A dialogue leads to a choice, then to a switch condition. If the switch is on, the gate scene plays; otherwise a guard speaks.</desc>
-      <defs>
-        <marker id="arm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="mk" d="M1 1l8 4-8 4z"/></marker>
-      </defs>
-      <rect x="1" y="1" width="338" height="408" rx="12" class="plate"/>
-      <path d="M170 74V104M170 190V222M92 288V326M248 288V326" class="edge" marker-end="url(#arm)"/>
-      <text x="180" y="212" class="n-l">Yes</text><text x="102" y="312" class="n-l">on</text><text x="258" y="312" class="n-l">else</text>
-      <g class="n-d"><rect x="20" y="14" width="300" height="60" rx="6"/><rect x="20" y="14" width="5" height="60" rx="2" class="bar"/><text x="36" y="34" class="n-t">Elder · dialogue</text><text x="36" y="54" class="n-b">The seal on the gate has broken.</text></g>
-      <g class="n-c"><rect x="20" y="104" width="300" height="86" rx="6"/><rect x="20" y="104" width="5" height="86" rx="2" class="bar"/><text x="36" y="124" class="n-t">Choice</text><text x="36" y="146" class="n-b">Open the gate?</text><text x="36" y="168" class="n-b">› Yes     › No</text></g>
-      <g class="n-k"><rect x="20" y="222" width="300" height="66" rx="6"/><rect x="20" y="222" width="5" height="66" rx="2" class="bar"/><text x="36" y="242" class="n-t">Condition</text><text x="36" y="264" class="n-b">Switch 0012 “Gate opened” is ON</text></g>
-      <g class="n-d"><rect x="14" y="326" width="156" height="72" rx="6"/><rect x="14" y="326" width="5" height="72" rx="2" class="bar"/><text x="28" y="346" class="n-t">Gate · scene</text><text x="28" y="366" class="n-b">Plays pictures,</text><text x="28" y="384" class="n-b">faces and sound</text></g>
-      <g class="n-d"><rect x="176" y="326" width="150" height="72" rx="6"/><rect x="176" y="326" width="5" height="72" rx="2" class="bar"/><text x="190" y="346" class="n-t">Guard · dialogue</text><text x="190" y="366" class="n-b">Come back with</text><text x="190" y="384" class="n-b">the key.</text></g>
+    <svg class="fig scene-fig only-m" viewBox="0 0 340 300" role="img" aria-labelledby="sm-t sm-d">
+      <title id="sm-t">The scene player</title>
+      <desc id="sm-d">A cutscene plays: a hero before a gate at night while the elder speaks. Below, a progress bar and the controls of a video player.</desc>
+      <rect width="340" height="300" fill="#020617"/>
+      <text x="14" y="22" class="p-h">Gate</text><text x="14" y="38" class="p-m">Village · scene 3 of 12</text>
+      <path d="M312 16l12 12M324 16l-12 12" class="p-i"/>
+      <svg x="10" y="50" width="320" height="180" viewBox="2 3 28 15.75" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges"><use href="#s-gate"/></svg>
+      <svg x="34" y="124" width="54" height="63" viewBox="0 0 12 14" class="px-dark" shape-rendering="crispEdges"><use href="#s-hero"/></svg>
+      <rect x="18" y="176" width="304" height="48" rx="5" fill="#020617" fill-opacity=".86" stroke="#f8fafc" stroke-opacity=".75"/>
+      <rect x="18" y="158" width="56" height="20" rx="4" fill="#4ade80"/><text x="46" y="173" text-anchor="middle" class="p-nm">Elder</text>
+      <text x="30" y="205" class="p-t">The seal on the gate has broken.</text>
+      <rect x="14" y="246" width="312" height="4" rx="2" fill="#334155"/><rect x="14" y="246" width="122" height="4" rx="2" fill="#4ade80"/><circle cx="136" cy="248" r="6" fill="#4ade80"/>
+      <g class="p-i">
+        <path d="M94 267v12l-9-6z M83 267v12"/>
+        <path d="M128 266l-7 7 7 7"/>
+        <path d="M212 266l7 7-7 7"/>
+        <path d="M246 267v12l9-6z M257 267v12"/>
+        <path d="M300 268v-5h5M324 268v-5h-5M300 278v5h5M324 278v5h-5"/>
+      </g>
+      <rect x="150" y="258" width="40" height="30" rx="6" fill="#22c55e"/><rect x="163" y="265" width="4" height="16" rx="1" fill="#052e16"/><rect x="173" y="265" width="4" height="16" rx="1" fill="#052e16"/>
+      <text x="14" y="285" class="p-m">2 / 9</text>
     </svg>
-    <figcaption>Illustration of one event as a flow graph.</figcaption>
+    <figcaption>Illustration of the scene player with made-up pixel art.</figcaption>
     </figure>
-    <div class="player-wrap"><svg class="fig player-fig" viewBox="0 0 320 214" role="img" aria-labelledby="pf-t">
-      <title id="pf-t">The scene player showing a character and a message window</title>
-      <rect width="320" height="214" fill="#0b1120"/>
-      <rect x="0" y="120" width="320" height="94" fill="#1b2336"/>
-      <rect x="96" y="22" width="128" height="104" rx="4" fill="#272f42"/>
-      <svg x="128" y="36" width="64" height="75" viewBox="0 0 12 14" class="px-dark"><use href="#s-hero"/></svg>
-      <rect x="14" y="146" width="292" height="54" rx="6" fill="#f8fafc" fill-opacity=".08" stroke="#f8fafc" stroke-opacity=".5"/>
-      <text x="28" y="168" class="p-n">Elder</text>
-      <text x="28" y="188" class="p-t">The seal on the gate has broken.</text>
-      <text x="14" y="22" class="p-m">Scene 3 of 27</text>
-      <rect x="238" y="9" width="68" height="18" rx="4" fill="none" stroke="#f8fafc" stroke-opacity=".4"/><text x="272" y="22" text-anchor="middle" class="p-m">A  auto</text>
+    <div class="player-wrap"><svg class="fig graph-mini" viewBox="0 0 320 214" role="img" aria-labelledby="gf-t gf-d">
+      <title id="gf-t">The same scene as a flow graph</title>
+      <desc id="gf-d">The elder’s line leads to a choice. Yes checks the switch “Gate opened”; No leads to the hero’s reply.</desc>
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M1 1l8 4-8 4z"/></marker></defs>
+      <rect x="1" y="1" width="318" height="212" rx="10" class="plate"/>
+      <path d="M160 58V78M110 128V148M210 128V148" class="edge" marker-end="url(#ar)"/>
+      <text x="118" y="142" class="n-l">Yes</text><text x="218" y="142" class="n-l">No</text>
+      <g class="n-d"><rect x="20" y="14" width="280" height="44" rx="6"/><rect x="20" y="14" width="5" height="44" rx="2" class="bar"/><text x="34" y="31" class="n-t">Elder · dialogue</text><text x="34" y="50" class="n-b">The seal on the gate has broken.</text></g>
+      <g class="n-c"><rect x="20" y="80" width="280" height="48" rx="6"/><rect x="20" y="80" width="5" height="48" rx="2" class="bar"/><text x="34" y="97" class="n-t">Choice</text><text x="34" y="118" class="n-b">Will you open it?</text></g>
+      <g class="n-k"><rect x="20" y="150" width="140" height="50" rx="6"/><rect x="20" y="150" width="5" height="50" rx="2" class="bar"/><text x="32" y="167" class="n-t">Condition</text><text x="32" y="188" class="n-b">“Gate opened”</text></g>
+      <g class="n-d"><rect x="170" y="150" width="130" height="50" rx="6"/><rect x="170" y="150" width="5" height="50" rx="2" class="bar"/><text x="182" y="167" class="n-t">Hero</text><text x="182" y="188" class="n-b">Not yet.</text></g>
     </svg>
   <details class="more" data-m="closed" open><summary>What it does</summary>
   <ul class="notes">
-    <li><b>Names filled in</b>Switch, variable and actor names come from the game’s own data.</li>
-    <li><b>Scenes you can play</b>Events that show pictures with dialogue are listed as scenes.</li>
-    <li><b>Your progress</b>Load a save and the checks run the way your game stands.</li>
+    <li><b>Scenes, one after another</b>Events that show pictures with dialogue are found for you and play in a row, with sound.</li>
+    <li><b>Your progress</b>Load a save and each scene runs the way your game stands.</li>
+    <li><b>The logic behind</b>Every event as a flow graph, with switch, variable and actor names from the game.</li>
   </ul></details>
     </div>
   </div>
