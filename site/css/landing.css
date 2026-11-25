@@ -64,7 +64,7 @@ code { font-family: var(--mono); font-size: .88em; background: var(--s3); paddin
    the hard shadow once the page has moved (scroll-driven, CSS only). Mirrored for the tools'
    faq.html in css/family-chrome.css of both tool repos: edit the three together. */
 .top { background: var(--bg); border-bottom: 2px solid var(--t); position: sticky; top: 0; z-index: 20; }
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 54px; }
 .brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font: 700 20px/1 var(--serif); letter-spacing: -.02em; color: var(--t); }
 .brand b { font-weight: 700; font-style: italic; color: var(--a); }
 .brand:hover { color: var(--t); }
@@ -418,7 +418,7 @@ details.q .a li::marker { color: var(--a); }
   .only-m { display: block; }
   .links-row { margin-top: 12px; }
   .only-d { display: none; }
-  .bar { gap: 8px; min-height: 56px; }
+  .bar { gap: 8px; min-height: 54px; }
   .top .brand > span { display: none; }
   .top .brand { flex: none; min-width: 44px; justify-content: center; }
   .top nav { flex: 1 1 auto; justify-content: center; gap: 8px; }

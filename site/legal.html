@@ -81,8 +81,8 @@
 <li><div><p>The Tools:</p><ul><li>read only the files you explicitly select from your local filesystem;</li><li>reverse the game’s own obfuscation entirely in browser memory, using the key that ships with the game or the archive;</li><li>show the result through a temporary Blob URL.</li></ul></div></li>
 <li><div><p>The Tools never:</p><ul><li>upload, store or transmit any file or key to a remote server;</li><li>collect information about which files or games are opened;</li><li>modify your game: they only read, and MakerLens Events is read-only too.</li></ul></div></li>
 <li><div>The only automatic network requests are described on the <a href="/privacy.html">privacy page</a>.</div></li>
-<li><div><strong>RPG Maker MV and MZ.</strong> The engine stores an XOR key in plaintext in <code>data/System.json</code>, which ships with every game deployment. The Tools read it from your local filesystem and reverse the XOR in browser memory.</div></li>
 <li><div><strong>RPG Maker XP, VX and VX Ace.</strong> Assets are packed into an archive (<code>.rgssad</code>, <code>.rgss2a</code>, <code>.rgss3a</code>). Its key is embedded in the archive itself.</div></li>
+<li><div><strong>RPG Maker MV and MZ.</strong> The engine stores an XOR key in plaintext in <code>data/System.json</code>, which ships with every game deployment. The Tools read it from your local filesystem and reverse the XOR in browser memory.</div></li>
 <li><div>Because the keys are co-located with, or embedded in, the content they “protect”, this obfuscation is not considered effective access control under most legal interpretations, and is substantially different from true DRM systems.</div></li>
 </ol></section>
 <section id="use"><h2>Intended use</h2>
