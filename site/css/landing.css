@@ -154,7 +154,8 @@ figcaption i { font-style: normal; color: var(--a); font-weight: 700; }
 .win { border: 2px solid var(--t); border-radius: 10px; background: var(--s1); box-shadow: 6px 6px 0 var(--shadow); overflow: hidden; }
 .win-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; padding: 0 16px; border-bottom: 2px solid var(--t); background: var(--s2); font: 400 14px/1 var(--mono); color: var(--t2); }
 .win-bar .brand { font-size: 16px; min-height: 0; }
-.win-bar .sw { display: inline-flex; border: 2px solid var(--t); border-radius: 6px; overflow: hidden; }
+.win-bar .sw { display: inline-flex; flex-shrink: 0; border: 2px solid var(--t); border-radius: 6px; overflow: hidden; }
+.win-bar .brand span { white-space: nowrap; }
 .win-bar .sw span { padding: 5px 10px; }
 .win-bar .sw .on { background: var(--t); color: var(--bg); }
 .win-body { display: grid; grid-template-columns: 220px minmax(0, 1fr); }
@@ -163,6 +164,8 @@ figcaption i { font-style: normal; color: var(--a); font-weight: 700; }
 .side ul { list-style: none; margin: 0 0 24px; padding: 0; }
 .side li { display: flex; justify-content: space-between; height: 32px; align-items: center; padding: 0 8px; border-radius: 6px; color: var(--t2); font-variant-numeric: tabular-nums; }
 .side li.on { background: var(--s2); color: var(--t); box-shadow: inset 0 0 0 1px var(--bd2); }
+.side .tg { position: relative; width: 30px; height: 18px; border-radius: 999px; background: var(--a-bg); }
+.side .tg::after { content: ""; position: absolute; top: 3px; right: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; }
 .win .main { padding: 16px; }
 .mtools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
 .mtools span { font: 400 13px/1 var(--mono); padding: 8px 12px; border: 1px solid var(--bd2); border-radius: 8px; color: var(--t2); }
@@ -181,10 +184,13 @@ figcaption i { font-style: normal; color: var(--a); font-weight: 700; }
 /* events */
 .ev { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px; align-items: start; }
 .ev .player-wrap { display: grid; gap: 16px; }
-.player-fig { border-radius: 10px; border: 2px solid var(--t); background: #0b1120; overflow: hidden; }
-.p-n { font: 600 12px var(--font); fill: #efc59a; }
-.p-t { font: 400 12px var(--font); fill: #f8fafc; }
-.p-m { font: 400 12px var(--mono); fill: #94a3b8; }
+.scene-fig { border-radius: 10px; border: 2px solid var(--t); background: #020617; overflow: hidden; }
+.p-h { font: 700 14px var(--mono); fill: #f8fafc; }
+.p-nm { font: 700 12px var(--font); fill: #020617; }
+.p-t { font: 400 13px var(--font); fill: #f8fafc; }
+.scene-fig.only-d .p-t { font-size: 16px; }
+.p-m { font: 400 12px var(--mono); fill: #cbd5e1; }
+.p-i { fill: none; stroke: #e2e8f0; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .n-d rect:first-child, .n-c rect:first-child, .n-k rect:first-child { fill: var(--s1); stroke: var(--t); stroke-width: 1.2; }
 .n-d .bar { fill: var(--t); }
 .n-c .bar { fill: var(--a-bg); }
@@ -406,7 +412,7 @@ details.q .a li::marker { color: var(--a); }
   .hero-fig { max-width: 440px; margin: 0 auto; }
   .hero figure { justify-self: center; }
   .ev .player-wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
-  .ev .player-wrap > .player-fig { grid-column: 1; }
+  .ev .player-wrap > .graph-mini { grid-column: 1; }
 }
 
 /* phone: a shorter page; the heavy illustrations get a compact form */
@@ -432,7 +438,7 @@ details.q .a li::marker { color: var(--a); }
   .hero figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .ruler ul { padding: 0; }
   .ruler li, .ruler li:first-child { flex: 1 1 auto; min-width: 0; padding: 8px 10px; font-size: 13px; text-align: center; }
-  .ruler li:first-child { flex-basis: 100%; text-align: left; padding-bottom: 0; }
+  .ruler li:first-child { flex-basis: 100%; text-align: center; padding-bottom: 0; }
   .ruler li:not(:first-child)::before { display: none; }
   .sec { padding: 32px 0; }
   .sec h2 { font-size: 28px; }
@@ -449,6 +455,8 @@ details.q .a li::marker { color: var(--a); }
   .win-body { grid-template-columns: 1fr; }
   .side { display: none; }
   .win-bar .path { display: none; }
+  .win-bar { gap: 8px; padding: 0 10px; }
+  .win-bar .sw span { padding: 5px 7px; font-size: 13px; }
   .win .main { padding: 12px; }
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
   .grid li:nth-child(n+7) { display: none; }
@@ -509,7 +517,7 @@ details.q .a li::marker { color: var(--a); }
 
   #events .split { grid-template-areas: "h g" "p g" "pl g" "pl n" "pl l"; grid-template-rows: auto auto 1fr auto auto; }
   #events .ev > figure { grid-area: g; }
-  #events .player-fig { grid-area: pl; margin-top: 20px; width: 100%; max-width: 400px; }
+  #events .graph-mini { grid-area: pl; margin-top: 20px; width: 100%; max-width: 400px; }
   #events .player-wrap > .more { grid-area: n; }
   #events .notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 20px; margin-top: 12px; }
   #events .split > .links-row { margin-top: 12px; }
@@ -536,8 +544,8 @@ details.q .a li::marker { color: var(--a); }
     .sec .kicker, .closing h2 { animation: pop linear both; animation-timeline: view(); animation-range: entry 10% entry 60%; }
     .sec h2 { animation: from-left linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
     .sec-head p, .links-row, .faq-list details { animation: reveal linear both; animation-timeline: view(); animation-range: entry 15% entry 80%; }
-    .win, .graph-fig, .priv-row figure { animation: wipe linear both; animation-timeline: view(); animation-range: entry 5% entry 65%; }
-    .player-fig { animation: from-right linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
+    .win, .scene-fig, .priv-row figure { animation: wipe linear both; animation-timeline: view(); animation-range: entry 5% entry 65%; }
+    .graph-mini { animation: from-right linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
     .facts > div, .notes li, .chips li { animation: reveal linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
     .facts > div:nth-child(2), .notes li:nth-child(2), .chips li:nth-child(2), .faq-list details:nth-child(2) { animation-range: entry 20% entry 80%; }
     .facts > div:nth-child(3), .notes li:nth-child(3), .chips li:nth-child(3), .faq-list details:nth-child(3) { animation-range: entry 30% entry 90%; }
@@ -556,7 +564,7 @@ details.q .a li::marker { color: var(--a); }
 @media (max-width: 640px) {
   .grid li:nth-child(n+4) { display: none; }
   .sec figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  #events .player-fig { display: none; }
+  #events .graph-mini { display: none; }
   .ev .player-wrap { gap: 0; }
   .priv-row { margin-top: 24px; }
 }
