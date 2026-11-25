@@ -8,6 +8,8 @@
 | `/assets/` | MakerLens Assets — extract images and audio (MV, MZ, XP, VX, VX Ace, 2000, 2003) | [Kokoroou/rpgmaker-assets-viewer](https://github.com/Kokoroou/rpgmaker-assets-viewer) |
 | `/events/` | MakerLens Events — event flow graph and scene player (MV, MZ, VX Ace, VX, XP, 2000, 2003) | [Kokoroou/rpgmaker-events-viewer](https://github.com/Kokoroou/rpgmaker-events-viewer) |
 
+![The MakerLens home page on a desktop browser](docs/screenshots/landing-desktop.png)
+
 ## Direction
 
 MakerLens is a **free community toolkit for reading RPG Maker games**, not a business: no paid tier, no ads, no account (at most a shared donate link). Running cost is 0. The tools are easy to copy, so what the family defends is trust and one brand: no install, no upload, the whole game with one drag and drop, read-only.
