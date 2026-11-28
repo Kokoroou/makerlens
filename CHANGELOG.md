@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.0](https://github.com/Kokoroou/makerlens/compare/v1.0.0...v1.1.0) (2026-11-28)
+
+
+### Features
+
+* move the home to makerlens.kokoroou.com and redirect the workers.dev URLs ([#31](https://github.com/Kokoroou/makerlens/issues/31)) ([5a6897a](https://github.com/Kokoroou/makerlens/commit/5a6897afe2d13109f32f81ca269bbd3a020ba1bd))
+* redesign landing, add shared privacy and legal pages ([#23](https://github.com/Kokoroou/makerlens/issues/23)) ([ab1fbfb](https://github.com/Kokoroou/makerlens/commit/ab1fbfb292d3c1cbeeca613c02932986a4d198e9))
+* **site:** pinned header, one-screen sections, scroll reveals, Legal/Privacy rework, new share image ([#26](https://github.com/Kokoroou/makerlens/issues/26)) ([2118717](https://github.com/Kokoroou/makerlens/commit/21187172bcca4aa921f3006dcb60e2fe5a939e11))
+* **site:** rewrite landing copy, add scroll and lens motion, tune tablet layout ([#25](https://github.com/Kokoroou/makerlens/issues/25)) ([7efe007](https://github.com/Kokoroou/makerlens/commit/7efe007f14bda9d091eff7fcbb222663f6b906a4))
+* **site:** scene player as the Events illustration, no download in the Assets text ([#29](https://github.com/Kokoroou/makerlens/issues/29)) ([e0e5863](https://github.com/Kokoroou/makerlens/commit/e0e5863ebf6bb475c3d19992a70d2b2d7a505e46))
+* **site:** versions in release order, new share image, 56px family header ([#27](https://github.com/Kokoroou/makerlens/issues/27)) ([1e4ef96](https://github.com/Kokoroou/makerlens/commit/1e4ef96b523b71897d36b0296f68aaf30793d188))
+
+
+### Bug Fixes
+
+* landing theme button without ring, pictures folder in the Assets illustration, scene player corners ([#28](https://github.com/Kokoroou/makerlens/issues/28)) ([3d64be6](https://github.com/Kokoroou/makerlens/commit/3d64be67c18b5ad9b6a6c3698171908d0bb50cee))
+
 ## 1.0.0 (2026-11-24)
 
 
