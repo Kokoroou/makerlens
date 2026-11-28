@@ -15,8 +15,8 @@ test('/assets/privacy.html is redirected to /privacy.html with a 301', () => {
 
 test('the sitemap lists Privacy and Legal at the root, not the old Privacy URL', () => {
   const xml = read('sitemap.xml');
-  assert.match(xml, /<loc>https:\/\/makerlens\.kokoroou\.workers\.dev\/privacy\.html<\/loc>/);
-  assert.match(xml, /<loc>https:\/\/makerlens\.kokoroou\.workers\.dev\/legal\.html<\/loc>/);
+  assert.match(xml, /<loc>https:\/\/makerlens\.kokoroou\.com\/privacy\.html<\/loc>/);
+  assert.match(xml, /<loc>https:\/\/makerlens\.kokoroou\.com\/legal\.html<\/loc>/);
   assert.doesNotMatch(xml, /assets\/privacy\.html/);
 });
 

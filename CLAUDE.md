@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-The home of the MakerLens family at `https://makerlens.kokoroou.workers.dev/`: a landing page plus the build and deploy of the tools onto **one Cloudflare Worker** (a `workers.dev` hostname can only route to one Worker, so the tools cannot deploy themselves to subpaths).
+The home of the MakerLens family at `https://makerlens.kokoroou.com/`: a landing page plus the build and deploy of the tools onto **one Cloudflare Worker** (a `workers.dev` hostname can only route to one Worker, so the tools cannot deploy themselves to subpaths).
 
 ```
 site/                 → /         landing page (index.html), privacy.html and legal.html (the one Privacy and the one Legal for both tools),
@@ -19,11 +19,13 @@ scripts/check-site.mjs checks _site/: tools in place, landing CSP/hosts, local l
                       Privacy/Legal anchors, the _redirects rule, sitemap URLs exist, root favicon, and every og:image/twitter:image/JSON-LD image on this host exists
 scripts/indexnow.mjs   pings IndexNow (Bing, Yandex, Naver; not Google) with the sitemap's URLs after deploy
 scripts/og-images.mjs  redraws og-image.png (landing + each tool) and the icons with Playwright; output is committed
-src/worker.js         runs only when no static file matches: a//b → 301 a/b, dir/ → dir/index.html, dir → 301 dir/, else 404.html
-tests/worker.test.mjs src/worker.js against a fake ASSETS binding (npm test), incl. no open redirect
+src/worker.js         runs first (run_worker_first): the old host makerlens.kokoroou.workers.dev → 301 to the same path on https://makerlens.kokoroou.com
+                      (old bookmarks and game links keep working); else a static file, else a//b → 301 a/b, dir/ → dir/index.html, dir → 301 dir/, else 404.html
+tests/worker.test.mjs src/worker.js against a fake ASSETS binding (npm test), incl. the old-host redirect and no open redirect
 tests/indexnow.test.mjs the key file and the IndexNow request body (no network)
 tests/site.test.mjs    site/ sources: Privacy/Legal anchors, the _redirects rule, sitemap, title format
-wrangler.jsonc        Worker config (assets directory ./_site, so _site/_redirects and _headers apply); html_handling "none" keeps .html URLs (faq.html) as on the old GitHub Pages site
+wrangler.jsonc        Worker config (assets directory ./_site, so _site/_redirects and _headers apply, also through env.ASSETS.fetch); html_handling "none" keeps .html URLs (faq.html) as on the old GitHub Pages site.
+                      The custom domain makerlens.kokoroou.com is attached in the Cloudflare dashboard (not in this file); workers_dev stays on only to serve the redirect
 ```
 
 ## Commands

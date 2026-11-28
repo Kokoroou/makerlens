@@ -8,14 +8,15 @@ const FILES = new Set(['/index.html', '/404.html', '/assets/index.html', '/event
 const env = {
   ASSETS: {
     async fetch(u) {
-      const { pathname } = new URL(u);
+      const { pathname } = new URL(u instanceof Request ? u.url : u);
       return FILES.has(pathname)
         ? new Response(pathname, { status: 200, headers: { 'content-type': 'text/html' } })
         : new Response('', { status: 404 });
     }
   }
 };
-const ORIGIN = 'https://makerlens.kokoroou.workers.dev';
+const ORIGIN = 'https://makerlens.kokoroou.com';
+const OLD = 'https://makerlens.kokoroou.workers.dev';
 const hit = path => worker.fetch(new Request(ORIGIN + path), env);
 
 test('directory URL serves its index.html', async () => {
@@ -51,3 +52,24 @@ test('repeated slashes collapse onto this origin', async () => {
   const next = await hit('/evil.com/assets');
   assert.equal(next.status, 404);
 });
+
+test('a static file is served as is', async () => {
+  const res = await hit('/index.html');
+  assert.equal(res.status, 200);
+  assert.equal(await res.text(), '/index.html');
+});
+
+for (const path of ['/', '/assets/', '/events/faq.html', '/privacy.html', '/nope', '/assets?utm_source=x']) {
+  test(`old workers.dev URL redirects to the new domain: ${path}`, async () => {
+    const res = await worker.fetch(new Request(OLD + path), env);
+    assert.equal(res.status, 301);
+    assert.equal(res.headers.get('location'), ORIGIN + path);
+  });
+}
+
+for (const path of ['//evil.com/assets', '///evil.com/', '/\\evil.com/']) {
+  test(`old host redirect stays on the new domain: ${path}`, async () => {
+    const res = await worker.fetch(new Request(OLD + path), env);
+    assert.equal(new URL(res.headers.get('location')).origin, ORIGIN);
+  });
+}

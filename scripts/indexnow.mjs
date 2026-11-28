@@ -14,7 +14,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const site = join(resolve(dirname(fileURLToPath(import.meta.url)), '..'), 'site');
-const HOST = 'makerlens.kokoroou.workers.dev';
+const HOST = 'makerlens.kokoroou.com';
 export const KEY_FILE = /^([0-9a-f]{32})\.txt$/;
 
 export function indexNowKey(dir = site) {

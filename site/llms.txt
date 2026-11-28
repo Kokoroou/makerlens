@@ -4,8 +4,8 @@
 
 ## Tools
 
-- [MakerLens Assets](https://makerlens.kokoroou.workers.dev/assets/): preview and download the images and audio of RPG Maker 2000, 2003, XP, VX, VX Ace, MV and MZ games, encrypted or not (.rpgmvp, .rpgmvo, .png_, .ogg_, .m4a_, .rgssad, .rgss2a, .rgss3a, .xyz). Filter by image size or audio length, hide duplicate files, download a folder as a ZIP. Details: https://makerlens.kokoroou.workers.dev/assets/llms.txt · FAQ: https://makerlens.kokoroou.workers.dev/assets/faq.html
-- [MakerLens Events](https://makerlens.kokoroou.workers.dev/events/): see the event commands of RPG Maker 2000, 2003, XP, VX, VX Ace, MV and MZ maps and common events (dialogue, choices, conditions, switches, variables, labels and jumps) as an interactive flow graph, play dialogue scenes with their pictures and sound, search by name, and start scenes from your own save file. Read-only. Details: https://makerlens.kokoroou.workers.dev/events/llms.txt · FAQ: https://makerlens.kokoroou.workers.dev/events/faq.html
+- [MakerLens Assets](https://makerlens.kokoroou.com/assets/): preview and download the images and audio of RPG Maker 2000, 2003, XP, VX, VX Ace, MV and MZ games, encrypted or not (.rpgmvp, .rpgmvo, .png_, .ogg_, .m4a_, .rgssad, .rgss2a, .rgss3a, .xyz). Filter by image size or audio length, hide duplicate files, download a folder as a ZIP. Details: https://makerlens.kokoroou.com/assets/llms.txt · FAQ: https://makerlens.kokoroou.com/assets/faq.html
+- [MakerLens Events](https://makerlens.kokoroou.com/events/): see the event commands of RPG Maker 2000, 2003, XP, VX, VX Ace, MV and MZ maps and common events (dialogue, choices, conditions, switches, variables, labels and jumps) as an interactive flow graph, play dialogue scenes with their pictures and sound, search by name, and start scenes from your own save file. Read-only. Details: https://makerlens.kokoroou.com/events/llms.txt · FAQ: https://makerlens.kokoroou.com/events/faq.html
 
 ## Who it's for
 
@@ -23,8 +23,8 @@ Not for editing, repackaging or redistributing games.
 
 ## Privacy and legal
 
-- Privacy (one page for both tools: files never leave the device; what the anonymous counter and the optional feedback form do): https://makerlens.kokoroou.workers.dev/privacy.html
-- Legal (intended use, user responsibility, takedown requests): https://makerlens.kokoroou.workers.dev/legal.html
+- Privacy (one page for both tools: files never leave the device; what the anonymous counter and the optional feedback form do): https://makerlens.kokoroou.com/privacy.html
+- Legal (intended use, user responsibility, takedown requests): https://makerlens.kokoroou.com/legal.html
 
 ## Source
 

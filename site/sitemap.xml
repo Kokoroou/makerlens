@@ -4,37 +4,37 @@
      domain, so the tools do not ship their own. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://makerlens.kokoroou.workers.dev/</loc>
+    <loc>https://makerlens.kokoroou.com/</loc>
     <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://makerlens.kokoroou.workers.dev/assets/</loc>
+    <loc>https://makerlens.kokoroou.com/assets/</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://makerlens.kokoroou.workers.dev/assets/faq.html</loc>
+    <loc>https://makerlens.kokoroou.com/assets/faq.html</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
   <url>
-    <loc>https://makerlens.kokoroou.workers.dev/events/</loc>
+    <loc>https://makerlens.kokoroou.com/events/</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://makerlens.kokoroou.workers.dev/events/faq.html</loc>
+    <loc>https://makerlens.kokoroou.com/events/faq.html</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
   <url>
-    <loc>https://makerlens.kokoroou.workers.dev/privacy.html</loc>
+    <loc>https://makerlens.kokoroou.com/privacy.html</loc>
     <lastmod>2026-11-24</lastmod>
   </url>
   <url>
-    <loc>https://makerlens.kokoroou.workers.dev/legal.html</loc>
+    <loc>https://makerlens.kokoroou.com/legal.html</loc>
     <lastmod>2026-11-24</lastmod>
   </url>
 </urlset>

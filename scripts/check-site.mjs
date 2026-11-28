@@ -83,7 +83,7 @@ for (const page of own) {
 for (const f of ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png']) {
   if (!existsSync(join(out, f))) fail('_site', `missing ${f}`);
 }
-const ORIGIN = 'https://makerlens.kokoroou.workers.dev/';
+const ORIGIN = 'https://makerlens.kokoroou.com/';
 (function walk(dir) {
   for (const n of readdirSync(dir)) {
     const f = join(dir, n);

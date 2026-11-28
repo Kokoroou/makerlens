@@ -3,8 +3,11 @@
 //   /assets/  MakerLens Assets  (Kokoroou/rpgmaker-assets-viewer)
 //   /events/  MakerLens Events  (Kokoroou/rpgmaker-events-viewer)
 // `npm run build` assembles them into _site/. Files are served as static assets
-// (free, not counted against Worker limits); src/worker.js runs only on a miss,
-// to serve directory index pages and the 404 page.
+// through the ASSETS binding; src/worker.js runs first on every request so the old
+// makerlens.kokoroou.workers.dev URLs 301 to https://makerlens.kokoroou.com/ (a
+// workers.dev host has no zone, so no Redirect Rule can do it), then serves directory
+// index pages and the 404 page. The custom domain is attached in the Cloudflare
+// dashboard (Workers → makerlens → Domains); workers_dev stays on for the redirect.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "makerlens",
@@ -16,7 +19,8 @@
     "directory": "./_site",
     "binding": "ASSETS",
     "html_handling": "none",
-    "not_found_handling": "none"
+    "not_found_handling": "none",
+    "run_worker_first": true
   },
   "observability": { "enabled": false }
 }

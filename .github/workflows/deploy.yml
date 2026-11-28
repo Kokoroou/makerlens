@@ -1,5 +1,5 @@
 # Build the whole MakerLens site and deploy it to the Cloudflare Worker
-# https://makerlens.kokoroou.workers.dev/
+# https://makerlens.kokoroou.com/
 #
 # Triggers:
 #   - push to main (landing page / Worker config changed)
@@ -40,7 +40,7 @@ jobs:
     timeout-minutes: 10
     environment:
       name: production
-      url: https://makerlens.kokoroou.workers.dev/
+      url: https://makerlens.kokoroou.com/
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

@@ -1,6 +1,6 @@
 # MakerLens
 
-**[makerlens.kokoroou.workers.dev](https://makerlens.kokoroou.workers.dev/)** — free browser tools that look inside RPG Maker games. Files are read locally and never uploaded.
+**[makerlens.kokoroou.com](https://makerlens.kokoroou.com/)** — free browser tools that look inside RPG Maker games. Files are read locally and never uploaded.
 
 | Path | Tool | Source |
 |---|---|---|

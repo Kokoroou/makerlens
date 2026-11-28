@@ -1,5 +1,10 @@
-// Runs only when no static file matches the request (assets are served first,
-// run_worker_first is off), i.e. for directory URLs and real misses:
+// Runs first on every request (run_worker_first: the old workers.dev host must
+// redirect even where a static file matches):
+//   makerlens.kokoroou.workers.dev/… → 301 https://makerlens.kokoroou.com/… (path and
+//                                   query kept; the browser keeps the #fragment, so
+//                                   bookmarks and game links still open)
+//   a static file                  → served as is (_headers and _redirects apply)
+// then, for directory URLs and real misses:
 //   /assets/      → /assets/index.html  (200, the URL stays as is)
 //   /assets       → 301 /assets/        (when that directory has an index.html)
 //   /a//b         → 301 /a/b            (repeated slashes collapsed)
@@ -10,10 +15,21 @@
 // Every path and Location is built as origin + a path that starts with exactly one
 // "/". Never pass a request path to new URL(path, base): "//evil.com/assets" is a
 // protocol-relative URL there, which made /assets → /assets/ an open redirect.
+const HOME = 'https://makerlens.kokoroou.com';
+const OLD_HOSTS = ['makerlens.kokoroou.workers.dev'];
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
+    // The host is fixed and the path starts with one "/", so nothing leaves HOME.
+    if (OLD_HOSTS.includes(url.hostname)) {
+      return Response.redirect(HOME + path.replace(/\/{2,}/g, '/') + url.search, 301);
+    }
+
+    const hit = await env.ASSETS.fetch(request);
+    if (hit.status !== 404) return hit;
+
     const at = p => new URL(url.origin + p);
     const get = p => env.ASSETS.fetch(at(p), request);
     const redirect = p => Response.redirect(at(p + url.search), 301);
