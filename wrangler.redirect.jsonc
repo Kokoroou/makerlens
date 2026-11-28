@@ -1,0 +1,19 @@
+// The Worker "makerlens" owns the old address https://makerlens.kokoroou.workers.dev/
+// (a workers.dev hostname is the Worker's name) and only sends it to the new home:
+//   makerlens.kokoroou.workers.dev/<path>?<query> → 301 https://makerlens.kokoroou.com/<path>?<query>
+// (the browser keeps the #fragment, so bookmarks and game links still open).
+// The site itself is the Worker "makerlens-site" (wrangler.jsonc). SITE is a fallback:
+// while the custom domain is still attached to this Worker, its requests are handed to
+// makerlens-site instead of being redirected onto themselves.
+// Deployed by .github/workflows/deploy.yml after makerlens-site:
+//   npx wrangler deploy -c wrangler.redirect.jsonc
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "makerlens",
+  "main": "src/redirect.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "services": [{ "binding": "SITE", "service": "makerlens-site" }],
+  "observability": { "enabled": false }
+}
