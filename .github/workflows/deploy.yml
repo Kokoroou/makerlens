@@ -1,5 +1,6 @@
-# Build the whole MakerLens site and deploy it to the Cloudflare Worker
-# https://makerlens.kokoroou.workers.dev/
+# Build the whole MakerLens site and deploy it to the Cloudflare Worker "makerlens-site"
+# (https://makerlens.kokoroou.com/), then the Worker "makerlens", which only redirects
+# the old https://makerlens.kokoroou.workers.dev/ URLs to it.
 #
 # Triggers:
 #   - push to main (landing page / Worker config changed)
@@ -40,7 +41,7 @@ jobs:
     timeout-minutes: 10
     environment:
       name: production
-      url: https://makerlens.kokoroou.workers.dev/
+      url: https://makerlens.kokoroou.com/
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -82,6 +83,13 @@ jobs:
 
       - name: Deploy to Cloudflare
         run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # After makerlens-site: its SITE service binding needs that Worker to exist.
+      - name: Deploy the workers.dev redirect
+        run: npx wrangler deploy -c wrangler.redirect.jsonc
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

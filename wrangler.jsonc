@@ -1,16 +1,22 @@
-// One Worker serves the whole MakerLens family as static files:
+// The Worker "makerlens-site" serves the whole MakerLens family as static files at
+// https://makerlens.kokoroou.com/ (custom domain, attached in the Cloudflare dashboard:
+// Workers → makerlens-site → Settings → Domains & Routes):
 //   /         landing page (site/)
 //   /assets/  MakerLens Assets  (Kokoroou/rpgmaker-assets-viewer)
 //   /events/  MakerLens Events  (Kokoroou/rpgmaker-events-viewer)
 // `npm run build` assembles them into _site/. Files are served as static assets
 // (free, not counted against Worker limits); src/worker.js runs only on a miss,
 // to serve directory index pages and the 404 page.
+// The old address makerlens.kokoroou.workers.dev belongs to the Worker "makerlens"
+// (a workers.dev hostname is the Worker's name), which now only redirects:
+// wrangler.redirect.jsonc + src/redirect.js. Keeping the two apart keeps static files
+// free: no Worker runs for them here.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "makerlens",
+  "name": "makerlens-site",
   "main": "src/worker.js",
   "compatibility_date": "2026-10-01",
-  "workers_dev": true,
+  "workers_dev": false,
   "preview_urls": false,
   "assets": {
     "directory": "./_site",

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-The home of the MakerLens family at `https://makerlens.kokoroou.workers.dev/`: a landing page plus the build and deploy of the tools onto **one Cloudflare Worker** (a `workers.dev` hostname can only route to one Worker, so the tools cannot deploy themselves to subpaths).
+The home of the MakerLens family at `https://makerlens.kokoroou.com/`: a landing page plus the build and deploy of the tools onto **one Cloudflare Worker**, `makerlens-site` (one hostname routes to one Worker, so the tools cannot deploy themselves to subpaths). The old address `makerlens.kokoroou.workers.dev` belongs to the Worker `makerlens`, which only redirects to the new home.
 
 ```
 site/                 → /         landing page (index.html), privacy.html and legal.html (the one Privacy and the one Legal for both tools),
@@ -19,11 +19,16 @@ scripts/check-site.mjs checks _site/: tools in place, landing CSP/hosts, local l
                       Privacy/Legal anchors, the _redirects rule, sitemap URLs exist, root favicon, and every og:image/twitter:image/JSON-LD image on this host exists
 scripts/indexnow.mjs   pings IndexNow (Bing, Yandex, Naver; not Google) with the sitemap's URLs after deploy
 scripts/og-images.mjs  redraws og-image.png (landing + each tool) and the icons with Playwright; output is committed
-src/worker.js         runs only when no static file matches: a//b → 301 a/b, dir/ → dir/index.html, dir → 301 dir/, else 404.html
+src/worker.js         Worker "makerlens-site": runs only when no static file matches: a//b → 301 a/b, dir/ → dir/index.html, dir → 301 dir/, else 404.html
+src/redirect.js       Worker "makerlens" (wrangler.redirect.jsonc), owner of the old makerlens.kokoroou.workers.dev: 301 to the same path + query on
+                      https://makerlens.kokoroou.com (bookmarks and game links keep working); another host goes to makerlens-site (SITE service binding)
 tests/worker.test.mjs src/worker.js against a fake ASSETS binding (npm test), incl. no open redirect
+tests/redirect.test.mjs src/redirect.js: old URLs → same path on the new home, no open redirect
 tests/indexnow.test.mjs the key file and the IndexNow request body (no network)
 tests/site.test.mjs    site/ sources: Privacy/Legal anchors, the _redirects rule, sitemap, title format
-wrangler.jsonc        Worker config (assets directory ./_site, so _site/_redirects and _headers apply); html_handling "none" keeps .html URLs (faq.html) as on the old GitHub Pages site
+wrangler.jsonc        Worker "makerlens-site" (assets directory ./_site, so _site/_redirects and _headers apply); html_handling "none" keeps .html URLs (faq.html) as on the old GitHub Pages site.
+                      workers_dev off; the custom domain makerlens.kokoroou.com is attached in the Cloudflare dashboard (not in this file). Keep run_worker_first off:
+                      static files are then free and do not count against the Workers request limit (the reason the redirect lives in its own Worker)
 ```
 
 ## Commands
@@ -39,7 +44,7 @@ npm run dev   # wrangler dev on http://localhost:8787/
 ## CI/CD
 
 - `.github/workflows/ci.yml` — agent-toolkit quality gate; builds from the tools' `main` and runs `npm run check` and `npm test` (+ Gitleaks, Semgrep).
-- `.github/workflows/deploy.yml` — on push to `main`, `repository_dispatch: tool-updated` (sent by each tool repo's `notify-makerlens.yml`) or by hand with optional tool refs: runs both tool repos' own checks, `npm test`, builds, checks, `wrangler deploy`, then `node scripts/indexnow.mjs` (continue-on-error: a failed ping never fails the deploy, so a new page reaches Bing as soon as it is in `site/sitemap.xml`). Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+- `.github/workflows/deploy.yml` — on push to `main`, `repository_dispatch: tool-updated` (sent by each tool repo's `notify-makerlens.yml`) or by hand with optional tool refs: runs both tool repos' own checks, `npm test`, builds, checks, `wrangler deploy` (makerlens-site), `wrangler deploy -c wrangler.redirect.jsonc` (the redirect), then `node scripts/indexnow.mjs` (continue-on-error: a failed ping never fails the deploy, so a new page reaches Bing as soon as it is in `site/sitemap.xml`). Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 - `wrangler` is pinned exactly in `package.json` (4.153.0+: earlier versions pull a vulnerable undici) (Dependabot updates it with a cooldown).
 
 ## Rules

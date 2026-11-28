@@ -10,5 +10,5 @@ contact_links:
     url: https://github.com/Kokoroou/rpgmaker-events-viewer/issues/new/choose
     about: Event graph, scene preview, save files.
   - name: Privacy – what the site sends
-    url: https://makerlens.kokoroou.workers.dev/assets/privacy.html
+    url: https://makerlens.kokoroou.com/assets/privacy.html
     about: MakerLens reads your game files only in your browser.

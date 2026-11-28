@@ -15,7 +15,7 @@ const env = {
     }
   }
 };
-const ORIGIN = 'https://makerlens.kokoroou.workers.dev';
+const ORIGIN = 'https://makerlens.kokoroou.com';
 const hit = path => worker.fetch(new Request(ORIGIN + path), env);
 
 test('directory URL serves its index.html', async () => {

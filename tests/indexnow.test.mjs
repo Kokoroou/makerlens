@@ -17,12 +17,12 @@ test('a key file with other content is refused', () => {
 });
 
 test('URLs come from the sitemap, this host only', () => {
-  const xml = '<loc>https://makerlens.kokoroou.workers.dev/</loc><loc> https://makerlens.kokoroou.workers.dev/assets/faq.html </loc><loc>https://example.com/</loc>';
-  assert.deepEqual(sitemapURLs(xml), ['https://makerlens.kokoroou.workers.dev/', 'https://makerlens.kokoroou.workers.dev/assets/faq.html']);
+  const xml = '<loc>https://makerlens.kokoroou.com/</loc><loc> https://makerlens.kokoroou.com/assets/faq.html </loc><loc>https://example.com/</loc>';
+  assert.deepEqual(sitemapURLs(xml), ['https://makerlens.kokoroou.com/', 'https://makerlens.kokoroou.com/assets/faq.html']);
 });
 
 test('body names the host and the key location on it', () => {
-  const b = indexNowBody('0'.repeat(32), ['https://makerlens.kokoroou.workers.dev/']);
-  assert.equal(b.host, 'makerlens.kokoroou.workers.dev');
-  assert.equal(b.keyLocation, `https://makerlens.kokoroou.workers.dev/${'0'.repeat(32)}.txt`);
+  const b = indexNowBody('0'.repeat(32), ['https://makerlens.kokoroou.com/']);
+  assert.equal(b.host, 'makerlens.kokoroou.com');
+  assert.equal(b.keyLocation, `https://makerlens.kokoroou.com/${'0'.repeat(32)}.txt`);
 });
